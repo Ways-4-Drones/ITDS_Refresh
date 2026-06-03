@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Department of Information Technology &amp; Decision Sciences | Old Dominion University [DRAFT]</title>
+
+<!-- ODU uses Bootstrap 4.6 and Font Awesome 6 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== ODU BRAND DESIGN SYSTEM ===== */
+:root {
+  --odu-navy:       #003057;
+  --odu-navy-dark:  #001f3d;
+  --odu-gold:       #c8a951;
+  --odu-gold-light: #e8c96b;
+  --odu-blue-mid:   #7eb2dd;
+  --odu-white:      #ffffff;
+  --odu-gray-light: #f5f5f5;
+  --odu-gray-mid:   #e0e0e0;
+  --odu-gray-dark:  #555555;
+  --odu-text:       #1a1a1a;
+  --odu-link:       #003057;
+
+  /* Change-highlight system */
+  --change-bg:      #fffbe6;
+  --change-border:  #f0c040;
+  --change-new-bg:  #eaf6ea;
+  --change-new-border: #4caf50;
+  --change-del-bg:  #fdecea;
+  --change-del-border: #e53935;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans 3', 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  color: var(--odu-text);
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+a { color: var(--odu-link); text-decoration: none; }
+a:hover { color: var(--odu-gold); text-decoration: underline; }
+
+/* ===== DRAFT BANNER ===== */
+.draft-banner {
+  background: var(--odu-navy-dark);
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  border-bottom: 3px solid var(--odu-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.draft-banner .badge-draft {
+  background: var(--odu-gold);
+  color: var(--odu-navy);
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.draft-banner .legend {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+.legend-dot {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.legend-dot.modified { background: var(--change-border); }
+.legend-dot.added    { background: var(--change-new-border); }
+.legend-dot.removed  { background: var(--change-del-border); }
+.legend-toggle {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 3px 12px;
+  border-radius: 3px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.legend-toggle:hover { background: rgba(255,255,255,0.25); }
+
+/* ===== CHANGE HIGHLIGHT SYSTEM ===== */
+.change-modified {
+  background: var(--change-bg);
+  border-left: 4px solid var(--change-border);
+  padding-left: 12px;
+  margin-left: -16px;
+  position: relative;
+}
+.change-new {
+  background: var(--change-new-bg);
+  border-left: 4px solid var(--change-new-border);
+  padding-left: 12px;
+  margin-left: -16px;
+  position: relative;
+}
+.change-removed {
+  background: var(--change-del-bg);
+  border-left: 4px solid var(--change-del-border);
+  padding-left: 12px;
+  margin-left: -16px;
+  opacity: 0.7;
+  position: relative;
+}
+.change-modified::after, .change-new::after, .change-removed::after {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.change-modified::after { content: "MODIFIED"; background: var(--change-border); color: #7a5c00; }
+.change-new::after { content: "NEW"; background: var(--change-new-border); color: #fff; }
+.change-removed::after { content: "REMOVED"; background: var(--change-del-border); color: #fff; }
+
+/* When highlights hidden */
+body.hide-changes .change-modified,
+body.hide-changes .change-new,
+body.hide-changes .change-removed {
+  background: none;
+  border-left: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+body.hide-changes .change-modified::after,
+body.hide-changes .change-new::after,
+body.hide-changes .change-removed::after {
+  display: none;
+}
+
+/* ===== HEADER ===== */
+#site-branding {
+  background: var(--odu-navy);
+  padding: 0;
+  position: sticky;
+  top: 44px;  /* offset by draft banner */
+  z-index: 900;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 68px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.site-logo img {
+  height: 38px;
+  width: auto;
+}
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.top-nav li a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 14px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: background 0.15s;
+  border-top: 3px solid transparent;
+}
+.top-nav li a:hover { background: rgba(255,255,255,0.1); color: var(--odu-gold); }
+.top-nav .separator { border-left: 1px solid rgba(255,255,255,0.25); margin: 14px 0; }
+
+/* ===== HERO ===== */
+.layout-hero {
+  position: relative;
+  background: var(--odu-navy);
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,30,57,0.85) 40%, rgba(0,30,57,0.3) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 40px 52px;
+  max-width: 720px;
+}
+.hero-content .slide-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.hero-content .slide-caption {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 24px;
+  line-height: 1.55;
+  max-width: 580px;
+}
+.hero-content .hero-btn {
+  display: inline-block;
+  background: var(--odu-gold);
+  color: var(--odu-navy);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  padding: 12px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.hero-content .hero-btn:hover { background: var(--odu-gold-light); text-decoration: none; color: var(--odu-navy); }
+
+/* ===== BREADCRUMB ===== */
+#breadcrumbs-title {
+  background: #fff;
+  border-bottom: 1px solid var(--odu-gray-mid);
+  padding-top: 16px;
+  padding-bottom: 0;
+}
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.breadcrumb li + li::before { content: " › "; padding: 0 6px; color: var(--odu-gray-dark); }
+.breadcrumb a { color: var(--odu-navy); }
+.breadcrumb li:last-child { color: var(--odu-gray-dark); }
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--odu-navy);
+  margin-bottom: 20px;
+  margin-top: 6px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--odu-gold);
+}
+
+/* ===== MAIN LAYOUT ===== */
+.layout-container { max-width: 1200px; margin: 0 auto; padding: 0; }
+.layout--twocol { display: flex; gap: 0; align-items: flex-start; padding: 32px 24px; }
+.layout--twocol .layout__region--first { flex: 0 0 73%; max-width: 73%; padding-right: 40px; }
+.layout--twocol .layout__region--second { flex: 0 0 27%; max-width: 27%; }
+
+/* ===== CONTENT BLOCKS ===== */
+.wysiwyg-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+.wysiwyg-content p {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #222;
+  margin-bottom: 14px;
+}
+.wysiwyg-content .align-right { float: right; width: 47%; margin: 0 0 18px 24px; }
+
+/* ===== SIDEBAR MENU ===== */
+.group-menu-wrap {
+  background: var(--odu-navy);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.group-menu-wrap h2.title {
+  background: var(--odu-navy-dark);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 14px 18px;
+  margin: 0;
+}
+.group-menu-wrap .menu--level-1 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.group-menu-wrap .menu--level-1 > li > a {
+  display: block;
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  padding: 11px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.12s, color 0.12s;
+}
+.group-menu-wrap .menu--level-1 > li > a:hover,
+.group-menu-wrap .menu--level-1 > li > a.is-active {
+  background: rgba(255,255,255,0.12);
+  color: var(--odu-gold);
+  text-decoration: none;
+}
+.group-menu-wrap .menu--level-1 > li > a.is-active {
+  border-left: 4px solid var(--odu-gold);
+  padding-left: 14px;
+}
+.group-menu-wrap .menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0,0,0,0.15);
+}
+.group-menu-wrap .menu ul li a {
+  display: block;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  padding: 8px 18px 8px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.group-menu-wrap .menu ul li a:hover { color: var(--odu-gold); text-decoration: none; }
+
+/* ===== CONTACT SIDEBAR ===== */
+.contact-info-sidebar {
+  border: 1px solid var(--odu-gray-mid);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.contact-info-sidebar .section-title {
+  background: var(--odu-gray-light);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--odu-gray-dark);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--odu-gray-mid);
+}
+.contact-info-sidebar .contact-inner {
+  padding: 14px 16px;
+}
+.contact-info-sidebar h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--odu-navy);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.contact-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.contact-section i { color: var(--odu-navy); margin-top: 3px; font-size: 14px; flex-shrink: 0; }
+.contact-section a { color: var(--odu-navy); }
+.phone-number { font-weight: 600; }
+.phone-type { font-size: 11px; color: var(--odu-gray-dark); }
+
+/* ===== DISCIPLINES SECTION ===== */
+.section-title-bar {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--odu-navy);
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--odu-gray-mid);
+}
+.cta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.cta-block-item-wrapper {
+  border: 1px solid var(--odu-gray-mid);
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.cta-block-item-wrapper:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.cta-block-image img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.cta-block-details { padding: 16px 18px 18px; }
+.cta-block-details .field-title a {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--odu-navy);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+.cta-block-details .field-title a:hover { color: var(--odu-gold); }
+.cta-block-details p { font-size: 14px; color: #444; line-height: 1.6; margin: 0; }
+
+/* ===== FOOTER ===== */
+footer.layout-footer {
+  background: var(--odu-navy);
+  color: #fff;
+  margin-top: 40px;
+}
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 30px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+}
+.footer-logo-col .footer-logo { height: 28px; margin-bottom: 12px; filter: brightness(0) invert(1); }
+.footer-address { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 12px; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  transition: all 0.15s;
+}
+.footer-social a:hover { background: var(--odu-gold); border-color: var(--odu-gold); color: var(--odu-navy); }
+.footer-links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.footer-links-col h2 { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+.footer-links-col ul { list-style: none; margin: 0; padding: 0; }
+.footer-links-col li { margin-bottom: 6px; }
+.footer-links-col a { color: rgba(255,255,255,0.75); font-size: 13.5px; }
+.footer-links-col a:hover { color: var(--odu-gold); text-decoration: none; }
+.footer-copyright {
+  background: rgba(0,0,0,0.25);
+  text-align: center;
+  padding: 12px 24px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ===== CHANGE TOOLTIP ===== */
+.change-note {
+  font-size: 12px;
+  background: #fffbe0;
+  border: 1px solid var(--change-border);
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-top: 6px;
+  color: #7a5c00;
+  display: inline-block;
+}
+body.hide-changes .change-note { display: none; }
+
+/* ===== NEW SECTION: Maritime & SCM ===== */
+.new-discipline-teaser {
+  border: 1px solid var(--odu-gray-mid);
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.new-discipline-teaser:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.new-discipline-teaser .cta-block-image img { height: 180px; }
+
+/* ===== BACKGROUND PATTERN ===== */
+.background-pattern {
+  background: var(--odu-gray-light);
+}
+.background-pattern .layout-container { background: #fff; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layout--twocol { flex-direction: column; }
+  .layout--twocol .layout__region--first,
+  .layout--twocol .layout__region--second { flex: 0 0 100%; max-width: 100%; padding-right: 0; }
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-links-grid { grid-template-columns: 1fr 1fr; }
+  .hero-content .slide-title { font-size: 1.6rem; }
+  .draft-banner { flex-direction: column; gap: 8px; }
+  .draft-banner .legend { flex-wrap: wrap; justify-content: center; }
+  .wysiwyg-content .align-right { float: none; width: 100%; margin: 0 0 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== DRAFT BANNER ===== -->
+<div class="draft-banner" role="banner" aria-label="Draft review banner">
+  <span class="badge-draft">Draft for Faculty Review</span>
+  <span>Proposed changes are highlighted below. Review, then vote in the linked form.</span>
+  <div class="legend">
+    <span><span class="legend-dot modified"></span>Modified</span>
+    <span><span class="legend-dot added"></span>New</span>
+    <span><span class="legend-dot removed"></span>Removed</span>
+    <button class="legend-toggle" id="toggleHighlights">Hide changes</button>
+  </div>
+</div>
+
+<!-- ===== SITE HEADER ===== -->
+<header id="site-branding" role="banner">
+  <div class="header-inner">
+    <a class="site-logo" href="https://www.odu.edu/" rel="home">
+      <!-- ODU logo reproduced as styled text fallback if image blocked -->
+      <img src="https://www.odu.edu/themes/custom/odu/images/odu-logo.svg" alt="Old Dominion University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none;color:#fff;font-size:20px;font-weight:700;letter-spacing:1px;">OLD DOMINION UNIVERSITY</span>
+    </a>
+    <nav>
+      <ul class="top-nav">
+        <li><a href="https://www.odu.edu/apply">Apply</a></li>
+        <li><a href="https://www.odu.edu/visit-campus">Visit</a></li>
+        <li><a href="https://give.odu.edu/">Give</a></li>
+        <li class="separator"></li>
+        <li><a href="https://my.odu.edu">myODU</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="layout-hero" role="region" aria-label="hero content">
+  <img class="hero-img"
+    src="https://www.odu.edu/sites/default/files/styles/homepage_hero_image/public/program-page/headerimages/the-impact-of-technology-header.jpeg"
+    alt=""
+    onerror="this.style.background='var(--odu-navy-dark)';this.style.opacity='1';">
+  <div class="hero-overlay"></div>
+
+  <!-- MODIFIED: Hero headline and caption updated -->
+  <div class="hero-content change-modified">
+    <div class="slide-title">Shaping Tomorrow's Industries</div>
+    <div class="slide-caption">
+      Explore Dynamic Programs and Groundbreaking Research in Business Analytics,
+      Information Technology, and Maritime &amp; Supply Chain Management
+      at Strome College of Business
+    </div>
+    <span class="change-note">&#9998; Headline unchanged. Caption updated to add "Maritime & Supply Chain Management" explicitly — previously omitted. Review wording.</span>
+    <a href="/information-technology-decision-sciences/academics" class="hero-btn">Academic Programs</a>
+  </div>
+</section>
+
+<!-- ===== MAIN CONTENT AREA ===== -->
+<div class="background-pattern">
+<div class="layout-container">
+  <main id="main-content" role="main">
+    <article>
+      <div id="breadcrumbs-title" class="container">
+        <nav class="breadcrumb" role="navigation">
+          <ol>
+            <li><a href="https://www.odu.edu/">Home</a></li>
+            <li><a href="https://www.odu.edu/business">Strome College of Business</a></li>
+            <li>Department of Information Technology &amp; Decision Sciences</li>
+          </ol>
+        </nav>
+        <h1 class="page-title">Department of Information Technology &amp; Decision Sciences</h1>
+      </div>
+
+      <!-- TWO-COLUMN LAYOUT -->
+      <div class="layout--twocol container">
+
+        <!-- LEFT COLUMN (75%) -->
+        <div class="layout__region layout__region--first">
+
+          <!-- ORIGINAL CONTENT BLOCK (UNCHANGED) -->
+          <div class="wysiwyg-content">
+            <div class="align-right">
+              <img src="https://www.odu.edu/sites/default/files/styles/wysiwyg_max_width/public/images/1573708745599.jpg"
+                   alt="Data Mining"
+                   onerror="this.style.display='none'">
+            </div>
+
+            <!-- MODIFIED: Body text revised -->
+            <div class="change-modified" style="padding-bottom:8px;">
+              <p>The Department of Information Technology and Decision Sciences (ITDS) is the largest academic department in the Strome College of Business. It is comprised of three separate, yet interrelated academic disciplines: Business Analytics, Information Technology, and Maritime &amp; Supply Chain Management. Offering comprehensive programs at the bachelor, master's, and Ph.D. levels, our department provides a rich and applied academic environment.</p>
+              <span class="change-note">&#9998; Second sentence now explicitly names all three disciplines. "rich and applied" added. Review for tone.</span>
+            </div>
+
+            <p>Students benefit from a wide array of foundational courses in information technology, operations management, decision analysis, business statistics, data analysis, and management science, catering to undergraduate students across Strome College. Additionally, elective courses delve into various facets of these disciplines, enriching students' educational experiences.</p>
+
+            <!-- MODIFIED: Updated employer list -->
+            <div class="change-modified" style="padding-bottom:8px;">
+              <p>Graduates from our programs find employment opportunities at prestigious organizations such as Oracle, Microsoft, Booz Allen Hamilton, BP (British Petroleum), Norfolk Southern, A.P. Møller, Northrop Grumman, CMA CGM, ZIM, Walmart, Dollar Tree, and governmental agencies including the U.S. Navy, the Port of Virginia, and various federal departments.</p>
+              <span class="change-note">&#9998; Added "U.S. Navy, the Port of Virginia, and various federal departments" to reflect local employer partners. Confirm accuracy with department chair.</span>
+            </div>
+
+            <p>Our faculty members drive innovation through research initiatives funded by prestigious entities such as the National Science Foundation, the U.S. Federal Highway Administration, and the U.S. Department of Transportation. Notably, our department's maritime research attained the eighth position globally in 2015, according to ISI Web of Science rankings.</p>
+
+            <!-- NEW: Research spotlight paragraph -->
+            <div class="change-new" style="padding-bottom:8px;">
+              <p>Recent faculty research has expanded into artificial intelligence-driven supply chain optimization, cybersecurity risk analytics, and maritime port resilience. These initiatives position ITDS students to engage with cutting-edge problems at the intersection of technology and business.</p>
+              <span class="change-note">&#43; New paragraph. Intended to modernize the research narrative. Replace or update with accurate current projects from faculty.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN (25%) — SIDEBAR -->
+        <div class="layout__region layout__region--second">
+
+          <!-- NAVIGATION SIDEBAR -->
+          <div class="group-menu-wrap">
+            <h2 class="title">Department of Information Technology &amp; Decision Sciences</h2>
+            <ul class="menu menu--level-1">
+              <li><a href="/information-technology-decision-sciences" class="is-active" aria-current="page">Home</a></li>
+              <li>
+                <a href="/information-technology-decision-sciences/academics">Academic Programs</a>
+                <ul class="menu">
+                  <li><a href="/information-technology-decision-sciences/business-analytics">Business Analytics</a></li>
+                  <li><a href="/information-technology-decision-sciences/information-technology">Information Technology</a></li>
+                  <!-- NEW: Maritime link added to sidebar nav -->
+                  <div class="change-new" style="margin-left:-4px;">
+                    <li><a href="/information-technology-decision-sciences/maritime-supply-chain">Maritime &amp; Supply Chain Management</a></li>
+                    <span class="change-note">&#43; New link. The Maritime program currently has no dedicated page. Recommend creating one or linking to existing content.</span>
+                  </div>
+                </ul>
+              </li>
+              <li><a href="/information-technology-decision-sciences/advisors">Advisors</a></li>
+              <!-- NEW: Faculty directory link -->
+              <div class="change-new" style="margin-left:-4px;">
+                <li><a href="/information-technology-decision-sciences/faculty">Faculty &amp; Research</a></li>
+                <span class="change-note">&#43; New nav item. Does a faculty page exist? If so, link it here. If not, recommend creating one.</span>
+              </div>
+            </ul>
+          </div>
+
+          <!-- CONTACT SIDEBAR -->
+          <div class="contact-info-sidebar">
+            <div class="section-title">Contact</div>
+            <div class="contact-inner">
+              <h2>Department of Information Technology &amp; Decision Sciences</h2>
+
+              <div class="contact-section address">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="https://www.google.com/maps/?q=36.887317461918,-76.30527395" target="_blank">
+                  2124 Constant Hall<br>Norfolk, VA 23529
+                </a>
+              </div>
+
+              <div class="contact-section">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <a class="phone-number" href="tel:757-683-3520">757-683-3520</a>
+                  <div class="phone-type">Front Desk</div>
+                </div>
+              </div>
+
+              <!-- MODIFIED: Added email contact -->
+              <div class="change-modified contact-section">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <a href="mailto:itds@odu.edu">itds@odu.edu</a>
+                  <span class="change-note">&#9998; Email address added. Confirm correct address with department.</span>
+                </div>
+              </div>
+
+              <div class="contact-section">
+                <i class="fa-solid fa-globe"></i>
+                <a href="/information-technology-decision-sciences/directory">Directory</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- end two-col -->
+
+      <!-- ===== DISCIPLINES GRID ===== -->
+      <div class="container" style="padding: 0 24px 40px;">
+        <h2 class="section-title-bar">ITDS Disciplines</h2>
+
+        <!-- MODIFIED: Now 3-column grid to include Maritime -->
+        <div class="change-modified" style="padding-bottom:8px;">
+          <span class="change-note">&#9998; Discipline grid expanded from 2 to 3 cards — Maritime &amp; Supply Chain Management added. Review image and summary text for Maritime card.</span>
+        </div>
+
+        <div class="cta-grid">
+
+          <!-- Card 1: Business Analytics (UNCHANGED) -->
+          <div class="cta-block-item-wrapper">
+            <div class="cta-block-image">
+              <img src="https://www.odu.edu/sites/default/files/styles/horizontal_listing_view/public/program-page/headerimages/business-analytics-header.jpeg"
+                   alt="Business Analytics"
+                   onerror="this.style.background='#003057'">
+            </div>
+            <div class="cta-block-details">
+              <div class="field-title">
+                <a href="/information-technology-decision-sciences/business-analytics">Business Analytics</a>
+              </div>
+              <p>Incorporating both business acumen and computer proficiency, the Business Analytics major equips students with essential skills for leveraging technology as a strategic decision-making tool. This interdisciplinary program not only hones computer aptitude but also cultivates expertise in a business domain where these competencies are indispensable.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Information Technology (UNCHANGED) -->
+          <div class="cta-block-item-wrapper">
+            <div class="cta-block-image">
+              <img src="https://www.odu.edu/sites/default/files/styles/horizontal_listing_view/public/col-dept/bpa/img/mobile-chart-computer.png"
+                   alt="Information Technology"
+                   onerror="this.style.background='#003057'">
+            </div>
+            <div class="cta-block-details">
+              <div class="field-title">
+                <a href="/information-technology-decision-sciences/information-technology">Information Technology</a>
+              </div>
+              <p>Join a legacy of excellence with the Information Systems and Technology program at Old Dominion University's Strome College of Business, established nearly three decades ago. This program offers a distinctive blend of business acumen and technical prowess, providing undergraduate students with a competitive edge in today's rapidly evolving business landscape.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Maritime & SCM (NEW) -->
+          <div class="cta-block-item-wrapper change-new" style="margin-left:0;">
+            <div class="cta-block-image">
+              <!-- Placeholder image — replace with actual Maritime program image -->
+              <img src="https://www.odu.edu/sites/default/files/styles/horizontal_listing_view/public/program-page/headerimages/the-impact-of-technology-header.jpeg"
+                   alt="Maritime and Supply Chain Management"
+                   style="filter: hue-rotate(180deg);"
+                   onerror="this.style.background='#003057'">
+            </div>
+            <div class="cta-block-details">
+              <div class="field-title">
+                <a href="/information-technology-decision-sciences/maritime-supply-chain">Maritime &amp; Supply Chain Management</a>
+              </div>
+              <p>Drawing on ODU's unique proximity to one of the nation's busiest port complexes, the Maritime &amp; Supply Chain Management program prepares students for careers in global logistics, port operations, and supply chain strategy. With world-ranked faculty research and strong industry partnerships, this program offers unparalleled real-world relevance.</p>
+              <span class="change-note">&#43; New card. Image is a placeholder — replace with Maritime-specific photo. Summary text is a draft — revise with faculty input.</span>
+            </div>
+          </div>
+
+        </div><!-- end cta-grid -->
+      </div>
+
+    </article>
+  </main>
+</div>
+</div><!-- end background-pattern -->
+
+<!-- ===== FOOTER ===== -->
+<footer class="layout-footer" role="contentinfo">
+  <div class="footer-main">
+    <div class="footer-logo-col">
+      <img class="footer-logo" src="https://www.odu.edu/sites/default/files/svg/odu-logo.svg" alt="Old Dominion University" onerror="this.style.display='none'">
+      <address class="footer-address" style="font-style:normal;">
+        5115 Hampton Blvd<br>Norfolk, VA 23529
+      </address>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/Old.Dominion.University/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/olddominionu/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCBNgsDl2hppmwMyGR2NmL9A" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/school/old-dominion-university/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-links-grid">
+      <div class="footer-links-col">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="/employment">Employment</a></li>
+          <li><a href="/directory">Directories</a></li>
+          <li><a href="/library">University Libraries</a></li>
+          <li><a href="/alumni">Alumni</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/legal-compliance">Legal &amp; Compliance</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+          <li><a href="/life/health-safety">Health &amp; Safety</a></li>
+          <li><a href="/emergency">Emergency Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h2>Visit</h2>
+        <ul>
+          <li><a href="/visit-campus">Visit ODU</a></li>
+          <li><a href="/transportation-parking-services">Transportation &amp; Parking</a></li>
+          <li><a href="/map">Campus Map</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    Copyright &copy; Old Dominion University &bull; Draft for review &bull; Not the official page
+  </div>
+</footer>
+
+<script>
+// Toggle change highlights
+var btn = document.getElementById('toggleHighlights');
+var hidden = false;
+btn.addEventListener('click', function() {
+  hidden = !hidden;
+  document.body.classList.toggle('hide-changes', hidden);
+  btn.textContent = hidden ? 'Show changes' : 'Hide changes';
+});
+</script>
+
+</body>
+</html>

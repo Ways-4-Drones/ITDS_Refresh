@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Department of Information Technology &amp; Decision Sciences | Old Dominion University</title>
+<meta name="description" content="The Department of Information Technology and Decision Sciences at ODU's Strome College of Business prepares students to lead where technology, analytics, and business intersect." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   ODU Brand tokens — FY26 Forward-Focused toolkit
+   ========================================================= */
+:root {
+  --monarch:      #003057;
+  --monarch-ink:  #001F3A;
+  --hudson:       #418FDE;
+  --hudson-deep:  #2A6FBF;
+  --silver:       #7C878E;
+  --silver-soft:  #C7CDD1;
+  --teal:         #00A99D;
+  --sand:         #F4EDDD;
+  --sand-deep:    #E8DFC6;
+  --ivory:        #FBFAF6;
+  --white:        #FFFFFF;
+  --charcoal:     #1A1A1A;
+  --charcoal-mid: #4A4E52;
+
+  /* Tracked-changes palette */
+  --tc-mod-bg:    #FEF5DE;
+  --tc-mod-line:  #B36A00;
+  --tc-add-bg:    #E9F5EC;
+  --tc-add-line:  #1E8E3E;
+  --tc-mov-bg:    #E8F0FE;
+  --tc-mov-line:  #1967D2;
+
+  --display: "Space Grotesk", "Sora", system-ui, -apple-system, sans-serif;
+  --body:    "Sora", "Open Sans", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --max:    1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+body {
+  margin: 0;
+  font-family: var(--body);
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+a { color: var(--hudson-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--monarch); }
+:focus-visible { outline: 2px solid var(--hudson); outline-offset: 3px; border-radius: 2px; }
+img { max-width: 100%; display: block; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--display);
+  color: var(--monarch);
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+/* =========================================================
+   REVIEW TOOLBAR — the tracked-changes control
+   ========================================================= */
+.review-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 0.6rem 0;
+  border-bottom: 2px solid var(--hudson);
+  font-size: 0.82rem;
+}
+.review-toolbar .container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.review-toolbar .rt-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sand);
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.review-toolbar .rt-label::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.review-toolbar .rt-mid {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.rt-legend {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rt-legend .swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0.9;
+}
+.rt-legend .swatch::before {
+  content: "";
+  width: 10px; height: 10px;
+  border-radius: 2px;
+}
+.rt-legend .swatch.add::before { background: var(--tc-add-line); }
+.rt-legend .swatch.mod::before { background: var(--tc-mod-line); }
+.rt-legend .swatch.mov::before { background: var(--tc-mov-line); }
+body:not(.show-changes) .rt-legend { opacity: 0.4; }
+
+.rt-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: transparent;
+  border: 1px solid rgba(244, 237, 221, 0.35);
+  color: var(--sand);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.rt-toggle:hover { background: rgba(244, 237, 221, 0.1); border-color: var(--sand); }
+.rt-toggle .rt-switch {
+  width: 32px; height: 18px;
+  background: rgba(244, 237, 221, 0.2);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s;
+}
+.rt-toggle .rt-switch::after {
+  content: "";
+  position: absolute;
+  width: 14px; height: 14px;
+  background: var(--sand);
+  border-radius: 50%;
+  top: 2px; left: 2px;
+  transition: left 0.2s;
+}
+body.show-changes .rt-toggle .rt-switch { background: var(--teal); }
+body.show-changes .rt-toggle .rt-switch::after { left: 16px; }
+.rt-count { font-family: var(--mono); font-size: 0.75rem; opacity: 0.9; }
+
+/* Tracked-changes markers */
+.tc { position: relative; }
+.tc-flag {
+  display: none;
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+  color: var(--white);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.tc-note {
+  display: none;
+  font-family: var(--body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding: 0.65rem 0.9rem;
+  margin: 0.85rem 0 0;
+  border-radius: 2px;
+  border-left: 3px solid transparent;
+}
+.tc-note strong { font-weight: 600; }
+
+body.show-changes .tc-mod {
+  outline: 2px dashed var(--tc-mod-line);
+  outline-offset: 4px;
+}
+body.show-changes .tc-mod > .tc-flag {
+  display: inline-block;
+  background: var(--tc-mod-line);
+}
+body.show-changes .tc-mod > .tc-note {
+  display: block;
+  background: var(--tc-mod-bg);
+  border-left-color: var(--tc-mod-line);
+  color: #7A4600;
+}
+
+body.show-changes .tc-add {
+  outline: 2px dashed var(--tc-add-line);
+  outline-offset: 4px;
+}
+body.show-changes .tc-add > .tc-flag {
+  display: inline-block;
+  background: var(--tc-add-line);
+}
+body.show-changes .tc-add > .tc-note {
+  display: block;
+  background: var(--tc-add-bg);
+  border-left-color: var(--tc-add-line);
+  color: #0F5F27;
+}
+
+body.show-changes .tc-mov {
+  outline: 2px dashed var(--tc-mov-line);
+  outline-offset: 4px;
+}
+body.show-changes .tc-mov > .tc-flag {
+  display: inline-block;
+  background: var(--tc-mov-line);
+}
+body.show-changes .tc-mov > .tc-note {
+  display: block;
+  background: var(--tc-mov-bg);
+  border-left-color: var(--tc-mov-line);
+  color: #0B3F86;
+}
+
+/* =========================================================
+   TOP RIBBON — matches ODU utility bar
+   ========================================================= */
+.top-ribbon {
+  background: var(--sand);
+  color: var(--charcoal-mid);
+  font-size: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--sand-deep);
+}
+.top-ribbon .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.top-ribbon a { color: var(--monarch); text-decoration: none; }
+.top-ribbon a:hover { text-decoration: underline; }
+.top-ribbon nav { display: flex; gap: 1.25rem; }
+@media (max-width: 640px) { .top-ribbon .util { display: none; } }
+
+/* =========================================================
+   SITE HEADER — ODU-style, prominent brand + primary nav
+   ========================================================= */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--sand-deep);
+  position: sticky;
+  top: 43px;
+  z-index: 40;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--monarch);
+}
+.brand-crown {
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: var(--monarch);
+  color: var(--sand);
+  border-radius: 2px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.brand-txt { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-txt strong {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.brand-txt span {
+  font-size: 0.72rem;
+  color: var(--charcoal-mid);
+}
+.nav-primary { display: flex; align-items: center; gap: 1.5rem; }
+.nav-primary a {
+  color: var(--monarch);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.nav-primary a:hover { color: var(--hudson-deep); }
+.nav-primary .btn-apply {
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 0.55rem 1.1rem;
+  border-radius: 2px;
+}
+.nav-primary .btn-apply:hover { background: var(--hudson-deep); color: var(--white); }
+@media (max-width: 900px) {
+  .nav-primary a:not(.btn-apply) { display: none; }
+}
+
+/* =========================================================
+   HERO — Full-bleed, dark, image right (matches /economics, /accountancy)
+   ========================================================= */
+.hero {
+  background: var(--monarch);
+  color: var(--sand);
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: stretch;
+  min-height: 420px;
+}
+@media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } }
+
+.hero-copy {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem) clamp(3rem, 6vw, 5rem) var(--gutter);
+  max-width: 640px;
+  align-self: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-copy .eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 221, 0.7);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+}
+.hero-copy .eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: rgba(244, 237, 221, 0.7);
+}
+.hero-copy h1 {
+  color: var(--sand);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin: 0 0 1.25rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.hero-copy p.hero-sub {
+  color: rgba(244, 237, 221, 0.88);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  margin: 0 0 2rem;
+  max-width: 42ch;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--sand);
+  color: var(--monarch);
+  padding: 0.95rem 1.75rem;
+  font-family: var(--body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 0.01em;
+}
+.hero-cta:hover { background: var(--white); color: var(--monarch); transform: translateY(-1px); }
+.hero-cta .arrow { transition: transform 0.2s; }
+.hero-cta:hover .arrow { transform: translateX(3px); }
+
+.hero-image {
+  position: relative;
+  background: linear-gradient(135deg, var(--hudson-deep) 0%, var(--monarch) 50%, var(--monarch-ink) 100%);
+  overflow: hidden;
+}
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 237, 221, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 237, 221, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.5;
+}
+.hero-image svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-image .placeholder-tag {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: rgba(244, 237, 221, 0.55);
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+.breadcrumb {
+  padding: 1.25rem 0 0.5rem;
+  font-size: 0.82rem;
+  color: var(--charcoal-mid);
+  background: var(--white);
+}
+.breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.5rem;
+  color: var(--silver-soft);
+}
+.breadcrumb a { color: var(--charcoal-mid); text-decoration: none; }
+.breadcrumb a:hover { color: var(--monarch); }
+.breadcrumb li:last-child { color: var(--monarch); font-weight: 500; }
+
+/* =========================================================
+   MAIN — Two-column layout with sidebar (matches ODU pattern)
+   ========================================================= */
+.dept-layout {
+  padding: 2rem 0 4rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .dept-layout { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.dept-main h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--hudson);
+}
+.dept-desc p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+  margin: 0 0 1.25rem;
+  max-width: 68ch;
+}
+
+/* =========================================================
+   IMAGE CTA GRID — 4 cards with image placeholders (matches /accountancy)
+   ========================================================= */
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+@media (max-width: 780px) { .cta-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .cta-grid { grid-template-columns: 1fr; } }
+
+.cta-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--white);
+  display: block;
+  transition: transform 0.2s;
+}
+.cta-card:hover { transform: translateY(-3px); }
+.cta-card:hover .cta-card-bg { filter: brightness(0.85); }
+.cta-card-bg {
+  position: absolute;
+  inset: 0;
+  transition: filter 0.2s;
+}
+.cta-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(0, 31, 58, 0.85) 0%,
+    rgba(0, 31, 58, 0.15) 55%,
+    rgba(0, 31, 58, 0) 100%);
+  z-index: 1;
+}
+.cta-card-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 1rem;
+  z-index: 2;
+  color: var(--sand);
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.cta-card-label::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 0.35rem;
+  transition: transform 0.15s;
+}
+.cta-card:hover .cta-card-label::after { transform: translateX(3px); }
+.cta-card .ph-tag {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: rgba(244, 237, 221, 0.5);
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.cta-bg-1 { background: linear-gradient(135deg, #003057 0%, #418FDE 100%); }
+.cta-bg-2 { background: linear-gradient(135deg, #00A99D 0%, #003057 100%); }
+.cta-bg-3 { background: linear-gradient(135deg, #418FDE 0%, #7C878E 100%); }
+.cta-bg-4 { background: linear-gradient(135deg, #003057 0%, #2A6FBF 60%, #00A99D 100%); }
+
+.cta-icon {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: auto;
+  opacity: 0.28;
+}
+
+/* =========================================================
+   "Explore Our Degrees" — program card grid
+   ========================================================= */
+.degrees-section { margin: 3rem 0 2rem; }
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--monarch);
+  margin: 0 0 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--monarch);
+}
+.degrees-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 1.5rem;
+}
+.degrees-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 780px) { .degrees-grid { grid-template-columns: 1fr; } }
+.degree {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  padding: 1.75rem;
+  border-radius: 2px;
+  border-left: 4px solid var(--hudson);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.degree:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgba(0, 48, 87, 0.18); }
+.degree .level {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 0.5rem;
+}
+.degree h3 { font-size: 1.15rem; margin: 0 0 0.75rem; }
+.degree p { font-size: 0.9rem; color: var(--charcoal-mid); line-height: 1.55; margin: 0 0 1rem; }
+.degree a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hudson-deep);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.degree a:hover { color: var(--monarch); }
+.degree a .arrow { transition: transform 0.15s; }
+.degree a:hover .arrow { transform: translateX(3px); }
+
+/* =========================================================
+   Curriculum Map callout
+   ========================================================= */
+.map-callout {
+  background: var(--sand);
+  border-left: 4px solid var(--teal);
+  padding: 2rem;
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 2rem;
+  align-items: center;
+  border-radius: 2px;
+}
+@media (max-width: 780px) { .map-callout { grid-template-columns: 1fr; } }
+.map-callout h3 { font-size: 1.25rem; margin: 0 0 0.5rem; }
+.map-callout p {
+  margin: 0 0 1rem;
+  color: var(--charcoal-mid);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.map-callout .map-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 0.75rem 1.35rem;
+  text-decoration: none;
+  border-radius: 2px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.map-callout .map-cta:hover { background: var(--hudson-deep); color: var(--white); }
+.map-preview {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  padding: 0.5rem;
+  border-radius: 2px;
+}
+.map-preview img { width: 100%; height: auto; border-radius: 1px; }
+
+/* =========================================================
+   Department News
+   ========================================================= */
+.news-section { margin: 3rem 0 2rem; }
+.news-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.news-section h2 .more-link {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--hudson-deep);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.news-section h2 .more-link:hover { color: var(--monarch); }
+.news-list { list-style: none; padding: 0; margin: 0; }
+.news-item {
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--sand-deep);
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.news-item:first-child { border-top: none; }
+.news-thumb {
+  width: 100px;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--hudson) 0%, var(--monarch) 100%);
+  border-radius: 2px;
+  position: relative;
+  flex-shrink: 0;
+}
+.news-thumb::after {
+  content: "IMG";
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  color: rgba(244, 237, 221, 0.5);
+}
+.news-thumb.n2 { background: linear-gradient(135deg, var(--teal) 0%, var(--hudson-deep) 100%); }
+.news-thumb.n3 { background: linear-gradient(135deg, var(--monarch) 0%, var(--silver) 100%); }
+.news-thumb.n4 { background: linear-gradient(135deg, var(--hudson-deep) 0%, var(--teal) 100%); }
+.news-content h4 {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+}
+.news-content h4 a { color: var(--monarch); text-decoration: none; }
+.news-content h4 a:hover { color: var(--hudson-deep); text-decoration: underline; }
+.news-content .news-date {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--silver);
+  text-transform: uppercase;
+}
+.news-content p {
+  font-size: 0.88rem;
+  color: var(--charcoal-mid);
+  line-height: 1.55;
+  margin: 0.4rem 0 0;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+.dept-sidebar {
+  position: sticky;
+  top: 130px;
+  align-self: start;
+}
+@media (max-width: 900px) { .dept-sidebar { position: static; } }
+
+.sidebar-nav {
+  background: var(--monarch);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.sidebar-nav h3 {
+  background: var(--monarch-ink);
+  color: var(--sand);
+  font-size: 0.78rem;
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.95rem 1.25rem;
+  margin: 0;
+}
+.sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-nav li a {
+  display: block;
+  color: rgba(244, 237, 221, 0.85);
+  font-size: 0.88rem;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244, 237, 221, 0.08);
+  transition: background 0.15s, color 0.15s;
+}
+.sidebar-nav li:last-child a { border-bottom: none; }
+.sidebar-nav li a:hover {
+  background: rgba(244, 237, 221, 0.08);
+  color: var(--sand);
+}
+.sidebar-nav li a.active {
+  background: rgba(244, 237, 221, 0.12);
+  color: var(--sand);
+  border-left: 4px solid var(--sand);
+  padding-left: calc(1.25rem - 4px);
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  border-radius: 2px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.contact-card h4 {
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin: 0 0 0.75rem;
+  font-weight: 500;
+}
+.contact-card h3 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  line-height: 1.35;
+}
+.contact-card .contact-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.88rem;
+  color: var(--charcoal);
+}
+.contact-card .contact-line svg {
+  width: 14px; height: 14px;
+  fill: var(--hudson-deep);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+.contact-card .contact-line a { color: var(--charcoal); text-decoration: none; }
+.contact-card .contact-line a:hover { color: var(--monarch); text-decoration: underline; }
+.contact-card address {
+  font-style: normal;
+  color: var(--charcoal);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.apply-cta {
+  display: block;
+  background: var(--hudson-deep);
+  color: var(--sand);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+.apply-cta:hover { background: var(--monarch); color: var(--white); }
+
+.sidebar-accred {
+  background: var(--sand);
+  padding: 1.25rem;
+  border-radius: 2px;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.sidebar-accred p {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal-mid);
+  margin: 0 0 0.65rem;
+}
+.sidebar-accred .accred-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px; height: 70px;
+  background: var(--white);
+  border: 2px solid var(--monarch);
+  border-radius: 50%;
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--monarch);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 3rem 0 1.5rem;
+  font-size: 0.85rem;
+}
+footer a { color: var(--sand); opacity: 0.85; text-decoration: none; }
+footer a:hover { opacity: 1; text-decoration: underline; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(244, 237, 221, 0.15);
+}
+@media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.footer-brand .brand-crown { background: var(--sand); color: var(--monarch); }
+footer h5 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.85rem;
+  color: var(--sand);
+}
+footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+.footer-meta {
+  padding-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="review-toolbar" role="region" aria-label="Redesign review controls">
+  <div class="container">
+    <span class="rt-label">Redesign Preview</span>
+    <div class="rt-mid">
+      <div class="rt-legend" aria-hidden="true">
+        <span class="swatch add">Added</span>
+        <span class="swatch mod">Modified</span>
+        <span class="swatch mov">Moved</span>
+      </div>
+      <span class="rt-count" id="rt-count"></span>
+    </div>
+    <button class="rt-toggle" id="rt-toggle" type="button" aria-pressed="false">
+      <span class="rt-switch" aria-hidden="true"></span>
+      <span id="rt-toggle-label">Show tracked changes</span>
+    </button>
+  </div>
+</div>
+
+<div class="top-ribbon">
+  <div class="container">
+    <nav class="util">
+      <a href="https://www.odu.edu/apply">Apply</a>
+      <a href="https://www.odu.edu/visit-campus">Visit</a>
+      <a href="https://give.odu.edu/">Give</a>
+      <a href="https://my.odu.edu">myODU</a>
+    </nav>
+    <div>Strome College of Business</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="https://www.odu.edu">
+      <div class="brand-crown" aria-hidden="true">O</div>
+      <div class="brand-txt">
+        <strong>Old Dominion University</strong>
+        <span>Strome College of Business</span>
+      </div>
+    </a>
+    <nav class="nav-primary" aria-label="Primary">
+      <a href="https://www.odu.edu/academics">Academics</a>
+      <a href="https://www.odu.edu/admissions-aid">Admission</a>
+      <a href="https://www.odu.edu/research">Research</a>
+      <a href="https://www.odu.edu/life">Life at ODU</a>
+      <a class="btn-apply" href="https://www.odu.edu/apply">Apply</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="tc tc-mod">
+  <span class="tc-flag">Modified</span>
+  <section class="hero" aria-label="Department overview">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Strome College of Business</p>
+        <h1>Turn Data Into Decisions.</h1>
+        <p class="hero-sub">
+          Where analytics, information systems, and quantitative business skills come together
+          to prepare graduates for careers at the intersection of technology and business strategy.
+        </p>
+        <a href="#programs" class="hero-cta">
+          View Academic Programs <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <!-- Abstract data-viz SVG stands in for real photography.
+             Replace with a copyright-free image (see README for sources). -->
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+          <polyline points="30,240 90,200 150,215 210,150 270,170 330,90 370,60"
+                    fill="none" stroke="#F4EDDD" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" opacity="0.55" />
+          <circle cx="90"  cy="200" r="4" fill="#00A99D" />
+          <circle cx="150" cy="215" r="4" fill="#00A99D" />
+          <circle cx="210" cy="150" r="4" fill="#00A99D" />
+          <circle cx="270" cy="170" r="4" fill="#00A99D" />
+          <circle cx="330" cy="90"  r="4" fill="#00A99D" />
+          <circle cx="370" cy="60"  r="5" fill="#F4EDDD" stroke="#00A99D" stroke-width="2" />
+          <rect x="60"  y="230" width="18" height="40"  fill="#F4EDDD" opacity="0.25" />
+          <rect x="90"  y="215" width="18" height="55"  fill="#F4EDDD" opacity="0.30" />
+          <rect x="120" y="200" width="18" height="70"  fill="#F4EDDD" opacity="0.35" />
+          <rect x="150" y="180" width="18" height="90"  fill="#F4EDDD" opacity="0.40" />
+          <rect x="180" y="165" width="18" height="105" fill="#F4EDDD" opacity="0.45" />
+        </svg>
+        <span class="placeholder-tag">Placeholder — insert photo</span>
+      </div>
+    </div>
+  </section>
+  <div class="tc-note">
+    <strong>Modified.</strong> The previous ITDS page opened directly with the department name and plain-text description. It now leads with a full-bleed hero — matching the pattern used on <a href="https://www.odu.edu/economics">/economics</a>, <a href="https://www.odu.edu/accountancy">/accountancy</a>, and <a href="https://www.odu.edu/mba">/mba</a>. The SVG data-viz illustration on the right is a placeholder; a copyright-free photograph (students with laptops, a dashboard display, a business meeting) would drop into the same slot.
+  </div>
+</div>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="https://www.odu.edu/">Home</a></li>
+      <li><a href="https://www.odu.edu/business">Strome College of Business</a></li>
+      <li>Department of Information Technology &amp; Decision Sciences</li>
+    </ol>
+  </nav>
+</div>
+
+<main id="main">
+  <div class="container">
+    <div class="dept-layout">
+
+      <div class="dept-main">
+        <h1>Department of Information Technology &amp; Decision Sciences</h1>
+
+        <div class="dept-desc">
+          <p>
+            The Department of Information Technology and Decision Sciences (ITDS)
+            is the largest academic department in the Strome College of Business.
+            Our programs sit where three interrelated disciplines meet:
+            <strong>Business Analytics</strong>, <strong>Information Systems &amp; Technology</strong>,
+            and <strong>Decision Sciences</strong>.
+          </p>
+          <p>
+            Students benefit from a curriculum that combines foundational business coursework
+            with applied training in data analysis, systems design, and decision modeling.
+            Our AACSB-accredited undergraduate and graduate programs are taught by faculty
+            recognized nationally and internationally for their research in analytics,
+            information systems, and quantitative business methods.
+          </p>
+          <p>
+            Graduates from our programs find employment at organizations including Oracle,
+            Microsoft, Booz Allen Hamilton, Norfolk Southern, Northrop Grumman, and
+            governmental agencies including the U.S. Navy and the Port of Virginia.
+          </p>
+        </div>
+
+        <!-- 4-panel image CTA grid -->
+        <div class="tc tc-add">
+          <span class="tc-flag">New</span>
+          <div class="cta-grid" role="navigation" aria-label="Quick links">
+            <a class="cta-card" href="#future-students">
+              <div class="cta-card-bg cta-bg-1">
+                <svg class="cta-icon" viewBox="0 0 100 100" fill="#F4EDDD">
+                  <path d="M50 10 L90 30 L50 50 L10 30 Z" />
+                  <path d="M25 40 L25 60 Q50 75 75 60 L75 40" fill="none" stroke="#F4EDDD" stroke-width="4" />
+                </svg>
+                <span class="ph-tag">Placeholder</span>
+              </div>
+              <span class="cta-card-label">Future Students</span>
+            </a>
+            <a class="cta-card" href="#current-students">
+              <div class="cta-card-bg cta-bg-2">
+                <svg class="cta-icon" viewBox="0 0 100 100" fill="#F4EDDD">
+                  <rect x="15" y="25" width="70" height="45" rx="3" fill="none" stroke="#F4EDDD" stroke-width="4" />
+                  <rect x="10" y="72" width="80" height="6" rx="2" />
+                  <rect x="30" y="38" width="40" height="20" opacity="0.5" />
+                </svg>
+                <span class="ph-tag">Placeholder</span>
+              </div>
+              <span class="cta-card-label">Current Students</span>
+            </a>
+            <a class="cta-card" href="#about">
+              <div class="cta-card-bg cta-bg-3">
+                <svg class="cta-icon" viewBox="0 0 100 100" fill="#F4EDDD">
+                  <rect x="20" y="25" width="60" height="55" fill="none" stroke="#F4EDDD" stroke-width="4" />
+                  <rect x="30" y="35" width="10" height="12" />
+                  <rect x="45" y="35" width="10" height="12" />
+                  <rect x="60" y="35" width="10" height="12" />
+                  <rect x="30" y="55" width="10" height="12" />
+                  <rect x="45" y="55" width="10" height="12" />
+                  <rect x="60" y="55" width="10" height="12" />
+                </svg>
+                <span class="ph-tag">Placeholder</span>
+              </div>
+              <span class="cta-card-label">About the Department</span>
+            </a>
+            <a class="cta-card" href="#programs">
+              <div class="cta-card-bg cta-bg-4">
+                <svg class="cta-icon" viewBox="0 0 100 100" fill="#F4EDDD">
+                  <rect x="20" y="55" width="15" height="30" />
+                  <rect x="42" y="40" width="15" height="45" />
+                  <rect x="64" y="25" width="15" height="60" />
+                </svg>
+                <span class="ph-tag">Placeholder</span>
+              </div>
+              <span class="cta-card-label">Academic Programs</span>
+            </a>
+          </div>
+          <div class="tc-note">
+            <strong>New.</strong> A 4-panel image-CTA grid, matching the pattern on <a href="https://www.odu.edu/accountancy">/accountancy</a>. Cards use SVG gradient placeholders for now — each is dimensioned 3:4 (portrait), the standard aspect the ODU Drupal theme uses for these blocks. Replace with copyright-free photography: students in a classroom, a career fair, a group photo, a faculty/classroom shot. See README for source recommendations.
+          </div>
+        </div>
+
+        <!-- Explore Our Degrees -->
+        <section class="degrees-section" id="programs">
+          <p class="section-eyebrow">Explore our degrees</p>
+          <h2>Undergraduate programs</h2>
+
+          <div class="tc tc-mod">
+            <span class="tc-flag">Modified</span>
+            <div class="degrees-grid">
+              <article class="degree">
+                <span class="level">Undergraduate · B.S.B.A.</span>
+                <h3>Business Analytics</h3>
+                <p>Develop the decision models and computer-based analysis skills to turn organizational data into actionable insight. Prepare for careers as business intelligence analysts, data analysts, and IT project managers.</p>
+                <a href="business-analytics.html">Explore Business Analytics <span class="arrow">→</span></a>
+              </article>
+
+              <article class="degree">
+                <span class="level">Undergraduate · B.S.B.A.</span>
+                <h3>Information Systems &amp; Technology</h3>
+                <p>Combine business acumen with the technical prowess needed to design and manage information systems that support business operations. Concentrations include Cybersecurity, Database Administration, and Network Engineering.</p>
+                <a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Explore IS&amp;T <span class="arrow">→</span></a>
+              </article>
+
+              <article class="degree">
+                <span class="level">Minor</span>
+                <h3>Business Analytics Minor</h3>
+                <p>Complement any major with foundational business analytics coursework. Ideal for students who want quantitative skills alongside their primary discipline.</p>
+                <a href="https://www.odu.edu/academics/programs/minor/business-analytics">Explore the minor <span class="arrow">→</span></a>
+              </article>
+
+              <article class="degree">
+                <span class="level">Minor</span>
+                <h3>Information Systems &amp; Technology Minor</h3>
+                <p>Add technical fluency in information systems to any degree. Useful for students in engineering, sciences, and other business majors.</p>
+                <a href="https://www.odu.edu/academics/programs/minor/information-system-technology">Explore the minor <span class="arrow">→</span></a>
+              </article>
+            </div>
+            <div class="tc-note">
+              <strong>Modified.</strong> Previously the department page listed programs as an inline sidebar link list. This card presentation matches the "Explore Our Degrees" pattern on <a href="https://www.odu.edu/economics">/economics</a>, giving each program equal visual weight, a short elevator description, and a clear call-to-action link. The Business Analytics card links to the redesigned program page (business-analytics.html); the others link to the current ODU catalog entries.
+            </div>
+          </div>
+        </section>
+
+        <!-- Curriculum map callout -->
+        <div class="tc tc-add">
+          <span class="tc-flag">New</span>
+          <aside class="map-callout" aria-label="Curriculum map download">
+            <div>
+              <h3>Business Analytics Curriculum Map</h3>
+              <p>
+                A single-page visual overview of the four-year Business Analytics BSBA curriculum —
+                foundation courses, BSBA core, major requirements, and application areas.
+                Suitable for advising sessions, information tables, and prospective-student mailings.
+              </p>
+              <a href="bnal-curriculum-map.png" class="map-cta" download>
+                Download Curriculum Map (PNG)
+                <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <div class="map-preview">
+              <img src="bnal-curriculum-map.png" alt="BSBA Business Analytics Curriculum Map thumbnail" loading="lazy" />
+            </div>
+          </aside>
+          <div class="tc-note">
+            <strong>New.</strong> The current department page has no downloadable curriculum collateral. This callout offers a print-ready single-page curriculum map (see bnal-curriculum-map.png), useful for advising, recruiting tables, and academic-fair handouts. The map itself is built from the 2025–26 ODU catalog and reflects the current BNAL major requirements.
+          </div>
+        </div>
+
+        <!-- News -->
+        <section class="news-section" aria-label="Department news">
+          <h2>Department News <a href="#" class="more-link">More News →</a></h2>
+
+          <div class="tc tc-add">
+            <span class="tc-flag">New</span>
+            <ul class="news-list">
+              <li class="news-item">
+                <div class="news-thumb" aria-hidden="true"></div>
+                <div class="news-content">
+                  <span class="news-date">March 10, 2025</span>
+                  <h4><a href="#">Business Analytics Students Present at Regional Analytics Symposium</a></h4>
+                  <p>A team of BSBA Business Analytics students presented their capstone project on demand forecasting at the annual Hampton Roads Analytics Symposium.</p>
+                </div>
+              </li>
+              <li class="news-item">
+                <div class="news-thumb n2" aria-hidden="true"></div>
+                <div class="news-content">
+                  <span class="news-date">January 22, 2025</span>
+                  <h4><a href="#">ITDS Faculty Receive Grant for Supply Chain Analytics Research</a></h4>
+                  <p>A three-year research grant from the Department of Transportation will fund work on predictive analytics for port operations at the Port of Virginia.</p>
+                </div>
+              </li>
+              <li class="news-item">
+                <div class="news-thumb n3" aria-hidden="true"></div>
+                <div class="news-content">
+                  <span class="news-date">November 8, 2024</span>
+                  <h4><a href="#">Career Fair Draws 40+ Analytics Employers to Constant Hall</a></h4>
+                  <p>The annual Business Analytics career fair connected students with local, regional, and national employers — from Norfolk Southern to Booz Allen Hamilton.</p>
+                </div>
+              </li>
+              <li class="news-item">
+                <div class="news-thumb n4" aria-hidden="true"></div>
+                <div class="news-content">
+                  <span class="news-date">October 3, 2024</span>
+                  <h4><a href="#">ITDS Announces New Elective Coursework for BSBA Curriculum</a></h4>
+                  <p>Beginning fall 2025, several new elective offerings will expand the applied data science coursework available to Business Analytics majors.</p>
+                </div>
+              </li>
+            </ul>
+            <div class="tc-note">
+              <strong>New.</strong> The current department page has no news section. Adding one — matching the pattern on <a href="https://www.odu.edu/accountancy">/accountancy</a> — gives prospective students, alumni, and faculty visibility into ongoing department activity. News items above are placeholders; replace with actual department events and student achievements.
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="dept-sidebar" aria-label="Department navigation and contact">
+
+        <div class="tc tc-mod">
+          <span class="tc-flag">Modified</span>
+          <nav class="sidebar-nav" aria-label="Department pages">
+            <h3>Department</h3>
+            <ul>
+              <li><a href="#" class="active">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#programs">Academics</a></li>
+              <li><a href="business-analytics.html">Business Analytics</a></li>
+              <li><a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Information Systems &amp; Technology</a></li>
+              <li><a href="#">Faculty &amp; Research</a></li>
+              <li><a href="#">Current Students</a></li>
+              <li><a href="#">Future Students</a></li>
+              <li><a href="#">Directory</a></li>
+            </ul>
+          </nav>
+          <div class="tc-note">
+            <strong>Modified.</strong> The previous sidebar nav had 5 items grouped inconsistently. This version restructures around user intent — visitors first, then structural sections — matching the 6–9 item pattern used across the ODU department pages.
+          </div>
+        </div>
+
+        <div class="tc tc-mod">
+          <span class="tc-flag">Modified</span>
+          <div class="contact-card">
+            <h4>Contact</h4>
+            <h3>Department of Information Technology &amp; Decision Sciences</h3>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+              <div>
+                <a href="tel:757-683-3520">(757) 683-3520</a><br>
+                <span style="font-size:0.78rem; color: var(--silver);">Front Desk</span>
+              </div>
+            </div>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:itds@odu.edu">itds@odu.edu</a>
+            </div>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <address>
+                2124 Constant Hall<br>
+                Norfolk, VA 23529
+              </address>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--sand-deep);">
+              <a href="#" style="font-family: var(--mono); font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color: var(--hudson-deep); text-decoration:none; font-weight:500;">Directory →</a>
+            </div>
+          </div>
+          <div class="tc-note">
+            <strong>Modified.</strong> Contact info is the same content — phone, email, address — restructured into a card matching the sidebar contact cards on <a href="https://www.odu.edu/accountancy">/accountancy</a> and <a href="https://www.odu.edu/economics">/economics</a>. Icon rows replace inline text for easier scanning.
+          </div>
+        </div>
+
+        <a href="https://www.odu.edu/apply" class="apply-cta">Apply Now</a>
+
+        <div class="tc tc-add">
+          <span class="tc-flag">New</span>
+          <div class="sidebar-accred">
+            <p>Accredited by</p>
+            <div class="accred-badge" title="AACSB placeholder">AACSB</div>
+          </div>
+          <div class="tc-note">
+            <strong>New.</strong> Adds a small AACSB accreditation callout, matching the sidebar treatment on <a href="https://www.odu.edu/accountancy">/accountancy</a>. Replace the placeholder circle with the official AACSB logo image (available from the Strome College brand assets).
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="brand-crown" aria-hidden="true">O</div>
+          <div class="brand-txt">
+            <strong style="color: var(--sand);">Old Dominion University</strong>
+            <span style="color: rgba(244, 237, 221, 0.7);">Strome College of Business</span>
+          </div>
+        </div>
+        <p style="max-width: 34ch; opacity: 0.8; margin: 0;">
+          5115 Hampton Blvd<br>
+          Norfolk, VA 23529
+        </p>
+      </div>
+      <div>
+        <h5>Department</h5>
+        <ul>
+          <li><a href="business-analytics.html">Business Analytics</a></li>
+          <li><a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Information Systems &amp; Technology</a></li>
+          <li><a href="#">Faculty &amp; Research</a></li>
+          <li><a href="#">Directory</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Admission</h5>
+        <ul>
+          <li><a href="https://www.odu.edu/apply">Apply</a></li>
+          <li><a href="https://www.odu.edu/admission/request-info">Request info</a></li>
+          <li><a href="https://www.odu.edu/visit-campus">Visit</a></li>
+          <li><a href="https://www.odu.edu/tuition">Tuition &amp; fees</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>ODU</h5>
+        <ul>
+          <li><a href="https://www.odu.edu/business">Strome College of Business</a></li>
+          <li><a href="https://catalog.odu.edu/">University Catalog</a></li>
+          <li><a href="https://www.odu.edu/">odu.edu</a></li>
+          <li><a href="https://give.odu.edu/">Give</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <div>© Old Dominion University · Redesign preview · Updated <span id="year"></span></div>
+      <div>Prepared for the Fall 2026 IT&amp;DS faculty meeting</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const toggle  = document.getElementById("rt-toggle");
+const label   = document.getElementById("rt-toggle-label");
+const counter = document.getElementById("rt-count");
+
+const counts = {
+  add: document.querySelectorAll(".tc-add").length,
+  mod: document.querySelectorAll(".tc-mod").length,
+  mov: document.querySelectorAll(".tc-mov").length,
+};
+const total = counts.add + counts.mod + counts.mov;
+counter.textContent = total + " change" + (total === 1 ? "" : "s") + " tracked";
+
+function setShown(on) {
+  document.body.classList.toggle("show-changes", on);
+  toggle.setAttribute("aria-pressed", on ? "true" : "false");
+  label.textContent = on ? "Hide tracked changes" : "Show tracked changes";
+}
+toggle.addEventListener("click", () => {
+  setShown(!document.body.classList.contains("show-changes"));
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "t" && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+    const t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    e.preventDefault();
+    setShown(!document.body.classList.contains("show-changes"));
+  }
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

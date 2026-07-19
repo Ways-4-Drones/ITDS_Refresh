@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Business Analytics & Artificial Intelligence (B.S.B.A.) — Old Dominion University</title>
+<meta name="description" content="A STEM-designated bachelor's degree at ODU's Strome College of Business preparing graduates to turn data into decisions with Python, machine learning, and real-world experience." />
+
+<!-- Fonts: Sora is an ODU brand web face; Space Grotesk stands in for Monte Stella; JetBrains Mono for data -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ------------------------------------------------------------------
+   Design tokens — ODU FY26 "Forward-Focused" brand toolkit
+   Primary: Monarch Blue, Silver Reign, Hudson Blue
+   ------------------------------------------------------------------ */
+:root {
+  --monarch:      #003057;   /* Monarch Blue — primary anchor */
+  --monarch-ink:  #001F3A;   /* darker text on cream */
+  --hudson:       #418FDE;   /* Hudson Blue — accent, links */
+  --hudson-deep:  #2A6FBF;   /* hover state for hudson */
+  --silver:       #7C878E;   /* Silver Reign */
+  --silver-soft:  #C7CDD1;   /* dividers, muted borders */
+  --teal:         #00A99D;   /* Electric Teal — used sparingly */
+  --sand:         #F4EDDD;   /* coastal cream — warm neutral */
+  --sand-deep:    #E8DFC6;   /* sand section divider */
+  --ivory:        #FBFAF6;   /* page background */
+  --white:        #FFFFFF;
+  --charcoal:     #1A1A1A;   /* body text */
+  --charcoal-mid: #4A4E52;
+
+  /* Type */
+  --display: "Space Grotesk", "Sora", system-ui, -apple-system, sans-serif;
+  --body:    "Sora", "Open Sans", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Layout */
+  --max:   1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --rhythm: clamp(4rem, 8vw, 7rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-weight: 400;
+  color: var(--charcoal);
+  background: var(--ivory);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+::selection { background: var(--monarch); color: var(--sand); }
+
+a { color: var(--hudson-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--monarch); }
+:focus-visible { outline: 2px solid var(--hudson); outline-offset: 3px; border-radius: 2px; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Type ramp */
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  color: var(--monarch);
+  margin: 0 0 0.5em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--monarch);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--monarch);
+  display: inline-block;
+}
+
+/* ------------------------------------------------------------------
+   Top ribbon — ODU-wide utility bar
+   ------------------------------------------------------------------ */
+.top-ribbon {
+  background: var(--monarch);
+  color: var(--sand);
+  font-size: 0.78rem;
+  padding: 0.55rem 0;
+}
+.top-ribbon .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.top-ribbon a { color: var(--sand); text-decoration: none; opacity: 0.85; }
+.top-ribbon a:hover { opacity: 1; text-decoration: underline; }
+.top-ribbon nav { display: flex; gap: 1.5rem; }
+@media (max-width: 640px) { .top-ribbon .util { display: none; } }
+
+/* ------------------------------------------------------------------
+   Main header
+   ------------------------------------------------------------------ */
+.site-header {
+  background: var(--ivory);
+  border-bottom: 1px solid var(--sand-deep);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: saturate(140%) blur(6px);
+  background: rgba(251, 250, 246, 0.92);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--monarch);
+}
+.brand-crown {
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: var(--monarch);
+  color: var(--sand);
+  border-radius: 2px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.04em;
+}
+.brand-txt { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-txt strong {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+.brand-txt span {
+  font-size: 0.72rem;
+  color: var(--charcoal-mid);
+  letter-spacing: 0.02em;
+}
+.nav-primary {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+.nav-primary a {
+  color: var(--monarch);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.nav-primary a:hover { color: var(--hudson-deep); }
+.nav-primary .btn { background: var(--monarch); color: var(--sand); padding: 0.55rem 1.1rem; border-radius: 2px; }
+.nav-primary .btn:hover { background: var(--hudson-deep); color: var(--white); }
+@media (max-width: 900px) {
+  .nav-primary a:not(.btn) { display: none; }
+}
+
+/* ------------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------------ */
+.hero {
+  padding: clamp(3rem, 7vw, 6rem) 0 clamp(2rem, 5vw, 4rem);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  /* subtle texture — echoes the ODU "coastal" texture concept */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 88% 22%, rgba(65, 143, 222, 0.10), transparent 45%),
+    radial-gradient(circle at 12% 78%, rgba(0, 169, 157, 0.06), transparent 40%);
+  pointer-events: none;
+}
+.hero .container { position: relative; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+}
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+.hero-badges {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.badge {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--monarch);
+  color: var(--monarch);
+  border-radius: 2px;
+  font-weight: 500;
+}
+.badge.filled { background: var(--monarch); color: var(--sand); }
+.badge.teal { border-color: var(--teal); color: var(--teal); }
+.badge.new-tag { background: var(--teal); color: var(--white); border-color: var(--teal); }
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--monarch);
+  margin-bottom: 1.25rem;
+}
+.hero h1 .amp {
+  color: var(--hudson);
+  font-style: italic;
+  font-weight: 500;
+}
+.hero-lede {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  color: var(--charcoal-mid);
+  max-width: 46ch;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.hero-cta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  font-family: var(--body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+}
+.btn-primary { background: var(--monarch); color: var(--sand); }
+.btn-primary:hover { background: var(--hudson-deep); color: var(--white); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--monarch); border: 1px solid var(--monarch); }
+.btn-ghost:hover { background: var(--monarch); color: var(--sand); }
+.btn .arrow { transition: transform 0.2s ease; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* Hero side — the "ticker" that showcases what students actually do */
+.hero-side {
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 2rem;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-side::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: -30px;
+  width: 140px;
+  height: 140px;
+  background: var(--hudson);
+  opacity: 0.15;
+  border-radius: 50%;
+}
+.hero-side .eyebrow { color: var(--sand); }
+.hero-side .eyebrow::before { background: var(--sand); }
+.hero-side h3 {
+  color: var(--sand);
+  font-size: 1.4rem;
+  margin: 0.75rem 0 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.doer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+.doer-list li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: baseline;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(244, 237, 221, 0.15);
+  font-size: 0.95rem;
+}
+.doer-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.doer-list .verb {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--hudson);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.doer-list .desc { color: var(--sand); line-height: 1.4; }
+
+/* ------------------------------------------------------------------
+   Stats strip
+   ------------------------------------------------------------------ */
+.stats {
+  background: var(--sand);
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--sand-deep);
+  border-bottom: 1px solid var(--sand-deep);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 780px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; } }
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-left: 2px solid var(--monarch);
+  padding-left: 1.25rem;
+}
+.stat .num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: var(--monarch);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.stat .label {
+  font-size: 0.85rem;
+  color: var(--charcoal-mid);
+  letter-spacing: 0.01em;
+}
+
+/* ------------------------------------------------------------------
+   Section scaffolding
+   ------------------------------------------------------------------ */
+section { padding: var(--rhythm) 0; }
+.section-head { max-width: 62ch; margin-bottom: 3rem; }
+.section-head h2 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  margin-top: 0.9rem;
+  margin-bottom: 1rem;
+}
+.section-head p { color: var(--charcoal-mid); font-size: 1.05rem; line-height: 1.65; }
+
+/* ------------------------------------------------------------------
+   Signature: Curriculum Journey — 5-pillar interactive
+   ------------------------------------------------------------------ */
+#curriculum { background: var(--ivory); }
+.journey {
+  position: relative;
+  margin-top: 1.5rem;
+}
+.journey-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  position: relative;
+}
+.journey-track::before {
+  /* the connecting line */
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(to right, var(--monarch), var(--hudson), var(--teal));
+  z-index: 0;
+}
+.journey-node {
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+}
+.journey-node .dot {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 2px solid var(--monarch);
+  display: grid;
+  place-items: center;
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--monarch);
+  font-size: 1.15rem;
+  margin: 0 auto 1rem;
+  transition: all 0.25s ease;
+}
+.journey-node .lbl {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--charcoal-mid);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+.journey-node .cr {
+  display: block;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--silver);
+  margin-top: 0.35rem;
+  letter-spacing: 0.05em;
+}
+.journey-node:hover .dot,
+.journey-node.active .dot {
+  background: var(--monarch);
+  color: var(--sand);
+  transform: scale(1.08);
+}
+.journey-node.active .lbl { color: var(--monarch); }
+
+/* Detail panel below the track */
+.journey-panel {
+  margin-top: 3rem;
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  border-radius: 2px;
+  overflow: hidden;
+  min-height: 320px;
+}
+.journey-panel-inner {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 0;
+}
+@media (max-width: 780px) { .journey-panel-inner { grid-template-columns: 1fr; } }
+
+.panel-side {
+  background: var(--sand);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-right: 1px solid var(--sand-deep);
+}
+.panel-side .num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--monarch);
+  line-height: 1;
+}
+.panel-side .kicker { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal-mid); }
+.panel-side h4 { font-size: 1.35rem; margin: 0.25rem 0; }
+.panel-side .credits { font-family: var(--mono); font-size: 0.78rem; color: var(--monarch); background: var(--white); padding: 0.25rem 0.6rem; align-self: flex-start; border-radius: 2px; margin-top: auto; }
+
+.panel-main {
+  padding: 2rem 2rem 2.25rem;
+}
+.panel-main p.summary { color: var(--charcoal-mid); margin: 0 0 1.5rem; font-size: 1rem; max-width: 55ch; }
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.65rem 1.25rem;
+}
+.course {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--sand-deep);
+}
+.course:first-child { border-top: 1px solid var(--sand-deep); }
+.course .code {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--hudson-deep);
+  font-weight: 500;
+}
+.course .name {
+  font-size: 0.92rem;
+  color: var(--charcoal);
+  line-height: 1.35;
+}
+.course.new .code::after {
+  content: "NEW";
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.62rem;
+  padding: 0.05rem 0.4rem;
+  background: var(--teal);
+  color: var(--white);
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+/* ------------------------------------------------------------------
+   Featured Courses
+   ------------------------------------------------------------------ */
+#courses { background: var(--sand); }
+.feature-courses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 900px) { .feature-courses { grid-template-columns: 1fr; } }
+.feat-course {
+  background: var(--white);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  border-top: 3px solid var(--monarch);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.feat-course:hover { transform: translateY(-3px); box-shadow: 0 12px 30px -12px rgba(0, 48, 87, 0.18); }
+.feat-course.ai { border-top-color: var(--teal); }
+.feat-course.python { border-top-color: var(--hudson); }
+.feat-course .code {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--monarch);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.feat-course h4 { font-size: 1.2rem; margin: 0 0 0.75rem; letter-spacing: -0.01em; }
+.feat-course p { font-size: 0.92rem; color: var(--charcoal-mid); margin: 0 0 1.25rem; }
+.feat-course .tools {
+  display: flex; gap: 0.35rem; flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sand-deep);
+}
+.tool-tag {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--sand);
+  color: var(--monarch);
+  letter-spacing: 0.06em;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------
+   Careers
+   ------------------------------------------------------------------ */
+#careers { background: var(--ivory); }
+.careers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--sand-deep);
+}
+@media (max-width: 780px) { .careers-grid { grid-template-columns: 1fr; } }
+.career {
+  padding: 2rem;
+  border-right: 1px solid var(--sand-deep);
+  border-bottom: 1px solid var(--sand-deep);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.career:nth-child(2n) { border-right: none; }
+.career:nth-last-child(-n+2) { border-bottom: none; }
+@media (max-width: 780px) {
+  .career { border-right: none; }
+  .career:not(:last-child) { border-bottom: 1px solid var(--sand-deep); }
+}
+.career .role {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--monarch);
+  letter-spacing: -0.01em;
+}
+.career .salary {
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  color: var(--hudson-deep);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.career .salary .note { font-size: 0.7rem; color: var(--silver); font-weight: 400; letter-spacing: 0.04em; }
+.career .desc { color: var(--charcoal-mid); font-size: 0.9rem; line-height: 1.5; }
+
+.career-source { font-size: 0.78rem; color: var(--silver); margin-top: 1.25rem; }
+
+/* ------------------------------------------------------------------
+   Experiential Learning
+   ------------------------------------------------------------------ */
+#experience {
+  background: var(--monarch);
+  color: var(--sand);
+  position: relative;
+  overflow: hidden;
+}
+#experience::before {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: -50px;
+  width: 300px;
+  height: 300px;
+  background: var(--hudson);
+  opacity: 0.08;
+  border-radius: 50%;
+}
+#experience h2 { color: var(--sand); }
+#experience .eyebrow { color: var(--sand); }
+#experience .eyebrow::before { background: var(--sand); }
+#experience .section-head p { color: rgba(244, 237, 221, 0.75); }
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 900px) { .experience-grid { grid-template-columns: 1fr; } }
+.exp-card {
+  background: rgba(244, 237, 221, 0.05);
+  border: 1px solid rgba(244, 237, 221, 0.2);
+  padding: 2rem;
+  border-radius: 2px;
+  backdrop-filter: blur(6px);
+}
+.exp-card .num-hours {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 3rem;
+  color: var(--sand);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.exp-card .num-hours span { font-size: 1.1rem; letter-spacing: 0.05em; font-weight: 500; color: rgba(244, 237, 221, 0.6); text-transform: uppercase; margin-left: 0.4rem; }
+.exp-card h4 { color: var(--sand); font-size: 1.2rem; margin: 1.25rem 0 0.75rem; font-weight: 600; }
+.exp-card p { color: rgba(244, 237, 221, 0.8); font-size: 0.92rem; margin: 0; line-height: 1.55; }
+.exp-card .code {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.3rem 0.6rem;
+  background: rgba(244, 237, 221, 0.1);
+  border: 1px solid rgba(244, 237, 221, 0.25);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--sand);
+  letter-spacing: 0.06em;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------
+   What's Changing — the faculty-focused diff view
+   ------------------------------------------------------------------ */
+#changes { background: var(--sand); }
+#changes .section-head { max-width: 68ch; }
+.diff-note {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.6rem;
+  background: var(--monarch);
+  color: var(--sand);
+  display: inline-block;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.diff {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--sand-deep);
+  background: var(--white);
+  margin-bottom: 3rem;
+}
+@media (max-width: 780px) { .diff { grid-template-columns: 1fr; } }
+.diff-col { padding: 0; }
+.diff-col-head {
+  padding: 1rem 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.diff-col.before .diff-col-head { background: #F0EAD8; color: var(--charcoal-mid); border-right: 1px solid var(--sand-deep); }
+.diff-col.after  .diff-col-head { background: var(--monarch); color: var(--sand); }
+
+.diff-row {
+  display: contents;
+}
+.diff-cell {
+  padding: 1.15rem 1.5rem;
+  border-top: 1px solid var(--sand-deep);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.diff-cell.before { color: var(--charcoal-mid); border-right: 1px solid var(--sand-deep); background: #FBF8EE; }
+.diff-cell.after { color: var(--charcoal); background: var(--white); }
+.diff-cell strong { color: var(--monarch); font-weight: 600; display: block; margin-bottom: 0.25rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--mono); }
+.diff-cell.after strong { color: var(--hudson-deep); }
+
+.change-callout {
+  background: var(--white);
+  border-left: 4px solid var(--teal);
+  padding: 1.5rem 1.75rem;
+  font-size: 0.95rem;
+  color: var(--charcoal-mid);
+  line-height: 1.6;
+}
+.change-callout strong { color: var(--monarch); }
+
+/* ------------------------------------------------------------------
+   Next Steps
+   ------------------------------------------------------------------ */
+#next {
+  background: var(--ivory);
+}
+.next-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 900px) { .next-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .next-grid { grid-template-columns: 1fr; } }
+.next-card {
+  display: block;
+  padding: 2rem 1.75rem;
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  text-decoration: none;
+  color: var(--monarch);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.next-card:hover {
+  border-color: var(--monarch);
+  background: var(--monarch);
+  color: var(--sand);
+  transform: translateY(-2px);
+}
+.next-card .step {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--silver);
+  text-transform: uppercase;
+}
+.next-card:hover .step { color: rgba(244, 237, 221, 0.7); }
+.next-card h4 { font-size: 1.15rem; margin: 0.5rem 0 0.5rem; color: inherit; }
+.next-card:hover h4 { color: var(--sand); }
+.next-card p { font-size: 0.85rem; color: var(--charcoal-mid); margin: 0; }
+.next-card:hover p { color: rgba(244, 237, 221, 0.85); }
+.next-card .arrow {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  font-family: var(--mono);
+  transition: transform 0.2s ease;
+}
+.next-card:hover .arrow { transform: translateX(4px); }
+
+/* ------------------------------------------------------------------
+   Contact
+   ------------------------------------------------------------------ */
+#contact { background: var(--sand); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 780px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 2px;
+  border-top: 3px solid var(--monarch);
+}
+.contact-card .role {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+.contact-card h4 { font-size: 1.4rem; margin: 0.4rem 0 0.75rem; }
+.contact-card .position { color: var(--charcoal-mid); margin-bottom: 1rem; font-size: 0.95rem; }
+.contact-card .contact-line { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; font-size: 0.92rem; color: var(--charcoal); }
+.contact-card .contact-line svg { width: 16px; height: 16px; fill: var(--hudson-deep); flex-shrink: 0; }
+.contact-card address { font-style: normal; color: var(--charcoal-mid); font-size: 0.88rem; line-height: 1.5; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--sand-deep); }
+
+/* ------------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------------ */
+footer {
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 3.5rem 0 2rem;
+  font-size: 0.88rem;
+}
+footer a { color: var(--sand); opacity: 0.85; text-decoration: none; }
+footer a:hover { opacity: 1; text-decoration: underline; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(244, 237, 221, 0.15);
+}
+@media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer-brand { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem; }
+.footer-brand .brand-crown { background: var(--sand); color: var(--monarch); }
+footer h5 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: var(--sand);
+}
+footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-meta {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+/* ------------------------------------------------------------------
+   Redesign banner (only shown to faculty reviewing GH Pages copy)
+   ------------------------------------------------------------------ */
+.redesign-banner {
+  background: var(--teal);
+  color: var(--white);
+  padding: 0.6rem 0;
+  font-size: 0.8rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.redesign-banner strong { font-weight: 600; letter-spacing: 0.05em; }
+.redesign-banner a { color: var(--white); text-decoration: underline; margin-left: 0.5rem; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Redesign banner - specifically for the faculty GH Pages review -->
+<div class="redesign-banner">
+  <strong>REDESIGN PREVIEW</strong> — Prepared for Fall 2026 IT&DS Faculty Meeting.
+  <a href="#changes">See what's changing →</a>
+</div>
+
+<!-- Utility ribbon -->
+<div class="top-ribbon">
+  <div class="container">
+    <nav class="util">
+      <a href="https://www.odu.edu/apply">Apply</a>
+      <a href="https://www.odu.edu/visit-campus">Visit</a>
+      <a href="https://give.odu.edu/">Give</a>
+      <a href="https://my.odu.edu">myODU</a>
+    </nav>
+    <div>Strome College of Business · Department of IT & Decision Sciences</div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="https://www.odu.edu">
+      <div class="brand-crown" aria-hidden="true">O</div>
+      <div class="brand-txt">
+        <strong>Old Dominion University</strong>
+        <span>Strome College of Business</span>
+      </div>
+    </a>
+    <nav class="nav-primary" aria-label="Primary">
+      <a href="#curriculum">Curriculum</a>
+      <a href="#courses">Courses</a>
+      <a href="#careers">Careers</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="https://monarch.odu.edu/app">Apply</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ======================================================
+       HERO
+       ====================================================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badges">
+            <span class="badge filled">B.S.B.A.</span>
+            <span class="badge">STEM Designated</span>
+            <span class="badge teal">120 Credit Hours</span>
+          </div>
+          <p class="eyebrow">A new major from Strome College of Business</p>
+          <h1>Business Analytics <span class="amp">&amp;</span> Artificial Intelligence</h1>
+          <p class="hero-lede">
+            Learn to build the models, write the code, and ask the questions
+            that turn organizational data into the decisions that move markets,
+            supply chains, and communities.
+          </p>
+          <div class="hero-cta">
+            <a href="https://www.odu.edu/admission/request-info" class="btn btn-primary">
+              Request Info <span class="arrow">→</span>
+            </a>
+            <a href="#curriculum" class="btn btn-ghost">
+              Explore the Curriculum
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-side" aria-label="What our graduates do">
+          <p class="eyebrow">Our graduates</p>
+          <h3>Do the work that leaders act on.</h3>
+          <ul class="doer-list">
+            <li>
+              <span class="verb">Build</span>
+              <span class="desc">Predictive models in Python that forecast demand, risk, and customer churn.</span>
+            </li>
+            <li>
+              <span class="verb">Ship</span>
+              <span class="desc">Interactive dashboards executives use in daily standups.</span>
+            </li>
+            <li>
+              <span class="verb">Automate</span>
+              <span class="desc">Data pipelines that turn raw operations logs into board-ready KPIs.</span>
+            </li>
+            <li>
+              <span class="verb">Deploy</span>
+              <span class="desc">Machine-learning classifiers that route service requests in real time.</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       STATS STRIP
+       ====================================================== -->
+  <section class="stats" aria-label="Program at a glance" style="padding-top:2.5rem; padding-bottom:2.5rem;">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="num">120</span>
+          <span class="label">Total credit hours to graduation</span>
+        </div>
+        <div class="stat">
+          <span class="num">260</span>
+          <span class="label">Required hours of experiential learning</span>
+        </div>
+        <div class="stat">
+          <span class="num">$108K</span>
+          <span class="label">Median salary — Business Intelligence Analyst</span>
+        </div>
+        <div class="stat">
+          <span class="num">STEM</span>
+          <span class="label">Designated program eligible for OPT extension</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CURRICULUM — the signature 5-pillar journey
+       ====================================================== -->
+  <section id="curriculum">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The Curriculum</p>
+        <h2>Five phases. One arc from business foundations to real-world impact.</h2>
+        <p>
+          Every course sits on a deliberate path. Click a phase to see the
+          courses that live there and how they connect to the phase before and after.
+        </p>
+      </div>
+
+      <div class="journey">
+        <div class="journey-track" role="tablist" aria-label="Curriculum phases">
+          <button class="journey-node active" data-phase="1" role="tab" aria-selected="true" aria-controls="phase-panel">
+            <span class="dot">01</span>
+            <span class="lbl">Business<br>Foundations</span>
+            <span class="cr">18 SCH</span>
+          </button>
+          <button class="journey-node" data-phase="2" role="tab" aria-selected="false" aria-controls="phase-panel">
+            <span class="dot">02</span>
+            <span class="lbl">Business<br>Core</span>
+            <span class="cr">28 SCH</span>
+          </button>
+          <button class="journey-node" data-phase="3" role="tab" aria-selected="false" aria-controls="phase-panel">
+            <span class="dot">03</span>
+            <span class="lbl">Programming<br>&amp; Data</span>
+            <span class="cr">21 SCH</span>
+          </button>
+          <button class="journey-node" data-phase="4" role="tab" aria-selected="false" aria-controls="phase-panel">
+            <span class="dot">04</span>
+            <span class="lbl">Analytics<br>&amp; AI</span>
+            <span class="cr">21 SCH</span>
+          </button>
+          <button class="journey-node" data-phase="5" role="tab" aria-selected="false" aria-controls="phase-panel">
+            <span class="dot">05</span>
+            <span class="lbl">Experiential<br>Learning</span>
+            <span class="cr">Required</span>
+          </button>
+        </div>
+
+        <div class="journey-panel" id="phase-panel" role="tabpanel">
+          <div class="journey-panel-inner">
+            <aside class="panel-side">
+              <span class="kicker">Phase <span id="ph-num">01</span></span>
+              <h4 id="ph-title">Business Foundations</h4>
+              <span class="kicker" id="ph-sub" style="color: var(--monarch); font-family: var(--body); text-transform: none; letter-spacing: 0; font-size: 0.9rem; font-weight: 500;">Build business knowledge.</span>
+              <span class="credits" id="ph-credits">18 SEMESTER CREDIT HOURS</span>
+            </aside>
+            <div class="panel-main">
+              <p class="summary" id="ph-summary">
+                Students build the financial, economic, and quantitative literacy
+                every business decision rests on — the shared language they'll use
+                for the rest of the program and their careers.
+              </p>
+              <div class="course-grid" id="ph-courses">
+                <!-- injected by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FEATURED COURSES
+       ====================================================== -->
+  <section id="courses">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Featured Courses</p>
+        <h2>The classes that make this program different.</h2>
+        <p>
+          These three courses replace the older business-intelligence-only track and
+          are the reason this degree can be called "&amp; AI."
+        </p>
+      </div>
+      <div class="feature-courses">
+        <article class="feat-course ai">
+          <span class="code">BUAN 3301</span>
+          <h4>AI in Business</h4>
+          <p>
+            A ground-up view of how artificial intelligence is reshaping every business
+            function — sales forecasting, hiring, service, operations — and where it
+            still gets things wrong. Students build with LLM tools and evaluate the ethical
+            trade-offs of every model they deploy.
+          </p>
+          <div class="tools">
+            <span class="tool-tag">LLMs</span>
+            <span class="tool-tag">Prompt Design</span>
+            <span class="tool-tag">Case Studies</span>
+          </div>
+        </article>
+
+        <article class="feat-course python">
+          <span class="code">BUAN 4381</span>
+          <h4>Python Programming</h4>
+          <p>
+            A dedicated Python course — not a chapter inside a "tools" survey. Students
+            move from scripting basics to writing the pandas, NumPy, and scikit-learn code
+            they will use in every downstream course and every internship in the field.
+          </p>
+          <div class="tools">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">pandas</span>
+            <span class="tool-tag">scikit-learn</span>
+          </div>
+        </article>
+
+        <article class="feat-course">
+          <span class="code">BUAN 4383</span>
+          <h4>Machine Learning for Business Analytics</h4>
+          <p>
+            Regression, classification, clustering, and neural networks — taught with
+            business-first framing. Every model students train is scored against a business
+            outcome (revenue lift, retention, cost avoided), not just accuracy.
+          </p>
+          <div class="tools">
+            <span class="tool-tag">scikit-learn</span>
+            <span class="tool-tag">TensorFlow</span>
+            <span class="tool-tag">MLflow</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CAREERS
+       ====================================================== -->
+  <section id="careers">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Where you'll go</p>
+        <h2>A degree the market is already asking for.</h2>
+        <p>
+          Median salaries below reflect national midpoints — half of surveyed workers earn above,
+          half earn below. Roles marked with a green tag are new since the last curriculum revision.
+        </p>
+      </div>
+
+      <div class="careers-grid">
+        <div class="career">
+          <span class="salary">$108,020 <span class="note">MEDIAN</span></span>
+          <h3 class="role">Business Intelligence Analyst</h3>
+          <p class="desc">
+            Produce financial and market intelligence by querying data repositories and generating
+            periodic reports. Devise methods for identifying data patterns and trends.
+          </p>
+        </div>
+        <div class="career">
+          <span class="salary">$108,020 <span class="note">MEDIAN</span></span>
+          <h3 class="role">Data Scientist <span class="badge new-tag" style="font-size: 0.6rem; padding: 0.15rem 0.5rem; vertical-align: middle;">NEW</span></h3>
+          <p class="desc">
+            Develop and implement analytical models to identify data patterns. Apply statistical
+            and machine-learning methods to inform business strategy and product decisions.
+          </p>
+        </div>
+        <div class="career">
+          <span class="salary">$108,970 <span class="note">MEDIAN</span></span>
+          <h3 class="role">IT Project Manager</h3>
+          <p class="desc">
+            Plan, initiate, and manage information technology projects. Lead technical teams and
+            serve as liaison between business and technical aspects of projects.
+          </p>
+        </div>
+        <div class="career">
+          <span class="salary">$103,500 <span class="note">MEDIAN</span></span>
+          <h3 class="role">Operations Research Analyst <span class="badge new-tag" style="font-size: 0.6rem; padding: 0.15rem 0.5rem; vertical-align: middle;">NEW</span></h3>
+          <p class="desc">
+            Formulate and apply mathematical modeling to identify optimal solutions to complex
+            operations problems — pricing, routing, staffing, and supply chain design.
+          </p>
+        </div>
+      </div>
+      <p class="career-source">
+        Median salaries from the Occupational Information Network (O*NET) and U.S. Bureau of Labor
+        Statistics. New roles reflect emerging positions our curriculum now maps to directly.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       EXPERIENTIAL LEARNING
+       ====================================================== -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Beyond the classroom</p>
+        <h2>Every graduate leaves with 260+ hours of documented, real-world work.</h2>
+        <p>
+          The three components below are not optional add-ons or honors tracks —
+          they are graduation requirements for every student in the major.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+        <article class="exp-card">
+          <span class="num-hours">160<span>hrs</span></span>
+          <h4>Analytics Internship</h4>
+          <p>
+            A supervised placement with a Hampton Roads or regional employer, structured
+            around a defined analytics deliverable — a dashboard, a model, a report the
+            organization actually uses after the student leaves.
+          </p>
+          <span class="code">BUAN 4090</span>
+        </article>
+
+        <article class="exp-card">
+          <span class="num-hours">100<span>hrs</span></span>
+          <h4>Community Engagement</h4>
+          <p>
+            A social-sector engagement practicum. Students apply their analytics
+            skills to nonprofits, city agencies, and small businesses that couldn't
+            otherwise afford data infrastructure.
+          </p>
+          <span class="code">BA 4095</span>
+        </article>
+
+        <article class="exp-card">
+          <span class="num-hours">1<span>capstone</span></span>
+          <h4>Senior Capstone</h4>
+          <p>
+            A full-semester team project defined and evaluated by an industry sponsor.
+            Culminates in a public presentation and a delivered artifact — a model,
+            a dashboard, or a written recommendation.
+          </p>
+          <span class="code">BUAN 4395 / BPS 4395</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       WHAT'S CHANGING — FACULTY DIFF VIEW
+       ====================================================== -->
+  <section id="changes">
+    <div class="container">
+      <div class="section-head">
+        <span class="diff-note">For Faculty Review</span>
+        <p class="eyebrow">What's changing</p>
+        <h2>The current program, side by side with the proposal.</h2>
+        <p>
+          A summary of the substantive shifts from the existing Business Analytics &amp;
+          Intelligence major to the proposed Business Analytics &amp; AI major. Full
+          course-by-course mapping is in the accompanying curriculum packet.
+        </p>
+      </div>
+
+      <div class="diff" role="table" aria-label="Program comparison">
+        <div class="diff-col before"><div class="diff-col-head">Existing (BSBA in IT&amp;T — Business Analytics &amp; Intelligence)</div></div>
+        <div class="diff-col after"><div class="diff-col-head">Proposed (BSBA in Business Analytics &amp; AI)</div></div>
+
+        <div class="diff-row">
+          <div class="diff-cell before"><strong>Program name</strong>Business Analytics &amp; Intelligence — a concentration inside IT&amp;T</div>
+          <div class="diff-cell after"><strong>Program name</strong>Business Analytics &amp; Artificial Intelligence — its own major</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-cell before"><strong>STEM designation</strong>Not currently STEM-designated</div>
+          <div class="diff-cell after"><strong>STEM designation</strong>STEM-designated (CIP 30.71 family); international graduates eligible for 24-month STEM OPT extension</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-cell before"><strong>Curriculum structure</strong>Traditional course list within IT&amp;T concentration</div>
+          <div class="diff-cell after"><strong>Curriculum structure</strong>Five-phase model: Foundations → Core → Programming &amp; Data → Analytics &amp; AI → Experiential</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-cell before"><strong>Technical tools taught</strong>Excel, R, Tableau, SAS-based Business Intelligence</div>
+          <div class="diff-cell after"><strong>Technical tools taught</strong>Python (dedicated course), pandas, scikit-learn, TensorFlow, plus SQL, Tableau, and Power BI</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-cell before"><strong>AI &amp; machine learning</strong>No dedicated AI or ML course</div>
+          <div class="diff-cell after"><strong>AI &amp; machine learning</strong>Two new required courses: <em>AI in Business</em> (BUAN 3301) and <em>Machine Learning for Business Analytics</em> (BUAN 4383)</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-cell before"><strong>Experiential learning</strong>Internships available, not universally required</div>
+          <div class="diff-cell after"><strong>Experiential learning</strong>All three required: 160-hour internship, 100-hour community engagement, senior capstone</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-cell before"><strong>Course prefix</strong>BNAL, IT, and mixed prefixes</div>
+          <div class="diff-cell after"><strong>Course prefix</strong>Unified BUAN prefix for analytics and AI coursework</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-cell before"><strong>Total credit hours</strong>120 (typical BSBA)</div>
+          <div class="diff-cell after"><strong>Total credit hours</strong>120 — same total, restructured composition</div>
+        </div>
+      </div>
+
+      <div class="change-callout">
+        <strong>Website changes at a glance.</strong>
+        The redesigned page (1) leads with the STEM designation and AI positioning, (2) replaces
+        the anchor-nav-only structure with a scroll-driven journey, (3) makes the curriculum
+        interactive rather than a static course list, (4) reorders career data to lead with
+        salary, (5) elevates experiential learning to its own destination section rather than
+        burying it in program highlights, and (6) adds this diff view — a faculty-first section
+        that has no analog on the existing page.
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       NEXT STEPS
+       ====================================================== -->
+  <section id="next">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Take the next step</p>
+        <h2>Ready when you are.</h2>
+      </div>
+      <div class="next-grid">
+        <a class="next-card" href="https://www.odu.edu/apply/applications">
+          <span class="step">Step 01</span>
+          <h4>Start your application</h4>
+          <p>Submit through Monarch — no application fee waivers required for Virginia residents.</p>
+          <span class="arrow">→</span>
+        </a>
+        <a class="next-card" href="https://www.odu.edu/admission/request-info">
+          <span class="step">Step 02</span>
+          <h4>Request info</h4>
+          <p>Get program details, cost estimates, and course previews sent to your inbox.</p>
+          <span class="arrow">→</span>
+        </a>
+        <a class="next-card" href="https://www.odu.edu/visit-campus">
+          <span class="step">Step 03</span>
+          <h4>Visit ODU</h4>
+          <p>Sit in on a class, meet a faculty advisor, tour Constant Hall.</p>
+          <span class="arrow">→</span>
+        </a>
+        <a class="next-card" href="https://itsapps.odu.edu/calculator/">
+          <span class="step">Step 04</span>
+          <h4>Estimate your cost</h4>
+          <p>Use ODU's cost calculator — includes tuition, fees, and financial aid options.</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CONTACT
+       ====================================================== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="section-head" style="margin-bottom: 0;">
+          <p class="eyebrow">Program Contact</p>
+          <h2>Talk to the department.</h2>
+          <p>
+            The Department of Information Technology &amp; Decision Sciences advises every
+            student in the major from first semester through capstone.
+          </p>
+        </div>
+        <div class="contact-card">
+          <span class="role">Program Director</span>
+          <h4>Ali Ardalan, Ph.D.</h4>
+          <p class="position">Professor, Information Technology &amp; Decision Sciences</p>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:aardalan@odu.edu">aardalan@odu.edu</a>
+          </div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            <a href="tel:757-683-6789">(757) 683-6789</a>
+          </div>
+          <address>
+            2056 Constant Hall<br>
+            Norfolk, VA 23529
+          </address>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="brand-crown" aria-hidden="true">O</div>
+          <div class="brand-txt">
+            <strong style="color: var(--sand);">Old Dominion University</strong>
+            <span style="color: rgba(244, 237, 221, 0.7);">Strome College of Business</span>
+          </div>
+        </div>
+        <p style="max-width: 34ch; opacity: 0.8; margin: 0;">
+          Department of Information Technology &amp; Decision Sciences.
+          5115 Hampton Blvd, Norfolk, VA 23529.
+        </p>
+      </div>
+      <div>
+        <h5>Program</h5>
+        <ul>
+          <li><a href="#curriculum">Curriculum</a></li>
+          <li><a href="#courses">Featured Courses</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#experience">Experience</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Admission</h5>
+        <ul>
+          <li><a href="https://www.odu.edu/apply">Apply</a></li>
+          <li><a href="https://www.odu.edu/admission/request-info">Request info</a></li>
+          <li><a href="https://www.odu.edu/visit-campus">Visit</a></li>
+          <li><a href="https://www.odu.edu/tuition">Tuition &amp; fees</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>ODU</h5>
+        <ul>
+          <li><a href="https://www.odu.edu/business">Strome College of Business</a></li>
+          <li><a href="https://catalog.odu.edu/">University Catalog</a></li>
+          <li><a href="https://www.odu.edu/">odu.edu</a></li>
+          <li><a href="https://give.odu.edu/">Give</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <div>© Old Dominion University · Redesign preview · Updated <span id="year"></span></div>
+      <div>Prepared for the Fall 2026 IT&amp;DS faculty meeting</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ------------------------------------------------------------------
+// Curriculum data — mirrors the proposed curriculum model exactly
+// ------------------------------------------------------------------
+const PHASES = {
+  1: {
+    title: "Business Foundations",
+    subtitle: "Build business knowledge.",
+    credits: "18 SEMESTER CREDIT HOURS",
+    summary: "Students build the financial, economic, and quantitative literacy every business decision rests on — the shared language they'll use for the rest of the program and their careers.",
+    courses: [
+      { code: "ACCT 2301", name: "Financial Accounting" },
+      { code: "ACCT 2302", name: "Managerial Accounting" },
+      { code: "FIN 3320",  name: "Business Finance" },
+      { code: "BLAW 2301", name: "Business Law" },
+      { code: "MATH 1325", name: "Applied Calculus" },
+      { code: "OPRE 3333", name: "Quantitative Business Analysis" },
+      { code: "OPRE 3360", name: "Decision Making Under Uncertainty" }
+    ]
+  },
+  2: {
+    title: "Business Core",
+    subtitle: "Understand how organizations work.",
+    credits: "28 SEMESTER CREDIT HOURS",
+    summary: "The functional coursework common to every BSBA at Strome — how organizations sell, operate, communicate, and make decisions across borders.",
+    courses: [
+      { code: "MKT 3300",  name: "Marketing" },
+      { code: "IMS 3310",  name: "International Business" },
+      { code: "OBHR 3310", name: "Organizational Behavior" },
+      { code: "OPRE 3310", name: "Supply Chain & Operations" },
+      { code: "BCOM 3300", name: "Business Communication" },
+      { code: "ITSS 3300", name: "Information Technology for Business" },
+      { code: "BA 1105",   name: "Professional Development" }
+    ]
+  },
+  3: {
+    title: "Programming & Data Foundations",
+    subtitle: "Learn the tools.",
+    credits: "21 SEMESTER CREDIT HOURS",
+    summary: "Where students stop being consumers of data and become builders. Programming, database design, and the applied data-science foundation the analytics courses will draw on.",
+    courses: [
+      { code: "ITSS 3311", name: "Introduction to Programming" },
+      { code: "BUAN 4381", name: "Python Programming", isNew: true },
+      { code: "BUAN 4320", name: "Database Fundamentals for Analytics", isNew: true },
+      { code: "BUAN 4373", name: "Data Science for Business Applications", isNew: true }
+    ]
+  },
+  4: {
+    title: "Analytics & AI",
+    subtitle: "Turn data into decisions.",
+    credits: "21 SEMESTER CREDIT HOURS",
+    summary: "The heart of the major. AI, business intelligence, visualization, and machine learning — each course tied to a business outcome, not just a technique.",
+    courses: [
+      { code: "BUAN 3301", name: "AI in Business", isNew: true },
+      { code: "BUAN 4351", name: "Foundations of Business Intelligence" },
+      { code: "BUAN 4353", name: "Business Analytics" },
+      { code: "BUAN 4355", name: "Data Visualization" },
+      { code: "BUAN 4383", name: "Machine Learning for Business Analytics", isNew: true }
+    ]
+  },
+  5: {
+    title: "Experiential Learning",
+    subtitle: "Apply skills in the real world.",
+    credits: "REQUIRED FOR GRADUATION",
+    summary: "Nobody graduates from this program without shipping work that lives outside the classroom. Every student completes all three components below.",
+    courses: [
+      { code: "BUAN 4090", name: "Business Analytics Internship (160 hours)" },
+      { code: "BA 4095",   name: "Social Sector Engagement & Community Outreach Practicum (100 hours)" },
+      { code: "BUAN 4395", name: "Capstone Senior Project — Business Analytics" },
+      { code: "BPS 4395",  name: "Capstone Senior Project — Business (alt.)" }
+    ]
+  }
+};
+
+// ------------------------------------------------------------------
+// Wire up the phase switcher
+// ------------------------------------------------------------------
+const nodes = document.querySelectorAll(".journey-node");
+const phNum = document.getElementById("ph-num");
+const phTitle = document.getElementById("ph-title");
+const phSub = document.getElementById("ph-sub");
+const phCredits = document.getElementById("ph-credits");
+const phSummary = document.getElementById("ph-summary");
+const phCourses = document.getElementById("ph-courses");
+
+function setPhase(n) {
+  const data = PHASES[n];
+  if (!data) return;
+  nodes.forEach(node => {
+    const active = node.dataset.phase === String(n);
+    node.classList.toggle("active", active);
+    node.setAttribute("aria-selected", active ? "true" : "false");
+  });
+  phNum.textContent = String(n).padStart(2, "0");
+  phTitle.textContent = data.title;
+  phSub.textContent = data.subtitle;
+  phCredits.textContent = data.credits;
+  phSummary.textContent = data.summary;
+  phCourses.innerHTML = data.courses.map(c => `
+    <div class="course${c.isNew ? " new" : ""}">
+      <span class="code">${c.code}</span>
+      <span class="name">${c.name}</span>
+    </div>
+  `).join("");
+}
+
+nodes.forEach(node => {
+  node.addEventListener("click", () => setPhase(node.dataset.phase));
+  node.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const cur = parseInt(node.dataset.phase, 10);
+      const next = e.key === "ArrowRight" ? (cur === 5 ? 1 : cur + 1) : (cur === 1 ? 5 : cur - 1);
+      const target = document.querySelector(`.journey-node[data-phase="${next}"]`);
+      target.focus();
+      setPhase(next);
+    }
+  });
+});
+
+// Init with phase 1
+setPhase(1);
+
+// Footer year
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

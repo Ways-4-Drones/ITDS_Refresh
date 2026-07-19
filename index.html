@@ -3,91 +3,86 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Business Analytics & Artificial Intelligence (B.S.B.A.) — Old Dominion University</title>
-<meta name="description" content="A STEM-designated bachelor's degree at ODU's Strome College of Business preparing graduates to turn data into decisions with Python, machine learning, and real-world experience." />
+<title>Business Analytics &amp; Intelligence (Information Systems and Technology, B.S.B.A.) — Old Dominion University</title>
+<meta name="description" content="Old Dominion University's B.S.B.A. in Information Systems and Technology with a major in Business Analytics and Intelligence — turn organizational data into decisions at Strome College of Business." />
 
-<!-- Fonts: Sora is an ODU brand web face; Space Grotesk stands in for Monte Stella; JetBrains Mono for data -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <style>
-/* ------------------------------------------------------------------
-   Design tokens — ODU FY26 "Forward-Focused" brand toolkit
-   Primary: Monarch Blue, Silver Reign, Hudson Blue
-   ------------------------------------------------------------------ */
+/* =========================================================
+   ODU Brand tokens — FY26 "Forward-Focused" toolkit
+   ========================================================= */
 :root {
-  --monarch:      #003057;   /* Monarch Blue — primary anchor */
-  --monarch-ink:  #001F3A;   /* darker text on cream */
-  --hudson:       #418FDE;   /* Hudson Blue — accent, links */
-  --hudson-deep:  #2A6FBF;   /* hover state for hudson */
-  --silver:       #7C878E;   /* Silver Reign */
-  --silver-soft:  #C7CDD1;   /* dividers, muted borders */
-  --teal:         #00A99D;   /* Electric Teal — used sparingly */
-  --sand:         #F4EDDD;   /* coastal cream — warm neutral */
-  --sand-deep:    #E8DFC6;   /* sand section divider */
-  --ivory:        #FBFAF6;   /* page background */
+  --monarch:      #003057;
+  --monarch-ink:  #001F3A;
+  --hudson:       #418FDE;
+  --hudson-deep:  #2A6FBF;
+  --silver:       #7C878E;
+  --silver-soft:  #C7CDD1;
+  --teal:         #00A99D;
+  --sand:         #F4EDDD;
+  --sand-deep:    #E8DFC6;
+  --ivory:        #FBFAF6;
   --white:        #FFFFFF;
-  --charcoal:     #1A1A1A;   /* body text */
+  --charcoal:     #1A1A1A;
   --charcoal-mid: #4A4E52;
 
-  /* Type */
+  /* Tracked-changes palette */
+  --tc-add-bg:    #E9F5EC;
+  --tc-add-line:  #1E8E3E;
+  --tc-add-ink:   #0F5F27;
+  --tc-mod-bg:    #FEF5DE;
+  --tc-mod-line:  #B36A00;
+  --tc-mod-ink:   #7A4600;
+  --tc-mov-bg:    #E8F0FE;
+  --tc-mov-line:  #1967D2;
+  --tc-mov-ink:   #0B3F86;
+  --tc-del-bg:    #FCE8E6;
+  --tc-del-line:  #C5221F;
+  --tc-del-ink:   #8B1A17;
+
   --display: "Space Grotesk", "Sora", system-ui, -apple-system, sans-serif;
   --body:    "Sora", "Open Sans", system-ui, -apple-system, sans-serif;
   --mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* Layout */
-  --max:   1240px;
+  --max:    1200px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
-  --rhythm: clamp(4rem, 8vw, 7rem);
+  --rhythm: clamp(3.5rem, 7vw, 6rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
+html { scroll-behavior: smooth; scroll-padding-top: 140px; }
 body {
   margin: 0;
   font-family: var(--body);
-  font-weight: 400;
   color: var(--charcoal);
   background: var(--ivory);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
-
-/* Respect motion preferences */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
-
 ::selection { background: var(--monarch); color: var(--sand); }
-
 a { color: var(--hudson-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--monarch); }
 :focus-visible { outline: 2px solid var(--hudson); outline-offset: 3px; border-radius: 2px; }
-
 img { max-width: 100%; display: block; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 
-.container {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-}
-
-/* Type ramp */
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   font-family: var(--display);
   color: var(--monarch);
   margin: 0 0 0.5em;
-  line-height: 1.08;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   font-weight: 700;
 }
 .eyebrow {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--monarch);
@@ -95,23 +90,300 @@ h1, h2, h3, h4 {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+  margin: 0 0 0.75rem;
 }
 .eyebrow::before {
   content: "";
-  width: 1.75rem;
+  width: 1.5rem;
   height: 1px;
   background: var(--monarch);
   display: inline-block;
 }
 
-/* ------------------------------------------------------------------
-   Top ribbon — ODU-wide utility bar
-   ------------------------------------------------------------------ */
-.top-ribbon {
+/* =========================================================
+   REVIEW TOOLBAR — the tracked-changes control
+   ========================================================= */
+.review-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
   background: var(--monarch);
   color: var(--sand);
+  padding: 0.6rem 0;
+  border-bottom: 2px solid var(--hudson);
+  font-size: 0.82rem;
+}
+.review-toolbar .container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.review-toolbar .rt-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sand);
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.review-toolbar .rt-label::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.review-toolbar .rt-mid {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.rt-legend {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rt-legend .swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0.9;
+}
+.rt-legend .swatch::before {
+  content: "";
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+}
+.rt-legend .swatch.add::before { background: var(--tc-add-line); }
+.rt-legend .swatch.mod::before { background: var(--tc-mod-line); }
+.rt-legend .swatch.mov::before { background: var(--tc-mov-line); }
+.rt-legend .swatch.del::before { background: var(--tc-del-line); }
+body:not(.show-changes) .rt-legend { opacity: 0.4; }
+
+.rt-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: transparent;
+  border: 1px solid rgba(244, 237, 221, 0.35);
+  color: var(--sand);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--body);
   font-size: 0.78rem;
-  padding: 0.55rem 0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.rt-toggle:hover { background: rgba(244, 237, 221, 0.1); border-color: var(--sand); }
+.rt-toggle .rt-switch {
+  width: 32px; height: 18px;
+  background: rgba(244, 237, 221, 0.2);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s;
+}
+.rt-toggle .rt-switch::after {
+  content: "";
+  position: absolute;
+  width: 14px; height: 14px;
+  background: var(--sand);
+  border-radius: 50%;
+  top: 2px; left: 2px;
+  transition: left 0.2s;
+}
+body.show-changes .rt-toggle .rt-switch { background: var(--teal); }
+body.show-changes .rt-toggle .rt-switch::after { left: 16px; }
+.rt-count { font-family: var(--mono); font-size: 0.75rem; opacity: 0.9; }
+
+/* =========================================================
+   TRACKED-CHANGES SYSTEM
+   Default: changes invisible (clean redesign view)
+   .show-changes: changes visible with flags + colors
+   ========================================================= */
+
+/* Base wrapper class — no visual effect by default */
+.tc { position: relative; }
+
+/* The "flag" — hidden by default, appears in review mode */
+.tc-flag {
+  display: none;
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* An inline note describing the change */
+.tc-note {
+  display: none;
+  font-family: var(--body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding: 0.65rem 0.9rem;
+  margin: 0.85rem 0 0;
+  border-radius: 2px;
+  border-left: 3px solid transparent;
+}
+.tc-note strong { font-weight: 600; }
+
+/* del/ins for copy-level changes */
+del.tc-del-inline, ins.tc-ins-inline {
+  text-decoration: none;
+  padding: 0.05rem 0.2rem;
+  border-radius: 1px;
+}
+del.tc-del-inline { display: none; }
+ins.tc-ins-inline { background: transparent; }
+
+body.show-changes del.tc-del-inline {
+  display: inline;
+  background: var(--tc-del-bg);
+  color: var(--tc-del-ink);
+  text-decoration: line-through;
+  text-decoration-color: var(--tc-del-line);
+}
+body.show-changes ins.tc-ins-inline {
+  background: var(--tc-add-bg);
+  color: var(--tc-add-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--tc-add-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* When review mode is on, apply the visual treatment per type */
+body.show-changes .tc-mod {
+  outline: 2px dashed var(--tc-mod-line);
+  outline-offset: 4px;
+  background-image: linear-gradient(var(--tc-mod-bg), var(--tc-mod-bg));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+}
+body.show-changes .tc-mod > .tc-flag {
+  display: inline-block;
+  background: var(--tc-mod-line);
+  color: var(--white);
+}
+body.show-changes .tc-mod > .tc-note {
+  display: block;
+  background: var(--tc-mod-bg);
+  border-left-color: var(--tc-mod-line);
+  color: var(--tc-mod-ink);
+}
+
+body.show-changes .tc-add {
+  outline: 2px dashed var(--tc-add-line);
+  outline-offset: 4px;
+  background-image: linear-gradient(var(--tc-add-bg), var(--tc-add-bg));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+}
+body.show-changes .tc-add > .tc-flag {
+  display: inline-block;
+  background: var(--tc-add-line);
+  color: var(--white);
+}
+body.show-changes .tc-add > .tc-note {
+  display: block;
+  background: var(--tc-add-bg);
+  border-left-color: var(--tc-add-line);
+  color: var(--tc-add-ink);
+}
+
+body.show-changes .tc-mov {
+  outline: 2px dashed var(--tc-mov-line);
+  outline-offset: 4px;
+  background-image: linear-gradient(var(--tc-mov-bg), var(--tc-mov-bg));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+}
+body.show-changes .tc-mov > .tc-flag {
+  display: inline-block;
+  background: var(--tc-mov-line);
+  color: var(--white);
+}
+body.show-changes .tc-mov > .tc-note {
+  display: block;
+  background: var(--tc-mov-bg);
+  border-left-color: var(--tc-mov-line);
+  color: var(--tc-mov-ink);
+}
+
+/* Removed block — hidden entirely by default, appears ghosted when changes on */
+.tc-rem {
+  display: none;
+}
+body.show-changes .tc-rem {
+  display: block;
+  outline: 2px dashed var(--tc-del-line);
+  outline-offset: 4px;
+  background: var(--tc-del-bg);
+  color: var(--tc-del-ink);
+  padding: 1.25rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 2px;
+  opacity: 0.85;
+  font-size: 0.9rem;
+  position: relative;
+}
+body.show-changes .tc-rem > .tc-flag {
+  display: inline-block;
+  background: var(--tc-del-line);
+  color: var(--white);
+}
+body.show-changes .tc-rem > .tc-note {
+  display: block;
+  background: transparent;
+  padding: 0;
+  margin-top: 0.5rem;
+  border-left: none;
+  color: var(--tc-del-ink);
+}
+body.show-changes .tc-rem .rem-content {
+  text-decoration: line-through;
+  text-decoration-color: var(--tc-del-line);
+  opacity: 0.7;
+}
+
+/* =========================================================
+   ODU utility ribbon
+   ========================================================= */
+.top-ribbon {
+  background: var(--sand);
+  color: var(--charcoal-mid);
+  font-size: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--sand-deep);
 }
 .top-ribbon .container {
   display: flex;
@@ -119,156 +391,150 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 1rem;
 }
-.top-ribbon a { color: var(--sand); text-decoration: none; opacity: 0.85; }
-.top-ribbon a:hover { opacity: 1; text-decoration: underline; }
-.top-ribbon nav { display: flex; gap: 1.5rem; }
+.top-ribbon a { color: var(--monarch); text-decoration: none; }
+.top-ribbon a:hover { text-decoration: underline; }
+.top-ribbon nav { display: flex; gap: 1.25rem; }
 @media (max-width: 640px) { .top-ribbon .util { display: none; } }
 
-/* ------------------------------------------------------------------
-   Main header
-   ------------------------------------------------------------------ */
+/* =========================================================
+   Sticky header + nav
+   ========================================================= */
 .site-header {
-  background: var(--ivory);
+  background: rgba(251, 250, 246, 0.94);
+  backdrop-filter: saturate(140%) blur(6px);
   border-bottom: 1px solid var(--sand-deep);
   position: sticky;
-  top: 0;
+  top: 43px; /* below review toolbar */
   z-index: 40;
-  backdrop-filter: saturate(140%) blur(6px);
-  background: rgba(251, 250, 246, 0.92);
 }
 .site-header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
 }
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   text-decoration: none;
   color: var(--monarch);
 }
 .brand-crown {
-  width: 42px; height: 42px;
+  width: 38px; height: 38px;
   display: grid; place-items: center;
   background: var(--monarch);
   color: var(--sand);
   border-radius: 2px;
   font-family: var(--display);
   font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: -0.04em;
+  font-size: 1.1rem;
 }
-.brand-txt { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-txt { display: flex; flex-direction: column; line-height: 1.15; }
 .brand-txt strong {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: -0.01em;
+  font-size: 0.95rem;
 }
 .brand-txt span {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--charcoal-mid);
-  letter-spacing: 0.02em;
 }
-.nav-primary {
-  display: flex;
-  align-items: center;
-  gap: 1.75rem;
-}
+.nav-primary { display: flex; align-items: center; gap: 1.5rem; }
 .nav-primary a {
   color: var(--monarch);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 500;
 }
 .nav-primary a:hover { color: var(--hudson-deep); }
-.nav-primary .btn { background: var(--monarch); color: var(--sand); padding: 0.55rem 1.1rem; border-radius: 2px; }
-.nav-primary .btn:hover { background: var(--hudson-deep); color: var(--white); }
+.nav-primary .btn-nav {
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+}
+.nav-primary .btn-nav:hover { background: var(--hudson-deep); color: var(--white); }
 @media (max-width: 900px) {
-  .nav-primary a:not(.btn) { display: none; }
+  .nav-primary a:not(.btn-nav) { display: none; }
 }
 
-/* ------------------------------------------------------------------
+/* =========================================================
+   Breadcrumb
+   ========================================================= */
+.breadcrumb {
+  padding: 1.25rem 0 0.5rem;
+  font-size: 0.8rem;
+  color: var(--charcoal-mid);
+}
+.breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.5rem;
+  color: var(--silver-soft);
+}
+.breadcrumb a { color: var(--charcoal-mid); text-decoration: none; }
+.breadcrumb a:hover { color: var(--monarch); }
+.breadcrumb li:last-child { color: var(--monarch); font-weight: 500; }
+
+/* =========================================================
    Hero
-   ------------------------------------------------------------------ */
+   ========================================================= */
 .hero {
-  padding: clamp(3rem, 7vw, 6rem) 0 clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(3rem, 6vw, 5rem);
   position: relative;
-  overflow: hidden;
 }
 .hero::before {
-  /* subtle texture — echoes the ODU "coastal" texture concept */
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 88% 22%, rgba(65, 143, 222, 0.10), transparent 45%),
-    radial-gradient(circle at 12% 78%, rgba(0, 169, 157, 0.06), transparent 40%);
+    radial-gradient(circle at 92% 20%, rgba(65, 143, 222, 0.09), transparent 42%),
+    radial-gradient(circle at 8% 90%, rgba(0, 169, 157, 0.05), transparent 45%);
   pointer-events: none;
 }
 .hero .container { position: relative; }
-
-.hero-grid {
+.hero-inner {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: end;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
 }
-@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
-
-.hero-badges {
-  display: flex;
-  gap: 0.6rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-.badge {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.4rem 0.75rem;
-  border: 1px solid var(--monarch);
-  color: var(--monarch);
-  border-radius: 2px;
-  font-weight: 500;
-}
-.badge.filled { background: var(--monarch); color: var(--sand); }
-.badge.teal { border-color: var(--teal); color: var(--teal); }
-.badge.new-tag { background: var(--teal); color: var(--white); border-color: var(--teal); }
+@media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
   color: var(--monarch);
-  margin-bottom: 1.25rem;
+  margin: 0 0 1.25rem;
 }
-.hero h1 .amp {
-  color: var(--hudson);
-  font-style: italic;
-  font-weight: 500;
-}
-.hero-lede {
-  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+.hero-about {
+  font-size: 1.05rem;
   color: var(--charcoal-mid);
-  max-width: 46ch;
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  margin: 0 0 1.5rem;
+  max-width: 58ch;
 }
 .hero-cta {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.9rem 1.6rem;
+  padding: 0.85rem 1.5rem;
   font-family: var(--body);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
   border-radius: 2px;
@@ -284,485 +550,324 @@ h1, h2, h3, h4 {
 .btn .arrow { transition: transform 0.2s ease; }
 .btn:hover .arrow { transform: translateX(3px); }
 
-/* Hero side — the "ticker" that showcases what students actually do */
-.hero-side {
-  background: var(--monarch);
-  color: var(--sand);
-  padding: 2rem;
-  border-radius: 2px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-side::after {
-  content: "";
-  position: absolute;
-  right: -30px;
-  top: -30px;
-  width: 140px;
-  height: 140px;
-  background: var(--hudson);
-  opacity: 0.15;
-  border-radius: 50%;
-}
-.hero-side .eyebrow { color: var(--sand); }
-.hero-side .eyebrow::before { background: var(--sand); }
-.hero-side h3 {
-  color: var(--sand);
-  font-size: 1.4rem;
-  margin: 0.75rem 0 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-.doer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.9rem;
-  position: relative;
-  z-index: 1;
-}
-.doer-list li {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  align-items: baseline;
-  padding-bottom: 0.9rem;
-  border-bottom: 1px solid rgba(244, 237, 221, 0.15);
-  font-size: 0.95rem;
-}
-.doer-list li:last-child { border-bottom: none; padding-bottom: 0; }
-.doer-list .verb {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  color: var(--hudson);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.doer-list .desc { color: var(--sand); line-height: 1.4; }
-
-/* ------------------------------------------------------------------
-   Stats strip
-   ------------------------------------------------------------------ */
-.stats {
-  background: var(--sand);
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--sand-deep);
-  border-bottom: 1px solid var(--sand-deep);
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-@media (max-width: 780px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; } }
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  border-left: 2px solid var(--monarch);
-  padding-left: 1.25rem;
-}
-.stat .num {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  color: var(--monarch);
-  line-height: 1;
-  letter-spacing: -0.03em;
-}
-.stat .label {
-  font-size: 0.85rem;
-  color: var(--charcoal-mid);
-  letter-spacing: 0.01em;
-}
-
-/* ------------------------------------------------------------------
-   Section scaffolding
-   ------------------------------------------------------------------ */
-section { padding: var(--rhythm) 0; }
-.section-head { max-width: 62ch; margin-bottom: 3rem; }
-.section-head h2 {
-  font-size: clamp(1.9rem, 4vw, 2.8rem);
-  margin-top: 0.9rem;
-  margin-bottom: 1rem;
-}
-.section-head p { color: var(--charcoal-mid); font-size: 1.05rem; line-height: 1.65; }
-
-/* ------------------------------------------------------------------
-   Signature: Curriculum Journey — 5-pillar interactive
-   ------------------------------------------------------------------ */
-#curriculum { background: var(--ivory); }
-.journey {
-  position: relative;
-  margin-top: 1.5rem;
-}
-.journey-track {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-  position: relative;
-}
-.journey-track::before {
-  /* the connecting line */
-  content: "";
-  position: absolute;
-  top: 26px;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: linear-gradient(to right, var(--monarch), var(--hudson), var(--teal));
-  z-index: 0;
-}
-.journey-node {
-  position: relative;
-  z-index: 1;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  padding: 0;
-  color: inherit;
-  font-family: inherit;
-}
-.journey-node .dot {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--ivory);
-  border: 2px solid var(--monarch);
-  display: grid;
-  place-items: center;
-  font-family: var(--display);
-  font-weight: 700;
-  color: var(--monarch);
-  font-size: 1.15rem;
-  margin: 0 auto 1rem;
-  transition: all 0.25s ease;
-}
-.journey-node .lbl {
-  display: block;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--charcoal-mid);
-  line-height: 1.35;
-  letter-spacing: 0.02em;
-}
-.journey-node .cr {
-  display: block;
-  text-align: center;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--silver);
-  margin-top: 0.35rem;
-  letter-spacing: 0.05em;
-}
-.journey-node:hover .dot,
-.journey-node.active .dot {
-  background: var(--monarch);
-  color: var(--sand);
-  transform: scale(1.08);
-}
-.journey-node.active .lbl { color: var(--monarch); }
-
-/* Detail panel below the track */
-.journey-panel {
-  margin-top: 3rem;
+/* At-a-glance card (in hero, right side) */
+.glance-card {
   background: var(--white);
   border: 1px solid var(--sand-deep);
+  border-top: 3px solid var(--monarch);
+  padding: 1.5rem 1.5rem 1.25rem;
   border-radius: 2px;
-  overflow: hidden;
-  min-height: 320px;
 }
-.journey-panel-inner {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 0;
-}
-@media (max-width: 780px) { .journey-panel-inner { grid-template-columns: 1fr; } }
-
-.panel-side {
-  background: var(--sand);
-  padding: 2rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  border-right: 1px solid var(--sand-deep);
-}
-.panel-side .num {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 3.5rem;
-  color: var(--monarch);
-  line-height: 1;
-}
-.panel-side .kicker { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal-mid); }
-.panel-side h4 { font-size: 1.35rem; margin: 0.25rem 0; }
-.panel-side .credits { font-family: var(--mono); font-size: 0.78rem; color: var(--monarch); background: var(--white); padding: 0.25rem 0.6rem; align-self: flex-start; border-radius: 2px; margin-top: auto; }
-
-.panel-main {
-  padding: 2rem 2rem 2.25rem;
-}
-.panel-main p.summary { color: var(--charcoal-mid); margin: 0 0 1.5rem; font-size: 1rem; max-width: 55ch; }
-.course-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.65rem 1.25rem;
-}
-.course {
-  display: flex;
-  flex-direction: column;
-  padding: 0.75rem 0;
-  border-top: 1px solid var(--sand-deep);
-}
-.course:first-child { border-top: 1px solid var(--sand-deep); }
-.course .code {
+.glance-card h3 {
+  font-size: 0.78rem;
   font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  color: var(--hudson-deep);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal-mid);
+  margin: 0 0 1.25rem;
   font-weight: 500;
 }
-.course .name {
-  font-size: 0.92rem;
-  color: var(--charcoal);
-  line-height: 1.35;
+.glance-list { list-style: none; padding: 0; margin: 0; }
+.glance-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--sand-deep);
+  font-size: 0.85rem;
 }
-.course.new .code::after {
-  content: "NEW";
-  display: inline-block;
-  margin-left: 0.5rem;
-  font-size: 0.62rem;
-  padding: 0.05rem 0.4rem;
-  background: var(--teal);
-  color: var(--white);
-  border-radius: 2px;
-  letter-spacing: 0.1em;
+.glance-list li:first-child { border-top: none; }
+.glance-list .k {
+  color: var(--charcoal-mid);
+  font-weight: 400;
+}
+.glance-list .v {
+  color: var(--monarch);
+  font-weight: 600;
+  text-align: right;
 }
 
-/* ------------------------------------------------------------------
-   Featured Courses
-   ------------------------------------------------------------------ */
+/* =========================================================
+   Section scaffolding
+   ========================================================= */
+section { padding: var(--rhythm) 0; }
+.section-head { max-width: 62ch; margin-bottom: 2.5rem; }
+.section-head h2 {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  margin: 0.5rem 0 0.75rem;
+}
+.section-head p { color: var(--charcoal-mid); font-size: 1rem; line-height: 1.65; margin: 0; }
+
+/* =========================================================
+   Program highlights (4 cards)
+   ========================================================= */
+#highlights { background: var(--ivory); }
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 780px) { .highlight-grid { grid-template-columns: 1fr; } }
+.highlight {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  padding: 1.75rem;
+  border-radius: 2px;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+.highlight .num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--hudson);
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+  letter-spacing: -0.02em;
+}
+.highlight p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   Featured Courses (3 cards)
+   ========================================================= */
 #courses { background: var(--sand); }
-.feature-courses {
+.course-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
 }
-@media (max-width: 900px) { .feature-courses { grid-template-columns: 1fr; } }
-.feat-course {
+@media (max-width: 900px) { .course-grid { grid-template-columns: 1fr; } }
+.course-card {
   background: var(--white);
   padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
   border-radius: 2px;
   border-top: 3px solid var(--monarch);
+  display: flex;
+  flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.feat-course:hover { transform: translateY(-3px); box-shadow: 0 12px 30px -12px rgba(0, 48, 87, 0.18); }
-.feat-course.ai { border-top-color: var(--teal); }
-.feat-course.python { border-top-color: var(--hudson); }
-.feat-course .code {
+.course-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgba(0, 48, 87, 0.18); }
+.course-card .code {
   font-family: var(--mono);
   font-size: 0.78rem;
-  color: var(--monarch);
+  color: var(--hudson-deep);
   letter-spacing: 0.08em;
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
-.feat-course h4 { font-size: 1.2rem; margin: 0 0 0.75rem; letter-spacing: -0.01em; }
-.feat-course p { font-size: 0.92rem; color: var(--charcoal-mid); margin: 0 0 1.25rem; }
-.feat-course .tools {
-  display: flex; gap: 0.35rem; flex-wrap: wrap;
-  margin-top: auto;
-  padding-top: 1rem;
+.course-card h4 { font-size: 1.2rem; margin: 0 0 0.75rem; }
+.course-card p {
+  font-size: 0.9rem;
+  color: var(--charcoal-mid);
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+.course-card .full-desc {
+  font-size: 0.82rem;
+  color: var(--silver);
   border-top: 1px solid var(--sand-deep);
+  padding-top: 0.85rem;
+  margin-top: auto;
 }
-.tool-tag {
+.course-catalog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
   font-family: var(--mono);
-  font-size: 0.66rem;
-  padding: 0.2rem 0.5rem;
-  background: var(--sand);
-  color: var(--monarch);
+  font-size: 0.78rem;
   letter-spacing: 0.06em;
-  border-radius: 2px;
+  text-transform: uppercase;
+  color: var(--monarch);
+  text-decoration: none;
+  font-weight: 500;
 }
+.course-catalog-link:hover { color: var(--hudson-deep); }
+.course-catalog-link .arrow { transition: transform 0.15s; }
+.course-catalog-link:hover .arrow { transform: translateX(3px); }
 
-/* ------------------------------------------------------------------
-   Careers
-   ------------------------------------------------------------------ */
+/* =========================================================
+   Careers (3 cards, lead with salary)
+   ========================================================= */
 #careers { background: var(--ivory); }
-.careers-grid {
+.career-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
-  border: 1px solid var(--sand-deep);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
 }
-@media (max-width: 780px) { .careers-grid { grid-template-columns: 1fr; } }
-.career {
-  padding: 2rem;
-  border-right: 1px solid var(--sand-deep);
-  border-bottom: 1px solid var(--sand-deep);
+@media (max-width: 900px) { .career-grid { grid-template-columns: 1fr; } }
+.career-card {
   background: var(--white);
+  border: 1px solid var(--sand-deep);
+  padding: 1.75rem;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-.career:nth-child(2n) { border-right: none; }
-.career:nth-last-child(-n+2) { border-bottom: none; }
-@media (max-width: 780px) {
-  .career { border-right: none; }
-  .career:not(:last-child) { border-bottom: 1px solid var(--sand-deep); }
-}
-.career .role {
+.career-card .salary {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--monarch);
-  letter-spacing: -0.01em;
-}
-.career .salary {
-  font-family: var(--mono);
-  font-size: 1.35rem;
+  font-size: 2rem;
   color: var(--hudson-deep);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-.career .salary .note { font-size: 0.7rem; color: var(--silver); font-weight: 400; letter-spacing: 0.04em; }
-.career .desc { color: var(--charcoal-mid); font-size: 0.9rem; line-height: 1.5; }
-
-.career-source { font-size: 0.78rem; color: var(--silver); margin-top: 1.25rem; }
-
-/* ------------------------------------------------------------------
-   Experiential Learning
-   ------------------------------------------------------------------ */
-#experience {
-  background: var(--monarch);
-  color: var(--sand);
-  position: relative;
-  overflow: hidden;
-}
-#experience::before {
-  content: "";
-  position: absolute;
-  bottom: -80px;
-  left: -50px;
-  width: 300px;
-  height: 300px;
-  background: var(--hudson);
-  opacity: 0.08;
-  border-radius: 50%;
-}
-#experience h2 { color: var(--sand); }
-#experience .eyebrow { color: var(--sand); }
-#experience .eyebrow::before { background: var(--sand); }
-#experience .section-head p { color: rgba(244, 237, 221, 0.75); }
-
-.experience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-@media (max-width: 900px) { .experience-grid { grid-template-columns: 1fr; } }
-.exp-card {
-  background: rgba(244, 237, 221, 0.05);
-  border: 1px solid rgba(244, 237, 221, 0.2);
-  padding: 2rem;
-  border-radius: 2px;
-  backdrop-filter: blur(6px);
-}
-.exp-card .num-hours {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 3rem;
-  color: var(--sand);
   line-height: 1;
   letter-spacing: -0.03em;
 }
-.exp-card .num-hours span { font-size: 1.1rem; letter-spacing: 0.05em; font-weight: 500; color: rgba(244, 237, 221, 0.6); text-transform: uppercase; margin-left: 0.4rem; }
-.exp-card h4 { color: var(--sand); font-size: 1.2rem; margin: 1.25rem 0 0.75rem; font-weight: 600; }
-.exp-card p { color: rgba(244, 237, 221, 0.8); font-size: 0.92rem; margin: 0; line-height: 1.55; }
-.exp-card .code {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.3rem 0.6rem;
-  background: rgba(244, 237, 221, 0.1);
-  border: 1px solid rgba(244, 237, 221, 0.25);
+.career-card .salary-note {
   font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--sand);
-  letter-spacing: 0.06em;
-  border-radius: 2px;
+  font-size: 0.68rem;
+  color: var(--silver);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.career-card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.5rem;
+  color: var(--monarch);
+  letter-spacing: -0.01em;
+}
+.career-card p {
+  font-size: 0.88rem;
+  color: var(--charcoal-mid);
+  line-height: 1.55;
+  margin: 0;
+}
+.career-source {
+  font-size: 0.78rem;
+  color: var(--silver);
+  margin: 1.5rem 0 0;
+  max-width: 68ch;
 }
 
-/* ------------------------------------------------------------------
-   What's Changing — the faculty-focused diff view
-   ------------------------------------------------------------------ */
-#changes { background: var(--sand); }
-#changes .section-head { max-width: 68ch; }
-.diff-note {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  padding: 0.3rem 0.6rem;
-  background: var(--monarch);
-  color: var(--sand);
-  display: inline-block;
-  letter-spacing: 0.1em;
-  border-radius: 2px;
-  margin-bottom: 1rem;
-}
-.diff {
+/* =========================================================
+   Requirements / Transfer (combined block)
+   ========================================================= */
+#requirements { background: var(--sand); }
+.req-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border: 1px solid var(--sand-deep);
-  background: var(--white);
-  margin-bottom: 3rem;
+  gap: 1.25rem;
 }
-@media (max-width: 780px) { .diff { grid-template-columns: 1fr; } }
-.diff-col { padding: 0; }
-.diff-col-head {
-  padding: 1rem 1.5rem;
+@media (max-width: 780px) { .req-grid { grid-template-columns: 1fr; } }
+.req-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 2px;
+  border-left: 3px solid var(--monarch);
+}
+.req-card h3 { font-size: 1.2rem; margin: 0 0 0.75rem; }
+.req-card p { color: var(--charcoal-mid); font-size: 0.95rem; margin: 0 0 1rem; line-height: 1.6; }
+.req-card a {
   font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--hudson-deep);
+  text-decoration: none;
   font-weight: 500;
 }
-.diff-col.before .diff-col-head { background: #F0EAD8; color: var(--charcoal-mid); border-right: 1px solid var(--sand-deep); }
-.diff-col.after  .diff-col-head { background: var(--monarch); color: var(--sand); }
+.req-card a:hover { color: var(--monarch); }
 
-.diff-row {
-  display: contents;
+/* =========================================================
+   Cost
+   ========================================================= */
+#cost { background: var(--ivory); }
+.cost-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: start;
 }
-.diff-cell {
-  padding: 1.15rem 1.5rem;
-  border-top: 1px solid var(--sand-deep);
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-.diff-cell.before { color: var(--charcoal-mid); border-right: 1px solid var(--sand-deep); background: #FBF8EE; }
-.diff-cell.after { color: var(--charcoal); background: var(--white); }
-.diff-cell strong { color: var(--monarch); font-weight: 600; display: block; margin-bottom: 0.25rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--mono); }
-.diff-cell.after strong { color: var(--hudson-deep); }
-
-.change-callout {
+@media (max-width: 900px) { .cost-layout { grid-template-columns: 1fr; } }
+.cost-table {
   background: var(--white);
-  border-left: 4px solid var(--teal);
-  padding: 1.5rem 1.75rem;
-  font-size: 0.95rem;
-  color: var(--charcoal-mid);
-  line-height: 1.6;
+  border: 1px solid var(--sand-deep);
+  border-radius: 2px;
+  overflow: hidden;
 }
-.change-callout strong { color: var(--monarch); }
+.cost-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--sand-deep);
+  align-items: baseline;
+  gap: 1rem;
+}
+.cost-row:last-child { border-bottom: none; }
+.cost-row .cat {
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  font-weight: 500;
+}
+.cost-row .cat small {
+  display: block;
+  color: var(--silver);
+  font-size: 0.78rem;
+  font-weight: 400;
+  margin-top: 0.15rem;
+}
+.cost-row .rate {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--monarch);
+  font-weight: 600;
+}
+.cost-row .rate small {
+  font-size: 0.72rem;
+  color: var(--silver);
+  font-weight: 400;
+  margin-left: 0.35rem;
+}
+.cost-note { font-size: 0.78rem; color: var(--silver); margin: 1rem 0 0; }
 
-/* ------------------------------------------------------------------
-   Next Steps
-   ------------------------------------------------------------------ */
-#next {
-  background: var(--ivory);
+.save-card {
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 2rem;
+  border-radius: 2px;
 }
+.save-card h3 { color: var(--sand); font-size: 1.15rem; margin: 0 0 1.25rem; }
+.save-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(244, 237, 221, 0.15);
+}
+.save-item:last-of-type { border-bottom: none; }
+.save-item h4 {
+  color: var(--sand);
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0;
+}
+.save-item p { color: rgba(244, 237, 221, 0.8); font-size: 0.82rem; margin: 0; line-height: 1.5; }
+.save-card .cost-est-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  color: var(--hudson);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+}
+.save-card .cost-est-link:hover { color: var(--sand); }
+
+/* =========================================================
+   Next steps (4 numbered CTAs)
+   ========================================================= */
+#next { background: var(--sand); }
 .next-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -772,7 +877,7 @@ section { padding: var(--rhythm) 0; }
 @media (max-width: 500px) { .next-grid { grid-template-columns: 1fr; } }
 .next-card {
   display: block;
-  padding: 2rem 1.75rem;
+  padding: 1.75rem 1.5rem;
   background: var(--white);
   border: 1px solid var(--sand-deep);
   text-decoration: none;
@@ -789,36 +894,36 @@ section { padding: var(--rhythm) 0; }
 }
 .next-card .step {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.14em;
   color: var(--silver);
   text-transform: uppercase;
 }
 .next-card:hover .step { color: rgba(244, 237, 221, 0.7); }
-.next-card h4 { font-size: 1.15rem; margin: 0.5rem 0 0.5rem; color: inherit; }
+.next-card h4 { font-size: 1.05rem; margin: 0.4rem 0 0.4rem; color: inherit; }
 .next-card:hover h4 { color: var(--sand); }
-.next-card p { font-size: 0.85rem; color: var(--charcoal-mid); margin: 0; }
+.next-card p { font-size: 0.82rem; color: var(--charcoal-mid); margin: 0; }
 .next-card:hover p { color: rgba(244, 237, 221, 0.85); }
 .next-card .arrow {
   position: absolute;
-  bottom: 1.25rem;
+  bottom: 1rem;
   right: 1.25rem;
   font-family: var(--mono);
   transition: transform 0.2s ease;
 }
 .next-card:hover .arrow { transform: translateX(4px); }
 
-/* ------------------------------------------------------------------
+/* =========================================================
    Contact
-   ------------------------------------------------------------------ */
-#contact { background: var(--sand); }
-.contact-grid {
+   ========================================================= */
+#contact { background: var(--ivory); }
+.contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   align-items: start;
 }
-@media (max-width: 780px) { .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
 .contact-card {
   background: var(--white);
   padding: 2rem;
@@ -832,66 +937,131 @@ section { padding: var(--rhythm) 0; }
   text-transform: uppercase;
   color: var(--silver);
 }
-.contact-card h4 { font-size: 1.4rem; margin: 0.4rem 0 0.75rem; }
-.contact-card .position { color: var(--charcoal-mid); margin-bottom: 1rem; font-size: 0.95rem; }
-.contact-card .contact-line { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; font-size: 0.92rem; color: var(--charcoal); }
-.contact-card .contact-line svg { width: 16px; height: 16px; fill: var(--hudson-deep); flex-shrink: 0; }
-.contact-card address { font-style: normal; color: var(--charcoal-mid); font-size: 0.88rem; line-height: 1.5; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--sand-deep); }
+.contact-card h4 { font-size: 1.35rem; margin: 0.4rem 0 0.4rem; }
+.contact-card .position { color: var(--charcoal-mid); margin-bottom: 1rem; font-size: 0.9rem; }
+.contact-card .contact-line {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+}
+.contact-card .contact-line svg { width: 15px; height: 15px; fill: var(--hudson-deep); flex-shrink: 0; }
+.contact-card address {
+  font-style: normal;
+  color: var(--charcoal-mid);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-top: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--sand-deep);
+}
+.admissions-card {
+  background: var(--white);
+  padding: 1.5rem 1.75rem;
+  border-radius: 2px;
+  border: 1px solid var(--sand-deep);
+  font-size: 0.85rem;
+}
+.admissions-card h5 {
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin: 0 0 0.75rem;
+  font-weight: 500;
+}
+.admissions-card h4 { font-size: 0.98rem; margin: 1.25rem 0 0.35rem; color: var(--monarch); }
+.admissions-card h4:first-of-type { margin-top: 0; }
+.admissions-card p { margin: 0.2rem 0; color: var(--charcoal-mid); line-height: 1.5; }
+.admissions-card a { color: var(--hudson-deep); text-decoration: none; }
+.admissions-card a:hover { text-decoration: underline; }
 
-/* ------------------------------------------------------------------
+/* =========================================================
+   Related programs strip
+   ========================================================= */
+.related-strip {
+  background: var(--sand);
+  padding: 3rem 0;
+  border-top: 1px solid var(--sand-deep);
+}
+.related-strip h3 {
+  font-size: 0.78rem;
+  font-family: var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal-mid);
+  margin: 0 0 1.25rem;
+  font-weight: 500;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem 1.25rem;
+}
+@media (max-width: 780px) { .related-grid { grid-template-columns: 1fr; } }
+.related-grid a {
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--sand-deep);
+  color: var(--monarch);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: color 0.15s;
+}
+.related-grid a:hover { color: var(--hudson-deep); }
+.related-grid a::after {
+  content: "→";
+  color: var(--silver-soft);
+  font-family: var(--mono);
+  transition: color 0.15s, transform 0.15s;
+}
+.related-grid a:hover::after { color: var(--hudson-deep); transform: translateX(3px); }
+
+/* =========================================================
    Footer
-   ------------------------------------------------------------------ */
+   ========================================================= */
 footer {
   background: var(--monarch);
   color: var(--sand);
-  padding: 3.5rem 0 2rem;
-  font-size: 0.88rem;
+  padding: 3rem 0 1.5rem;
+  font-size: 0.85rem;
 }
 footer a { color: var(--sand); opacity: 0.85; text-decoration: none; }
 footer a:hover { opacity: 1; text-decoration: underline; }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 2rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid rgba(244, 237, 221, 0.15);
 }
 @media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-.footer-brand { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem; }
+.footer-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
 .footer-brand .brand-crown { background: var(--sand); color: var(--monarch); }
 footer h5 {
   font-family: var(--display);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
   color: var(--sand);
 }
-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.45rem; }
 .footer-meta {
-  padding-top: 1.5rem;
+  padding-top: 1.25rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   opacity: 0.7;
 }
-
-/* ------------------------------------------------------------------
-   Redesign banner (only shown to faculty reviewing GH Pages copy)
-   ------------------------------------------------------------------ */
-.redesign-banner {
-  background: var(--teal);
-  color: var(--white);
-  padding: 0.6rem 0;
-  font-size: 0.8rem;
-  text-align: center;
-  letter-spacing: 0.02em;
-}
-.redesign-banner strong { font-weight: 600; letter-spacing: 0.05em; }
-.redesign-banner a { color: var(--white); text-decoration: underline; margin-left: 0.5rem; }
 
 /* Skip link */
 .skip-link {
@@ -910,13 +1080,31 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- Redesign banner - specifically for the faculty GH Pages review -->
-<div class="redesign-banner">
-  <strong>REDESIGN PREVIEW</strong> — Prepared for Fall 2026 IT&DS Faculty Meeting.
-  <a href="#changes">See what's changing →</a>
+<!-- ============================================================
+     REVIEW TOOLBAR — the tracked-changes control
+     ============================================================ -->
+<div class="review-toolbar" role="region" aria-label="Redesign review controls">
+  <div class="container">
+    <span class="rt-label">Redesign Preview</span>
+    <div class="rt-mid">
+      <div class="rt-legend" aria-hidden="true">
+        <span class="swatch add">Added</span>
+        <span class="swatch mod">Modified</span>
+        <span class="swatch mov">Moved</span>
+        <span class="swatch del">Removed</span>
+      </div>
+      <span class="rt-count" id="rt-count"></span>
+    </div>
+    <button class="rt-toggle" id="rt-toggle" type="button" aria-pressed="false">
+      <span class="rt-switch" aria-hidden="true"></span>
+      <span id="rt-toggle-label">Show tracked changes</span>
+    </button>
+  </div>
 </div>
 
-<!-- Utility ribbon -->
+<!-- ============================================================
+     ODU utility ribbon
+     ============================================================ -->
 <div class="top-ribbon">
   <div class="container">
     <nav class="util">
@@ -925,500 +1113,475 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
       <a href="https://give.odu.edu/">Give</a>
       <a href="https://my.odu.edu">myODU</a>
     </nav>
-    <div>Strome College of Business · Department of IT & Decision Sciences</div>
+    <div>Strome College of Business · Department of IT &amp; Decision Sciences</div>
   </div>
 </div>
 
-<!-- Header -->
-<header class="site-header">
-  <div class="container">
-    <a class="brand" href="https://www.odu.edu">
-      <div class="brand-crown" aria-hidden="true">O</div>
-      <div class="brand-txt">
-        <strong>Old Dominion University</strong>
-        <span>Strome College of Business</span>
-      </div>
-    </a>
-    <nav class="nav-primary" aria-label="Primary">
-      <a href="#curriculum">Curriculum</a>
-      <a href="#courses">Courses</a>
-      <a href="#careers">Careers</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-      <a class="btn" href="https://monarch.odu.edu/app">Apply</a>
-    </nav>
+<!-- ============================================================
+     Header (MOVED: anchor nav is now sticky here, was inline below the H1)
+     ============================================================ -->
+<div class="tc tc-mov">
+  <span class="tc-flag">Moved</span>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="https://www.odu.edu">
+        <div class="brand-crown" aria-hidden="true">O</div>
+        <div class="brand-txt">
+          <strong>Old Dominion University</strong>
+          <span>Strome College of Business</span>
+        </div>
+      </a>
+      <nav class="nav-primary" aria-label="Primary">
+        <a href="#highlights">Highlights</a>
+        <a href="#courses">Courses</a>
+        <a href="#careers">Careers</a>
+        <a href="#cost">Cost</a>
+        <a href="#next">Next Steps</a>
+        <a href="#contact">Contact</a>
+        <a class="btn-nav" href="https://monarch.odu.edu/app">Apply</a>
+      </nav>
+    </div>
+  </header>
+  <div class="tc-note">
+    <strong>Moved.</strong> The anchor-link navigation was previously a row of pills below the page title. It's now a persistent sticky header, so students can jump between sections without scrolling back to the top.
   </div>
-</header>
+</div>
 
 <main id="main">
 
-  <!-- ======================================================
+  <!-- ============================================================
+       Breadcrumb (unchanged)
+       ============================================================ -->
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="https://www.odu.edu/">Home</a></li>
+        <li><a href="https://www.odu.edu/academics">Academics</a></li>
+        <li><a href="https://www.odu.edu/academics/programs">Programs</a></li>
+        <li>Business Analytics &amp; Intelligence</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- ============================================================
        HERO
-       ====================================================== -->
+       - Title: unchanged
+       - About paragraph: modified for scannability
+       - At-a-Glance card: moved from below into the hero
+       ============================================================ -->
   <section class="hero">
     <div class="container">
-      <div class="hero-grid">
+      <div class="hero-inner">
         <div>
-          <div class="hero-badges">
-            <span class="badge filled">B.S.B.A.</span>
-            <span class="badge">STEM Designated</span>
-            <span class="badge teal">120 Credit Hours</span>
+          <p class="eyebrow">Bachelor of Science in Business Administration</p>
+          <h1>Business Analytics &amp; Intelligence <span style="display:block; font-size: 0.55em; color: var(--silver); font-weight: 400; margin-top: 0.5rem; letter-spacing: -0.01em;">Information Systems and Technology, B.S.B.A.</span></h1>
+
+          <!-- The "About this Program" prose. The original was one long paragraph;
+               here it's split into a lede + supporting detail, and the middle
+               sentence was tightened. Marked as MODIFIED (copy polish + structure). -->
+          <div class="tc tc-mod">
+            <span class="tc-flag">Modified</span>
+            <p class="hero-about">
+              <ins class="tc-ins-inline">Old Dominion University offers a Bachelor of Science in Business Administration in Information Systems and Technology with a major in Business Analytics &amp; Intelligence. Students learn to develop decision models and use computers to manipulate and analyze data — enhancing decision-making in a business environment.</ins>
+              <del class="tc-del-inline">Old Dominion University offers a Bachelor of Science in Business Administration degree in information systems and technology with a major in business analytics and intelligence. The major in Business Analytics and Intelligence enables students to properly develop decision models and use computers to manipulate and analyze data in order to enhance decision making in a business environment.</del>
+            </p>
+            <p class="hero-about">
+              <ins class="tc-ins-inline">Graduates work at the intersection of business analytics — where organizations turn data into actionable insight — and information systems — where the platforms that collect and analyze that data are designed and built.</ins>
+              <del class="tc-del-inline">They act at the intersection of business analytics, where organizations turn data into valuable and actionable insights, and information systems, designing and implementing the IT systems necessary to collect and analyze data.</del>
+            </p>
+            <div class="tc-note">
+              <strong>Modified.</strong> The original "About this Program" was a single dense paragraph. It's now two shorter paragraphs — a lede and supporting sentence — with light editorial tightening. No new claims; every fact preserved.
+            </div>
           </div>
-          <p class="eyebrow">A new major from Strome College of Business</p>
-          <h1>Business Analytics <span class="amp">&amp;</span> Artificial Intelligence</h1>
-          <p class="hero-lede">
-            Learn to build the models, write the code, and ask the questions
-            that turn organizational data into the decisions that move markets,
-            supply chains, and communities.
-          </p>
+
           <div class="hero-cta">
             <a href="https://www.odu.edu/admission/request-info" class="btn btn-primary">
               Request Info <span class="arrow">→</span>
             </a>
-            <a href="#curriculum" class="btn btn-ghost">
-              Explore the Curriculum
+            <a href="https://monarch.odu.edu/app" class="btn btn-ghost">
+              Apply
             </a>
           </div>
         </div>
 
-        <aside class="hero-side" aria-label="What our graduates do">
-          <p class="eyebrow">Our graduates</p>
-          <h3>Do the work that leaders act on.</h3>
-          <ul class="doer-list">
-            <li>
-              <span class="verb">Build</span>
-              <span class="desc">Predictive models in Python that forecast demand, risk, and customer churn.</span>
-            </li>
-            <li>
-              <span class="verb">Ship</span>
-              <span class="desc">Interactive dashboards executives use in daily standups.</span>
-            </li>
-            <li>
-              <span class="verb">Automate</span>
-              <span class="desc">Data pipelines that turn raw operations logs into board-ready KPIs.</span>
-            </li>
-            <li>
-              <span class="verb">Deploy</span>
-              <span class="desc">Machine-learning classifiers that route service requests in real time.</span>
-            </li>
-          </ul>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================
-       STATS STRIP
-       ====================================================== -->
-  <section class="stats" aria-label="Program at a glance" style="padding-top:2.5rem; padding-bottom:2.5rem;">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat">
-          <span class="num">120</span>
-          <span class="label">Total credit hours to graduation</span>
-        </div>
-        <div class="stat">
-          <span class="num">260</span>
-          <span class="label">Required hours of experiential learning</span>
-        </div>
-        <div class="stat">
-          <span class="num">$108K</span>
-          <span class="label">Median salary — Business Intelligence Analyst</span>
-        </div>
-        <div class="stat">
-          <span class="num">STEM</span>
-          <span class="label">Designated program eligible for OPT extension</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================
-       CURRICULUM — the signature 5-pillar journey
-       ====================================================== -->
-  <section id="curriculum">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">The Curriculum</p>
-        <h2>Five phases. One arc from business foundations to real-world impact.</h2>
-        <p>
-          Every course sits on a deliberate path. Click a phase to see the
-          courses that live there and how they connect to the phase before and after.
-        </p>
-      </div>
-
-      <div class="journey">
-        <div class="journey-track" role="tablist" aria-label="Curriculum phases">
-          <button class="journey-node active" data-phase="1" role="tab" aria-selected="true" aria-controls="phase-panel">
-            <span class="dot">01</span>
-            <span class="lbl">Business<br>Foundations</span>
-            <span class="cr">18 SCH</span>
-          </button>
-          <button class="journey-node" data-phase="2" role="tab" aria-selected="false" aria-controls="phase-panel">
-            <span class="dot">02</span>
-            <span class="lbl">Business<br>Core</span>
-            <span class="cr">28 SCH</span>
-          </button>
-          <button class="journey-node" data-phase="3" role="tab" aria-selected="false" aria-controls="phase-panel">
-            <span class="dot">03</span>
-            <span class="lbl">Programming<br>&amp; Data</span>
-            <span class="cr">21 SCH</span>
-          </button>
-          <button class="journey-node" data-phase="4" role="tab" aria-selected="false" aria-controls="phase-panel">
-            <span class="dot">04</span>
-            <span class="lbl">Analytics<br>&amp; AI</span>
-            <span class="cr">21 SCH</span>
-          </button>
-          <button class="journey-node" data-phase="5" role="tab" aria-selected="false" aria-controls="phase-panel">
-            <span class="dot">05</span>
-            <span class="lbl">Experiential<br>Learning</span>
-            <span class="cr">Required</span>
-          </button>
-        </div>
-
-        <div class="journey-panel" id="phase-panel" role="tabpanel">
-          <div class="journey-panel-inner">
-            <aside class="panel-side">
-              <span class="kicker">Phase <span id="ph-num">01</span></span>
-              <h4 id="ph-title">Business Foundations</h4>
-              <span class="kicker" id="ph-sub" style="color: var(--monarch); font-family: var(--body); text-transform: none; letter-spacing: 0; font-size: 0.9rem; font-weight: 500;">Build business knowledge.</span>
-              <span class="credits" id="ph-credits">18 SEMESTER CREDIT HOURS</span>
-            </aside>
-            <div class="panel-main">
-              <p class="summary" id="ph-summary">
-                Students build the financial, economic, and quantitative literacy
-                every business decision rests on — the shared language they'll use
-                for the rest of the program and their careers.
-              </p>
-              <div class="course-grid" id="ph-courses">
-                <!-- injected by JS -->
-              </div>
-            </div>
+        <!-- At-a-Glance card — MOVED from below "Program Highlights" into the hero,
+             where students can see program metadata at a glance. -->
+        <div class="tc tc-mov">
+          <span class="tc-flag">Moved</span>
+          <aside class="glance-card" aria-label="At a glance">
+            <h3>At a Glance</h3>
+            <ul class="glance-list">
+              <li><span class="k">College</span><span class="v">Strome College of Business</span></li>
+              <li><span class="k">Department</span><span class="v">IT &amp; Decision Sciences</span></li>
+              <li><span class="k">Degree level</span><span class="v">Undergraduate</span></li>
+              <li><span class="k">Degree earned</span><span class="v">B.S.B.A.</span></li>
+              <li><span class="k">Concentration</span><span class="v">Business Analytics &amp; Intelligence</span></li>
+              <li><span class="k">Delivery mode</span><span class="v">On-campus</span></li>
+            </ul>
+          </aside>
+          <div class="tc-note">
+            <strong>Moved.</strong> "At a Glance" was previously a secondary sidebar rendered below the Program Highlights. It's now anchored in the hero — the fastest place for students to confirm degree level, department, and delivery mode.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======================================================
+  <!-- ============================================================
+       PROGRAM HIGHLIGHTS
+       - Same four highlights, verbatim content
+       - Modified layout: was a bulleted list, now a 2×2 card grid
+       ============================================================ -->
+  <section id="highlights">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why this program</p>
+        <h2>Program Highlights</h2>
+      </div>
+
+      <div class="tc tc-mod">
+        <span class="tc-flag">Modified</span>
+        <div class="highlight-grid">
+          <div class="highlight">
+            <span class="num">01</span>
+            <p>Fully integrated business degree that combines advanced data and quantitative analysis with best practices in information systems development and management.</p>
+          </div>
+          <div class="highlight">
+            <span class="num">02</span>
+            <p>Gain proficiency in manipulating large datasets, applying statistical and machine learning techniques to solve real-world business problems using Excel, R, and Tableau.</p>
+          </div>
+          <div class="highlight">
+            <span class="num">03</span>
+            <p>Learn to develop and implement information systems that enable efficient data collection, processing, and analysis across organizational functions.</p>
+          </div>
+          <div class="highlight">
+            <span class="num">04</span>
+            <p>Taught by faculty recognized nationally and internationally for their cutting-edge research, grant-funded projects, and ground-breaking insights.</p>
+          </div>
+        </div>
+        <div class="tc-note">
+          <strong>Modified.</strong> The four highlights are word-for-word the same as the current site. What changed is the presentation: a plain bulleted list becomes a 2×2 card grid with numeric anchors, making each point scannable rather than blending into a wall of bullets.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        FEATURED COURSES
-       ====================================================== -->
+       - Same three courses: BNAL 403, IT 363, IT 410
+       - Same course descriptions
+       - Modified: card presentation with clearer code + hierarchy
+       ============================================================ -->
   <section id="courses">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Featured Courses</p>
-        <h2>The classes that make this program different.</h2>
-        <p>
-          These three courses replace the older business-intelligence-only track and
-          are the reason this degree can be called "&amp; AI."
-        </p>
+        <h2>Three courses that anchor the major.</h2>
+        <p>Every course is taught in the ODU business school and mapped to a specific analytics skill. Full sequences and prerequisites are in the university catalog.</p>
       </div>
-      <div class="feature-courses">
-        <article class="feat-course ai">
-          <span class="code">BUAN 3301</span>
-          <h4>AI in Business</h4>
-          <p>
-            A ground-up view of how artificial intelligence is reshaping every business
-            function — sales forecasting, hiring, service, operations — and where it
-            still gets things wrong. Students build with LLM tools and evaluate the ethical
-            trade-offs of every model they deploy.
-          </p>
-          <div class="tools">
-            <span class="tool-tag">LLMs</span>
-            <span class="tool-tag">Prompt Design</span>
-            <span class="tool-tag">Case Studies</span>
-          </div>
-        </article>
 
-        <article class="feat-course python">
-          <span class="code">BUAN 4381</span>
-          <h4>Python Programming</h4>
-          <p>
-            A dedicated Python course — not a chapter inside a "tools" survey. Students
-            move from scripting basics to writing the pandas, NumPy, and scikit-learn code
-            they will use in every downstream course and every internship in the field.
-          </p>
-          <div class="tools">
-            <span class="tool-tag">Python</span>
-            <span class="tool-tag">pandas</span>
-            <span class="tool-tag">scikit-learn</span>
-          </div>
-        </article>
+      <div class="tc tc-mod">
+        <span class="tc-flag">Modified</span>
+        <div class="course-grid">
+          <article class="course-card">
+            <span class="code">BNAL 403</span>
+            <h4>Data Visualization and Exploration</h4>
+            <p>An applied treatment of how to translate raw datasets into visual explanations that support business decisions.</p>
+            <p class="full-desc">This course is part of the Day One Access program; you should not purchase any course materials denoted by the Day One Access logo as they are part of your course registration.</p>
+          </article>
 
-        <article class="feat-course">
-          <span class="code">BUAN 4383</span>
-          <h4>Machine Learning for Business Analytics</h4>
-          <p>
-            Regression, classification, clustering, and neural networks — taught with
-            business-first framing. Every model students train is scored against a business
-            outcome (revenue lift, retention, cost avoided), not just accuracy.
-          </p>
-          <div class="tools">
-            <span class="tool-tag">scikit-learn</span>
-            <span class="tool-tag">TensorFlow</span>
-            <span class="tool-tag">MLflow</span>
-          </div>
-        </article>
+          <article class="course-card">
+            <span class="code">IT 363</span>
+            <h4>Systems Analysis and Design</h4>
+            <p>An introduction to the analysis and design of computer-based information systems. Emphasis is placed upon developing requirements that serve the business needs of the organization, and on the logical and physical design of business information systems.</p>
+            <p class="full-desc">Covers structured and object-oriented approaches to system analysis and design, including software development methodologies, requirement gathering, modeling, and design techniques. Prerequisites: IT 201, IT 205, and declared major in Strome College of Business.</p>
+          </article>
+
+          <article class="course-card">
+            <span class="code">IT 410</span>
+            <h4>Business Intelligence</h4>
+            <p>Business intelligence, data warehouse, data mining, and OLAP. Uses state-of-the-art business intelligence software tools, including SAS products, to provide hands-on experience designing and using data warehouses.</p>
+            <p class="full-desc">Prerequisite: BNAL 206.</p>
+          </article>
+        </div>
+        <div class="tc-note">
+          <strong>Modified.</strong> Same three featured courses (BNAL 403, IT 363, IT 410) with the same descriptions from the university catalog — no course content added, removed, or replaced. Presentation changed from stacked accordion-style disclosures to a three-column card layout where the course code, title, summary, and prerequisites are visible without a click.
+        </div>
       </div>
+
+      <a href="https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-business-analytics-and-intelligence-bsba/" class="course-catalog-link">
+        View full course catalog <span class="arrow">→</span>
+      </a>
     </div>
   </section>
 
-  <!-- ======================================================
+  <!-- ============================================================
        CAREERS
-       ====================================================== -->
+       - Same three careers with same salary data & descriptions
+       - Modified: lead with salary number, better hierarchy
+       ============================================================ -->
   <section id="careers">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Where you'll go</p>
-        <h2>A degree the market is already asking for.</h2>
-        <p>
-          Median salaries below reflect national midpoints — half of surveyed workers earn above,
-          half earn below. Roles marked with a green tag are new since the last curriculum revision.
-        </p>
+        <h2>Careers our graduates enter.</h2>
+        <p>Median salaries reflect national midpoints — half of surveyed workers earn above, half below. Data from the Occupational Information Network (O*NET) and ODU's Center for Career &amp; Leadership Development.</p>
       </div>
 
-      <div class="careers-grid">
-        <div class="career">
-          <span class="salary">$108,020 <span class="note">MEDIAN</span></span>
-          <h3 class="role">Business Intelligence Analyst</h3>
-          <p class="desc">
-            Produce financial and market intelligence by querying data repositories and generating
-            periodic reports. Devise methods for identifying data patterns and trends.
-          </p>
+      <div class="tc tc-mod">
+        <span class="tc-flag">Modified</span>
+        <div class="career-grid">
+          <div class="career-card">
+            <span class="salary">$108,020</span>
+            <span class="salary-note">Median salary</span>
+            <h3>Business Intelligence Analysts</h3>
+            <p>Produce financial and market intelligence by querying data repositories and generating periodic reports. Devise methods for identifying data patterns and trends in available information sources.</p>
+          </div>
+          <div class="career-card">
+            <span class="salary">$76,950</span>
+            <span class="salary-note">Median salary</span>
+            <h3>Market Research Analysts and Marketing Specialists</h3>
+            <p>Research market conditions in local, regional, or national areas, or gather information to determine potential sales of a product or service, or create a marketing campaign. May gather information on competitors, prices, sales, and methods of marketing and distribution.</p>
+          </div>
+          <div class="career-card">
+            <span class="salary">$108,970</span>
+            <span class="salary-note">Median salary</span>
+            <h3>Information Technology Project Managers</h3>
+            <p>Plan, initiate, and manage information technology projects. Lead and guide the work of technical staff. Serve as liaison between business and technical aspects of projects. Plan project stages and assess business implications for each stage. Monitor progress to assure deadlines, standards, and cost targets are met.</p>
+          </div>
         </div>
-        <div class="career">
-          <span class="salary">$108,020 <span class="note">MEDIAN</span></span>
-          <h3 class="role">Data Scientist <span class="badge new-tag" style="font-size: 0.6rem; padding: 0.15rem 0.5rem; vertical-align: middle;">NEW</span></h3>
-          <p class="desc">
-            Develop and implement analytical models to identify data patterns. Apply statistical
-            and machine-learning methods to inform business strategy and product decisions.
-          </p>
-        </div>
-        <div class="career">
-          <span class="salary">$108,970 <span class="note">MEDIAN</span></span>
-          <h3 class="role">IT Project Manager</h3>
-          <p class="desc">
-            Plan, initiate, and manage information technology projects. Lead technical teams and
-            serve as liaison between business and technical aspects of projects.
-          </p>
-        </div>
-        <div class="career">
-          <span class="salary">$103,500 <span class="note">MEDIAN</span></span>
-          <h3 class="role">Operations Research Analyst <span class="badge new-tag" style="font-size: 0.6rem; padding: 0.15rem 0.5rem; vertical-align: middle;">NEW</span></h3>
-          <p class="desc">
-            Formulate and apply mathematical modeling to identify optimal solutions to complex
-            operations problems — pricing, routing, staffing, and supply chain design.
-          </p>
+        <div class="tc-note">
+          <strong>Modified.</strong> Same three careers with identical O*NET descriptions and identical median salary figures. Presentation reordered so the salary — the number a prospective student scans for — sits at the top of each card, with role title and description supporting it.
         </div>
       </div>
-      <p class="career-source">
-        Median salaries from the Occupational Information Network (O*NET) and U.S. Bureau of Labor
-        Statistics. New roles reflect emerging positions our curriculum now maps to directly.
-      </p>
+
+      <p class="career-source">Learn more from <a href="https://www.odu.edu/career-leadership">ODU's Center for Career &amp; Leadership Development</a> and <a href="https://www.onetonline.org">O*NET</a>.</p>
     </div>
   </section>
 
-  <!-- ======================================================
-       EXPERIENTIAL LEARNING
-       ====================================================== -->
-  <section id="experience">
+  <!-- ============================================================
+       REQUIREMENTS + TRANSFER (side-by-side cards)
+       - Same content, combined visually
+       ============================================================ -->
+  <section id="requirements">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Beyond the classroom</p>
-        <h2>Every graduate leaves with 260+ hours of documented, real-world work.</h2>
-        <p>
-          The three components below are not optional add-ons or honors tracks —
-          they are graduation requirements for every student in the major.
-        </p>
+        <p class="eyebrow">Getting in</p>
+        <h2>Requirements &amp; Transfer</h2>
       </div>
 
-      <div class="experience-grid">
-        <article class="exp-card">
-          <span class="num-hours">160<span>hrs</span></span>
-          <h4>Analytics Internship</h4>
-          <p>
-            A supervised placement with a Hampton Roads or regional employer, structured
-            around a defined analytics deliverable — a dashboard, a model, a report the
-            organization actually uses after the student leaves.
-          </p>
-          <span class="code">BUAN 4090</span>
-        </article>
-
-        <article class="exp-card">
-          <span class="num-hours">100<span>hrs</span></span>
-          <h4>Community Engagement</h4>
-          <p>
-            A social-sector engagement practicum. Students apply their analytics
-            skills to nonprofits, city agencies, and small businesses that couldn't
-            otherwise afford data infrastructure.
-          </p>
-          <span class="code">BA 4095</span>
-        </article>
-
-        <article class="exp-card">
-          <span class="num-hours">1<span>capstone</span></span>
-          <h4>Senior Capstone</h4>
-          <p>
-            A full-semester team project defined and evaluated by an industry sponsor.
-            Culminates in a public presentation and a delivered artifact — a model,
-            a dashboard, or a written recommendation.
-          </p>
-          <span class="code">BUAN 4395 / BPS 4395</span>
-        </article>
+      <div class="tc tc-mod">
+        <span class="tc-flag">Modified</span>
+        <div class="req-grid">
+          <div class="req-card">
+            <h3>Admission Requirements</h3>
+            <p>Students entering the Bachelor of Science in Business Administration program in Information Systems &amp; Technology should meet the minimum university admission requirements for undergraduate admission.</p>
+            <a href="https://www.odu.edu/admission/undergraduate">Undergraduate Admission &nbsp;→</a>
+            <br><br>
+            <a href="http://catalog.odu.edu/">Program &amp; Degree Requirements &nbsp;→</a>
+          </div>
+          <div class="req-card">
+            <h3>Transfer Students</h3>
+            <p>At ODU, we understand that as a transfer student you have unique needs that require a wide array of campus resources. The Center for Advising Administration and Academic Partnerships aims to create a transfer-inclusive culture.</p>
+            <a href="https://www.odu.edu/transfer">Transfer Info &nbsp;→</a>
+          </div>
+        </div>
+        <div class="tc-note">
+          <strong>Modified.</strong> Requirements and Transfer were previously two separate stacked prose sections. They're now presented as a two-column card comparison — same content, but a student weighing "how do I get in?" and "what if I'm already at another school?" can see both paths at once.
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ======================================================
-       WHAT'S CHANGING — FACULTY DIFF VIEW
-       ====================================================== -->
-  <section id="changes">
+  <!-- ============================================================
+       COST
+       - Same rate figures as existing site
+       - Modified: clearer table, Ways to Save integrated into a paired card
+       ============================================================ -->
+  <section id="cost">
     <div class="container">
       <div class="section-head">
-        <span class="diff-note">For Faculty Review</span>
-        <p class="eyebrow">What's changing</p>
-        <h2>The current program, side by side with the proposal.</h2>
-        <p>
-          A summary of the substantive shifts from the existing Business Analytics &amp;
-          Intelligence major to the proposed Business Analytics &amp; AI major. Full
-          course-by-course mapping is in the accompanying curriculum packet.
-        </p>
+        <p class="eyebrow">Investment</p>
+        <h2>Cost per credit hour</h2>
+        <p>Estimated rates for the 2025-26 academic year. Rates are subject to change; other fees are assessed for special services and certain academic programs. Non-resident and international students are billed at the non-resident rate.</p>
       </div>
 
-      <div class="diff" role="table" aria-label="Program comparison">
-        <div class="diff-col before"><div class="diff-col-head">Existing (BSBA in IT&amp;T — Business Analytics &amp; Intelligence)</div></div>
-        <div class="diff-col after"><div class="diff-col-head">Proposed (BSBA in Business Analytics &amp; AI)</div></div>
-
-        <div class="diff-row">
-          <div class="diff-cell before"><strong>Program name</strong>Business Analytics &amp; Intelligence — a concentration inside IT&amp;T</div>
-          <div class="diff-cell after"><strong>Program name</strong>Business Analytics &amp; Artificial Intelligence — its own major</div>
+      <div class="cost-layout">
+        <div class="tc tc-mod">
+          <span class="tc-flag">Modified</span>
+          <div class="cost-table">
+            <div class="cost-row">
+              <div class="cat">Active Duty Military <small>Per-credit rate</small></div>
+              <div class="rate">$250<small>/cr</small></div>
+            </div>
+            <div class="cost-row">
+              <div class="cat">Virginia Resident <small>Per-credit rate</small></div>
+              <div class="rate">$268<small>/cr</small></div>
+            </div>
+            <div class="cost-row">
+              <div class="cat">Technology-delivered outside Virginia and the U.S. <small>Per-credit rate</small></div>
+              <div class="rate">$444<small>/cr</small></div>
+            </div>
+            <div class="cost-row">
+              <div class="cat">Non-Resident <small>Per-credit rate</small></div>
+              <div class="rate">$953.50<small>/cr</small></div>
+            </div>
+          </div>
+          <p class="cost-note">Anyone not currently a Virginia resident is charged non-resident rates, including international students.</p>
+          <div class="tc-note">
+            <strong>Modified.</strong> Same four rates and same footnote from the current page. The layout changed from a set of stacked labels to a single clean rate table — easier to compare across student residency categories.
+          </div>
         </div>
 
-        <div class="diff-row">
-          <div class="diff-cell before"><strong>STEM designation</strong>Not currently STEM-designated</div>
-          <div class="diff-cell after"><strong>STEM designation</strong>STEM-designated (CIP 30.71 family); international graduates eligible for 24-month STEM OPT extension</div>
+        <div class="tc tc-mov">
+          <span class="tc-flag">Moved</span>
+          <div class="save-card">
+            <h3>Ways to Save</h3>
+            <div class="save-item">
+              <h4>Scholarships</h4>
+              <p>Tanner Scholars and others available through Strome and the University.</p>
+            </div>
+            <div class="save-item">
+              <h4>Internships</h4>
+              <p>Internships with major employers in the Hampton Roads region are abundant.</p>
+            </div>
+            <a href="https://itsapps.odu.edu/calculator/" class="cost-est-link">
+              Use the cost estimator <span class="arrow">→</span>
+            </a>
+          </div>
+          <div class="tc-note">
+            <strong>Moved.</strong> "Ways to Save" was previously a small blurb tucked at the end of the cost section. It's now a paired card alongside the rate table, so the cost and the ways to reduce it are visible together.
+          </div>
         </div>
-
-        <div class="diff-row">
-          <div class="diff-cell before"><strong>Curriculum structure</strong>Traditional course list within IT&amp;T concentration</div>
-          <div class="diff-cell after"><strong>Curriculum structure</strong>Five-phase model: Foundations → Core → Programming &amp; Data → Analytics &amp; AI → Experiential</div>
-        </div>
-
-        <div class="diff-row">
-          <div class="diff-cell before"><strong>Technical tools taught</strong>Excel, R, Tableau, SAS-based Business Intelligence</div>
-          <div class="diff-cell after"><strong>Technical tools taught</strong>Python (dedicated course), pandas, scikit-learn, TensorFlow, plus SQL, Tableau, and Power BI</div>
-        </div>
-
-        <div class="diff-row">
-          <div class="diff-cell before"><strong>AI &amp; machine learning</strong>No dedicated AI or ML course</div>
-          <div class="diff-cell after"><strong>AI &amp; machine learning</strong>Two new required courses: <em>AI in Business</em> (BUAN 3301) and <em>Machine Learning for Business Analytics</em> (BUAN 4383)</div>
-        </div>
-
-        <div class="diff-row">
-          <div class="diff-cell before"><strong>Experiential learning</strong>Internships available, not universally required</div>
-          <div class="diff-cell after"><strong>Experiential learning</strong>All three required: 160-hour internship, 100-hour community engagement, senior capstone</div>
-        </div>
-
-        <div class="diff-row">
-          <div class="diff-cell before"><strong>Course prefix</strong>BNAL, IT, and mixed prefixes</div>
-          <div class="diff-cell after"><strong>Course prefix</strong>Unified BUAN prefix for analytics and AI coursework</div>
-        </div>
-
-        <div class="diff-row">
-          <div class="diff-cell before"><strong>Total credit hours</strong>120 (typical BSBA)</div>
-          <div class="diff-cell after"><strong>Total credit hours</strong>120 — same total, restructured composition</div>
-        </div>
-      </div>
-
-      <div class="change-callout">
-        <strong>Website changes at a glance.</strong>
-        The redesigned page (1) leads with the STEM designation and AI positioning, (2) replaces
-        the anchor-nav-only structure with a scroll-driven journey, (3) makes the curriculum
-        interactive rather than a static course list, (4) reorders career data to lead with
-        salary, (5) elevates experiential learning to its own destination section rather than
-        burying it in program highlights, and (6) adds this diff view — a faculty-first section
-        that has no analog on the existing page.
       </div>
     </div>
   </section>
 
-  <!-- ======================================================
+  <!-- ============================================================
        NEXT STEPS
-       ====================================================== -->
+       - Same four CTAs, redesigned as numbered cards
+       ============================================================ -->
   <section id="next">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Take the next step</p>
         <h2>Ready when you are.</h2>
       </div>
-      <div class="next-grid">
-        <a class="next-card" href="https://www.odu.edu/apply/applications">
-          <span class="step">Step 01</span>
-          <h4>Start your application</h4>
-          <p>Submit through Monarch — no application fee waivers required for Virginia residents.</p>
-          <span class="arrow">→</span>
-        </a>
-        <a class="next-card" href="https://www.odu.edu/admission/request-info">
-          <span class="step">Step 02</span>
-          <h4>Request info</h4>
-          <p>Get program details, cost estimates, and course previews sent to your inbox.</p>
-          <span class="arrow">→</span>
-        </a>
-        <a class="next-card" href="https://www.odu.edu/visit-campus">
-          <span class="step">Step 03</span>
-          <h4>Visit ODU</h4>
-          <p>Sit in on a class, meet a faculty advisor, tour Constant Hall.</p>
-          <span class="arrow">→</span>
-        </a>
-        <a class="next-card" href="https://itsapps.odu.edu/calculator/">
-          <span class="step">Step 04</span>
-          <h4>Estimate your cost</h4>
-          <p>Use ODU's cost calculator — includes tuition, fees, and financial aid options.</p>
-          <span class="arrow">→</span>
-        </a>
+
+      <div class="tc tc-mod">
+        <span class="tc-flag">Modified</span>
+        <div class="next-grid">
+          <a class="next-card" href="https://www.odu.edu/apply/applications">
+            <span class="step">Step 01</span>
+            <h4>Start Application</h4>
+            <p>Submit through Monarch — ODU's application portal.</p>
+            <span class="arrow">→</span>
+          </a>
+          <a class="next-card" href="https://olddominion.tfaforms.net/218012">
+            <span class="step">Step 02</span>
+            <h4>Request Info</h4>
+            <p>Get program details and course previews in your inbox.</p>
+            <span class="arrow">→</span>
+          </a>
+          <a class="next-card" href="https://www.odu.edu/visit-campus">
+            <span class="step">Step 03</span>
+            <h4>Visit Campus</h4>
+            <p>Tour the Strome College of Business and Constant Hall.</p>
+            <span class="arrow">→</span>
+          </a>
+          <a class="next-card" href="https://www.odu.edu/life">
+            <span class="step">Step 04</span>
+            <h4>Life at ODU</h4>
+            <p>Explore student life, housing, and campus culture.</p>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <div class="tc-note">
+          <strong>Modified.</strong> Same four calls to action from the current page (Start Application, Request Info, Visit Campus, Life at ODU) — with the same destination URLs. Presentation changed from full-bleed image cards to numbered step cards, which makes the intended sequence explicit.
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ======================================================
+  <!-- ============================================================
        CONTACT
-       ====================================================== -->
+       - Dr. Ardalan card, same info
+       - Modified: cleaner card presentation; admissions info consolidated
+       ============================================================ -->
   <section id="contact">
     <div class="container">
-      <div class="contact-grid">
-        <div class="section-head" style="margin-bottom: 0;">
-          <p class="eyebrow">Program Contact</p>
-          <h2>Talk to the department.</h2>
-          <p>
-            The Department of Information Technology &amp; Decision Sciences advises every
-            student in the major from first semester through capstone.
-          </p>
+      <div class="section-head">
+        <p class="eyebrow">Program Contact</p>
+        <h2>Talk to the department.</h2>
+        <p>The Department of Information Technology &amp; Decision Sciences advises every student in the major from first semester through graduation.</p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="tc tc-mod">
+          <span class="tc-flag">Modified</span>
+          <div class="contact-card">
+            <span class="role">Program Director</span>
+            <h4>Ali Ardalan, Ph.D.</h4>
+            <p class="position">Professor, Information Technology &amp; Decision Sciences</p>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:aardalan@odu.edu">aardalan@odu.edu</a>
+            </div>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+              <a href="tel:757-683-6789">(757) 683-6789</a>
+            </div>
+            <address>
+              2056 Constant Hall<br>
+              Norfolk, VA 23529
+            </address>
+          </div>
+          <div class="tc-note">
+            <strong>Modified.</strong> Dr. Ardalan's contact information is unchanged — same email, phone, title, and office address. The card layout is cleaner, with role as an eyebrow and email/phone as icon rows.
+          </div>
         </div>
-        <div class="contact-card">
-          <span class="role">Program Director</span>
-          <h4>Ali Ardalan, Ph.D.</h4>
-          <p class="position">Professor, Information Technology &amp; Decision Sciences</p>
-          <div class="contact-line">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <a href="mailto:aardalan@odu.edu">aardalan@odu.edu</a>
+
+        <div class="tc tc-mod">
+          <span class="tc-flag">Modified</span>
+          <div class="admissions-card">
+            <h5>Admissions Offices</h5>
+            <h4>Undergraduate Admissions</h4>
+            <p>1004 Rollins Hall, Norfolk, VA 23529</p>
+            <p><a href="tel:757-683-3685">(757) 683-3685</a> · <a href="mailto:admissions@odu.edu">admissions@odu.edu</a></p>
+            <h4>International Admissions</h4>
+            <p>2006 Dragas Hall, Norfolk, VA 23529</p>
+            <p><a href="tel:757-683-3701">(757) 683-3701</a> · <a href="mailto:intladm@odu.edu">intladm@odu.edu</a></p>
           </div>
-          <div class="contact-line">
-            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
-            <a href="tel:757-683-6789">(757) 683-6789</a>
+          <div class="tc-note">
+            <strong>Modified.</strong> Same undergraduate and international admissions office contact info from the current page. Presented as a compact secondary card so it doesn't compete with the primary program contact.
           </div>
-          <address>
-            2056 Constant Hall<br>
-            Norfolk, VA 23529
-          </address>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ============================================================
+       RELATED PROGRAMS (unchanged)
+       ============================================================ -->
+  <div class="related-strip">
+    <div class="container">
+      <h3>Related programs at ODU</h3>
+      <div class="related-grid">
+        <a href="https://www.odu.edu/academics/programs/undergraduate/business-analytics">Business Analytics (IS&amp;T, B.S.B.A.)</a>
+        <a href="https://www.odu.edu/academics/programs/undergraduate/database-administration">Database Administration (IS&amp;T, B.S.B.A.)</a>
+        <a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Information Systems &amp; Technology (B.S.B.A.)</a>
+        <a href="https://www.odu.edu/academics/programs/undergraduate/network-engineering">Network Engineering (IS&amp;T, B.S.B.A.)</a>
+        <a href="https://www.odu.edu/academics/programs/minor/business-analytics">Business Analytics (Minor)</a>
+        <a href="https://www.odu.edu/academics/programs/minor/information-system-technology">Information Systems &amp; Technology (Minor)</a>
+      </div>
+    </div>
+  </div>
+
 </main>
 
-<!-- ======================================================
+<!-- ============================================================
      FOOTER
-     ====================================================== -->
+     ============================================================ -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -1431,17 +1594,17 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
           </div>
         </div>
         <p style="max-width: 34ch; opacity: 0.8; margin: 0;">
-          Department of Information Technology &amp; Decision Sciences.
+          Department of Information Technology &amp; Decision Sciences.<br>
           5115 Hampton Blvd, Norfolk, VA 23529.
         </p>
       </div>
       <div>
         <h5>Program</h5>
         <ul>
-          <li><a href="#curriculum">Curriculum</a></li>
-          <li><a href="#courses">Featured Courses</a></li>
+          <li><a href="#highlights">Highlights</a></li>
+          <li><a href="#courses">Featured courses</a></li>
           <li><a href="#careers">Careers</a></li>
-          <li><a href="#experience">Experience</a></li>
+          <li><a href="#cost">Cost</a></li>
         </ul>
       </div>
       <div>
@@ -1471,127 +1634,43 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
 </footer>
 
 <script>
-// ------------------------------------------------------------------
-// Curriculum data — mirrors the proposed curriculum model exactly
-// ------------------------------------------------------------------
-const PHASES = {
-  1: {
-    title: "Business Foundations",
-    subtitle: "Build business knowledge.",
-    credits: "18 SEMESTER CREDIT HOURS",
-    summary: "Students build the financial, economic, and quantitative literacy every business decision rests on — the shared language they'll use for the rest of the program and their careers.",
-    courses: [
-      { code: "ACCT 2301", name: "Financial Accounting" },
-      { code: "ACCT 2302", name: "Managerial Accounting" },
-      { code: "FIN 3320",  name: "Business Finance" },
-      { code: "BLAW 2301", name: "Business Law" },
-      { code: "MATH 1325", name: "Applied Calculus" },
-      { code: "OPRE 3333", name: "Quantitative Business Analysis" },
-      { code: "OPRE 3360", name: "Decision Making Under Uncertainty" }
-    ]
-  },
-  2: {
-    title: "Business Core",
-    subtitle: "Understand how organizations work.",
-    credits: "28 SEMESTER CREDIT HOURS",
-    summary: "The functional coursework common to every BSBA at Strome — how organizations sell, operate, communicate, and make decisions across borders.",
-    courses: [
-      { code: "MKT 3300",  name: "Marketing" },
-      { code: "IMS 3310",  name: "International Business" },
-      { code: "OBHR 3310", name: "Organizational Behavior" },
-      { code: "OPRE 3310", name: "Supply Chain & Operations" },
-      { code: "BCOM 3300", name: "Business Communication" },
-      { code: "ITSS 3300", name: "Information Technology for Business" },
-      { code: "BA 1105",   name: "Professional Development" }
-    ]
-  },
-  3: {
-    title: "Programming & Data Foundations",
-    subtitle: "Learn the tools.",
-    credits: "21 SEMESTER CREDIT HOURS",
-    summary: "Where students stop being consumers of data and become builders. Programming, database design, and the applied data-science foundation the analytics courses will draw on.",
-    courses: [
-      { code: "ITSS 3311", name: "Introduction to Programming" },
-      { code: "BUAN 4381", name: "Python Programming", isNew: true },
-      { code: "BUAN 4320", name: "Database Fundamentals for Analytics", isNew: true },
-      { code: "BUAN 4373", name: "Data Science for Business Applications", isNew: true }
-    ]
-  },
-  4: {
-    title: "Analytics & AI",
-    subtitle: "Turn data into decisions.",
-    credits: "21 SEMESTER CREDIT HOURS",
-    summary: "The heart of the major. AI, business intelligence, visualization, and machine learning — each course tied to a business outcome, not just a technique.",
-    courses: [
-      { code: "BUAN 3301", name: "AI in Business", isNew: true },
-      { code: "BUAN 4351", name: "Foundations of Business Intelligence" },
-      { code: "BUAN 4353", name: "Business Analytics" },
-      { code: "BUAN 4355", name: "Data Visualization" },
-      { code: "BUAN 4383", name: "Machine Learning for Business Analytics", isNew: true }
-    ]
-  },
-  5: {
-    title: "Experiential Learning",
-    subtitle: "Apply skills in the real world.",
-    credits: "REQUIRED FOR GRADUATION",
-    summary: "Nobody graduates from this program without shipping work that lives outside the classroom. Every student completes all three components below.",
-    courses: [
-      { code: "BUAN 4090", name: "Business Analytics Internship (160 hours)" },
-      { code: "BA 4095",   name: "Social Sector Engagement & Community Outreach Practicum (100 hours)" },
-      { code: "BUAN 4395", name: "Capstone Senior Project — Business Analytics" },
-      { code: "BPS 4395",  name: "Capstone Senior Project — Business (alt.)" }
-    ]
-  }
+// =============================================================
+// Tracked-changes toggle
+// =============================================================
+const toggle  = document.getElementById("rt-toggle");
+const label   = document.getElementById("rt-toggle-label");
+const counter = document.getElementById("rt-count");
+
+// Count the changes on the page so faculty can see the total at a glance
+const counts = {
+  add: document.querySelectorAll(".tc-add").length,
+  mod: document.querySelectorAll(".tc-mod").length,
+  mov: document.querySelectorAll(".tc-mov").length,
+  rem: document.querySelectorAll(".tc-rem").length,
 };
+const total = counts.add + counts.mod + counts.mov + counts.rem;
+counter.textContent = total + " change" + (total === 1 ? "" : "s") + " tracked";
 
-// ------------------------------------------------------------------
-// Wire up the phase switcher
-// ------------------------------------------------------------------
-const nodes = document.querySelectorAll(".journey-node");
-const phNum = document.getElementById("ph-num");
-const phTitle = document.getElementById("ph-title");
-const phSub = document.getElementById("ph-sub");
-const phCredits = document.getElementById("ph-credits");
-const phSummary = document.getElementById("ph-summary");
-const phCourses = document.getElementById("ph-courses");
-
-function setPhase(n) {
-  const data = PHASES[n];
-  if (!data) return;
-  nodes.forEach(node => {
-    const active = node.dataset.phase === String(n);
-    node.classList.toggle("active", active);
-    node.setAttribute("aria-selected", active ? "true" : "false");
-  });
-  phNum.textContent = String(n).padStart(2, "0");
-  phTitle.textContent = data.title;
-  phSub.textContent = data.subtitle;
-  phCredits.textContent = data.credits;
-  phSummary.textContent = data.summary;
-  phCourses.innerHTML = data.courses.map(c => `
-    <div class="course${c.isNew ? " new" : ""}">
-      <span class="code">${c.code}</span>
-      <span class="name">${c.name}</span>
-    </div>
-  `).join("");
+// Toggle behavior
+function setShown(on) {
+  document.body.classList.toggle("show-changes", on);
+  toggle.setAttribute("aria-pressed", on ? "true" : "false");
+  label.textContent = on ? "Hide tracked changes" : "Show tracked changes";
 }
-
-nodes.forEach(node => {
-  node.addEventListener("click", () => setPhase(node.dataset.phase));
-  node.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-      e.preventDefault();
-      const cur = parseInt(node.dataset.phase, 10);
-      const next = e.key === "ArrowRight" ? (cur === 5 ? 1 : cur + 1) : (cur === 1 ? 5 : cur - 1);
-      const target = document.querySelector(`.journey-node[data-phase="${next}"]`);
-      target.focus();
-      setPhase(next);
-    }
-  });
+toggle.addEventListener("click", () => {
+  setShown(!document.body.classList.contains("show-changes"));
 });
 
-// Init with phase 1
-setPhase(1);
+// Keyboard shortcut: "T" to toggle
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "t" && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+    // don't hijack keystrokes in inputs
+    const t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    e.preventDefault();
+    setShown(!document.body.classList.contains("show-changes"));
+  }
+});
 
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();

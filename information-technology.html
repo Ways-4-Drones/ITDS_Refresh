@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Business Analytics | Department of Information Technology &amp; Decision Sciences | Old Dominion University</title>
-<meta name="description" content="The Business Analytics discipline at ODU's Strome College of Business equips students with the business acumen and computer proficiency to use technology as a strategic decision-making tool." />
+<title>Information Technology | Department of Information Technology &amp; Decision Sciences | Old Dominion University</title>
+<meta name="description" content="The Information Systems and Technology program at ODU's Strome College of Business blends business acumen with technical prowess in databases, networking, architecture, and programming." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -212,7 +212,7 @@ body.show-changes .tc-mov > .tc-note {
 }
 .page-hero::after {
   content: ""; position: absolute; right: -60px; top: -60px;
-  width: 260px; height: 260px; background: var(--teal);
+  width: 260px; height: 260px; background: var(--hudson);
   opacity: 0.12; border-radius: 50%;
 }
 .page-hero .container { position: relative; z-index: 2; }
@@ -263,7 +263,7 @@ body.show-changes .tc-mov > .tc-note {
 @media (max-width: 640px) { .intro-figure { float: none; width: 100%; margin: 0 0 1.5rem; } }
 .intro-figure .img-ph {
   aspect-ratio: 3 / 2;
-  background: linear-gradient(135deg, var(--teal) 0%, var(--monarch) 100%);
+  background: linear-gradient(135deg, var(--hudson-deep) 0%, var(--monarch) 100%);
   border-radius: 2px; position: relative; overflow: hidden;
 }
 .intro-figure .img-ph svg { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -285,7 +285,7 @@ body.show-changes .tc-mov > .tc-note {
   font-size: clamp(1.35rem, 3vw, 1.75rem);
   margin: 0 0 1rem;
   padding-bottom: 0.65rem;
-  border-bottom: 2px solid var(--teal);
+  border-bottom: 2px solid var(--hudson-deep);
 }
 .content-section p {
   font-size: 0.98rem; line-height: 1.7;
@@ -298,12 +298,12 @@ body.show-changes .tc-mov > .tc-note {
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; flex-wrap: wrap;
   background: var(--white); border: 1px solid var(--sand-deep);
-  border-left: 4px solid var(--teal);
+  border-left: 4px solid var(--hudson-deep);
   border-radius: 2px; padding: 1.1rem 1.35rem;
   text-decoration: none; transition: all 0.18s;
 }
 .program-item:hover {
-  border-color: var(--hudson); border-left-color: var(--teal);
+  border-color: var(--hudson); border-left-color: var(--hudson-deep);
   transform: translateX(3px);
   box-shadow: 0 8px 20px -12px rgba(0,48,87,0.25);
 }
@@ -444,6 +444,98 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
   padding: 0.75rem 1.25rem; z-index: 100;
 }
 .skip-link:focus { left: 1rem; top: 1rem; }
+</style><style>
+/* ===== IT-specific: career role grid ===== */
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.role-card {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  border-top: 3px solid var(--hudson-deep);
+  border-radius: 2px;
+  padding: 1.5rem;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.role-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px -14px rgba(0,48,87,0.28);
+}
+.role-card .role-icon {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  background: var(--sand);
+  border-radius: 2px;
+  margin-bottom: 0.85rem;
+}
+.role-card .role-icon svg { width: 18px; height: 18px; fill: var(--hudson-deep); }
+.role-card h3 { font-size: 1.05rem; margin: 0 0 0.55rem; letter-spacing: -0.01em; }
+.role-card p { font-size: 0.88rem; color: var(--charcoal-mid); line-height: 1.55; margin: 0; }
+
+/* ===== Legacy / video callout ===== */
+.legacy-callout {
+  background: var(--monarch);
+  color: var(--sand);
+  border-radius: 2px;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 780px) { .legacy-callout { grid-template-columns: 1fr; } }
+.legacy-callout h3 { color: var(--sand); font-size: 1.35rem; margin: 0 0 0.6rem; }
+.legacy-callout p { color: rgba(244,237,221,0.85); font-size: 0.95rem; margin: 0; line-height: 1.6; }
+.video-ph {
+  aspect-ratio: 16 / 10;
+  background: rgba(244,237,221,0.08);
+  border: 1px solid rgba(244,237,221,0.25);
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.video-ph .play {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: rgba(244,237,221,0.9);
+  display: grid; place-items: center;
+}
+.video-ph .play svg { width: 16px; height: 16px; fill: var(--monarch); margin-left: 3px; }
+.video-ph .ph-tag {
+  position: absolute; bottom: 0.4rem; right: 0.5rem;
+  font-family: var(--mono); font-size: 0.56rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(244,237,221,0.55);
+}
+
+/* ===== Employers strip ===== */
+.employers {
+  background: var(--sand);
+  border-radius: 2px;
+  padding: 1.5rem 1.75rem;
+  margin: 1.75rem 0;
+}
+.employers h4 {
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--charcoal-mid); margin: 0 0 0.85rem; font-weight: 500;
+}
+.employers .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.employers .chip {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  border-radius: 2px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.82rem;
+  color: var(--monarch);
+}
 </style>
 </head>
 <body>
@@ -502,18 +594,18 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
 <!-- PAGE HERO -->
 <div class="tc tc-mod">
   <span class="tc-flag">Modified</span>
-  <section class="page-hero" aria-label="Business Analytics overview">
+  <section class="page-hero" aria-label="Information Technology overview">
     <div class="container">
-      <p class="eyebrow">Discipline · IT &amp; Decision Sciences</p>
-      <h1>Business Analytics</h1>
+      <p class="eyebrow">Discipline &middot; IT &amp; Decision Sciences</p>
+      <h1>Information Technology</h1>
       <p>
-        Turning organizational data into the decisions that move markets, supply chains,
-        and communities — where business acumen meets computer proficiency.
+        A distinctive blend of business acumen and technical prowess &mdash; databases,
+        networking, architecture, and programming, applied to real business problems.
       </p>
     </div>
   </section>
   <div class="tc-note">
-    <strong>Modified.</strong> The current page uses the shared "Connection Technologies" stock banner with the title overlaid — the same image appears on the Information Technology and Directory pages, so the three are visually indistinguishable. This replaces it with the typographic hero used across the redesign, with a teal accent that distinguishes Business Analytics from the Hudson-blue Information Technology page. No image licensing needed.
+    <strong>Modified.</strong> Replaces the shared "Connection Technologies" stock banner &mdash; currently used identically on this page, the Business Analytics page, and the Directory &mdash; with the typographic hero used across the redesign. The Hudson-blue accent distinguishes this page from the teal Business Analytics page, so the two disciplines are visually separable at a glance.
   </div>
 </div>
 
@@ -522,7 +614,7 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
     <ol>
       <li><a href="https://www.odu.edu/">Home</a></li>
       <li><a href="index.html">Department of IT &amp; Decision Sciences</a></li>
-      <li>Business Analytics</li>
+      <li>Information Technology</li>
     </ol>
   </nav>
 </div>
@@ -537,37 +629,68 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
         <div class="intro-block">
           <figure class="intro-figure">
             <div class="img-ph">
-              <!-- Placeholder for the existing laptop-chart photo -->
               <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <rect x="60" y="130" width="22" height="40" fill="#F4EDDD" opacity="0.28" />
-                <rect x="92" y="112" width="22" height="58" fill="#F4EDDD" opacity="0.34" />
-                <rect x="124" y="92"  width="22" height="78" fill="#F4EDDD" opacity="0.40" />
-                <rect x="156" y="72"  width="22" height="98" fill="#F4EDDD" opacity="0.46" />
-                <rect x="188" y="52"  width="22" height="118" fill="#F4EDDD" opacity="0.52" />
-                <polyline points="71,120 103,102 135,82 167,62 199,42"
-                          fill="none" stroke="#F4EDDD" stroke-width="2.5"
-                          stroke-linecap="round" opacity="0.7" />
-                <circle cx="199" cy="42" r="5" fill="#F4EDDD" />
+                <rect x="70" y="55" width="160" height="95" rx="4" fill="none" stroke="#F4EDDD" stroke-width="3" opacity="0.65" />
+                <rect x="60" y="155" width="180" height="7" rx="3" fill="#F4EDDD" opacity="0.45" />
+                <rect x="90" y="75" width="55" height="6" fill="#F4EDDD" opacity="0.4" />
+                <rect x="90" y="90" width="90" height="6" fill="#F4EDDD" opacity="0.32" />
+                <rect x="90" y="105" width="72" height="6" fill="#F4EDDD" opacity="0.32" />
+                <circle cx="196" cy="118" r="14" fill="none" stroke="#F4EDDD" stroke-width="2.5" opacity="0.55" />
+                <path d="M196 108 v10 h8" fill="none" stroke="#F4EDDD" stroke-width="2.5" opacity="0.55" stroke-linecap="round" />
               </svg>
               <span class="ph-tag">Placeholder</span>
             </div>
-            <figcaption>Replace with existing "laptop-chart" image</figcaption>
+            <figcaption>Replace with existing "mobile-chart-computer" image</figcaption>
           </figure>
 
           <p>
-            Incorporating both business acumen and computer proficiency, the Business Analytics
-            major equips students with essential skills for leveraging technology as a strategic
-            decision-making tool. This interdisciplinary program not only hones computer aptitude
-            but also cultivates expertise in a business domain where these competencies are
-            indispensable.
+            The Information Systems and Technology program offers a distinctive blend of business
+            acumen and technical prowess, providing undergraduate students with a competitive edge
+            in today's rapidly evolving business landscape.
           </p>
           <p>
-            In today's competitive landscape, employers seek graduates who offer more than just
-            subject-specific knowledge. They value individuals with diverse skill sets capable of
-            contributing to various facets of their organizations. Through Business Analytics,
-            students acquire the versatile skill set demanded by modern businesses, positioning
-            them as valuable assets in any professional setting.
+            As a Bachelor of Science in Business Administration student specializing in Information
+            Systems and Technology, you'll delve into traditional business domains including
+            Finance, Marketing, Accounting, Production/Inventory Operations, and Economics.
+            Moreover, you'll gain comprehensive expertise in computerized automation and
+            information systems development.
           </p>
+          <p>
+            ODU's Information Technology program stands out for its commitment to delivering a
+            well-rounded education that integrates general business principles with Information
+            Systems and Technology. You'll not only grasp the fundamentals of business operations
+            but also master advanced technical proficiencies in relational databases, computer
+            networking, architecture, and programming.
+          </p>
+          <p>
+            Our curriculum emphasizes the application of these technical skills in real-world
+            scenarios, equipping you with the tools and techniques necessary to thrive in dynamic
+            business environments &mdash; where a deep understanding of both automation technology
+            and its business context is paramount.
+          </p>
+        </div>
+
+        <!-- LEGACY CALLOUT + VIDEO -->
+        <div class="tc tc-mov">
+          <span class="tc-flag">Moved</span>
+          <aside class="legacy-callout">
+            <div>
+              <h3>Join a legacy of excellence</h3>
+              <p>
+                The Information Systems and Technology program at ODU's Strome College of
+                Business was established nearly three decades ago.
+              </p>
+            </div>
+            <div class="video-ph">
+              <span class="play" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              <span class="ph-tag">Program video</span>
+            </div>
+          </aside>
+          <div class="tc-note">
+            <strong>Moved.</strong> On the current page this block and its promotional video sit below the contact sidebar, after the Academic Programs list &mdash; far enough down that many visitors never reach them. Moved up directly beneath the introduction, where the "three decades" claim supports the program pitch. Content is unchanged; the video placeholder points at the existing it-promotion-video.mp4 asset.
+          </div>
         </div>
 
         <!-- ACADEMIC PROGRAMS -->
@@ -575,99 +698,139 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
           <span class="tc-flag">Modified</span>
           <h2>Academic Programs</h2>
           <div class="programs-list">
-            <a class="program-item" href="program-business-analytics.html">
+            <a class="program-item" href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">
               <span class="pi-main">
-                <span class="pi-level">Undergraduate · B.S.B.A.</span>
-                <span class="pi-name">Business Analytics Major</span>
+                <span class="pi-level">Undergraduate &middot; B.S.B.A.</span>
+                <span class="pi-name">Information Systems &amp; Technology Major</span>
               </span>
-              <span class="pi-arrow" aria-hidden="true">→</span>
+              <span class="pi-arrow" aria-hidden="true">&rarr;</span>
             </a>
-            <a class="program-item" href="https://www.odu.edu/academics/programs/minor/business-analytics">
+            <a class="program-item" href="https://www.odu.edu/academics/programs/minor/information-system-technology">
               <span class="pi-main">
-                <span class="pi-level">Undergraduate · Minor</span>
-                <span class="pi-name">Business Analytics Minor</span>
+                <span class="pi-level">Undergraduate &middot; Minor</span>
+                <span class="pi-name">Information Systems &amp; Technology Minor</span>
               </span>
-              <span class="pi-arrow" aria-hidden="true">→</span>
+              <span class="pi-arrow" aria-hidden="true">&rarr;</span>
             </a>
-            <a class="program-item" href="https://www.odu.edu/academics/programs/certificate/business-analytics-big-data">
+            <a class="program-item" href="https://www.odu.edu/academics/programs/masters/information-communications-technology">
               <span class="pi-main">
-                <span class="pi-level">Graduate · Certificate</span>
-                <span class="pi-name">Business Analytics &amp; Big Data</span>
+                <span class="pi-level">Graduate &middot; M.S. Computer Science</span>
+                <span class="pi-name">Information &amp; Communications Technology</span>
               </span>
-              <span class="pi-arrow" aria-hidden="true">→</span>
+              <span class="pi-arrow" aria-hidden="true">&rarr;</span>
             </a>
           </div>
           <div class="tc-note">
-            <strong>Modified.</strong> Same three programs, same order. The current page renders them as a plain bulleted link list where all three read as equally weighted text links; this version distinguishes degree level (undergraduate major, minor, graduate certificate) so a visitor can tell at a glance which applies to them. The BSBA link points at the redesigned program page in this preview; in production it would point to the ODU catalog entry as it does today.
+            <strong>Modified.</strong> Same three programs, same order, same destinations. Presentation now matches the Business Analytics discipline page, with degree level called out so visitors can distinguish the undergraduate major from the minor and the graduate M.S.
           </div>
         </section>
-
-        <!-- WHAT WILL I STUDY -->
-        <section class="content-section">
-          <h2>What will I study?</h2>
-          <p>
-            Students majoring in Business Analytics study several different components of business
-            administration. The combination of core courses and specialization courses produces
-            well-rounded graduates who can make quick, highly informed decisions. They are prepared
-            to succeed in today's highly competitive business environment. They will be unique and
-            valuable employees.
-          </p>
-        </section>
-
-        <!-- CURRICULUM MAP -->
-        <div class="tc tc-add">
-          <span class="tc-flag">New</span>
-          <aside class="map-callout" aria-label="Curriculum map download">
-            <div>
-              <h3>See the full curriculum at a glance</h3>
-              <p>
-                A single-page visual map of the four-year Business Analytics BSBA — foundation
-                courses, BSBA core, major requirements, and the eight application areas.
-                Useful for advising appointments and information tables.
-              </p>
-              <a href="bnal-curriculum-map.png" class="map-cta" download>
-                Download Curriculum Map (PNG)
-                <span aria-hidden="true">↓</span>
-              </a>
-            </div>
-            <div class="map-preview">
-              <img src="bnal-curriculum-map.png" alt="Business Analytics BSBA curriculum map thumbnail" loading="lazy" />
-            </div>
-          </aside>
-          <div class="tc-note">
-            <strong>New.</strong> The current discipline page describes the curriculum only in prose ("the combination of core courses and specialization courses"). This adds the visual curriculum map built from the 2025–26 catalog, giving prospective students and advisors something concrete to look at without navigating to the catalog.
-          </div>
-        </div>
 
         <!-- CAREER OPPORTUNITIES -->
         <section class="content-section">
           <h2>Career Opportunities</h2>
           <p>
-            In addition to the traditional jobs available to graduates majoring in these areas,
-            Business Analytics graduates may fill Decision Support positions. In these positions,
-            they provide information to higher management in a decision support role. Graduates
-            from this program are especially attractive to employers because of their multiple
-            skills.
+            The success of any business depends on the quality of its information systems and the
+            professionals who develop and maintain them. Opportunities for those who acquire skills
+            in Information Systems and Technology continue to be excellent, with significant room
+            for advancement for those who keep learning and growing in the field.
           </p>
-        </section>
 
-        <!-- CAP -->
-        <div class="tc tc-mod">
-          <span class="tc-flag">Modified</span>
-          <aside class="cap-callout">
-            <h3>Alternative Classroom Experience</h3>
-            <p>
-              This major is very adaptable to the Old Dominion University Career Advantage Program
-              (CAP). The CAP program guarantees a practicum experience to all Old Dominion
-              University students. Through this program you can gain valuable experience in
-              applying your knowledge and, at the same time, receive credit for it.
-            </p>
-            <a class="cap-link" href="https://www.odu.edu/career-leadership">Learn about CAP →</a>
-          </aside>
-          <div class="tc-note">
-            <strong>Modified.</strong> Same content, promoted from a plain body-copy section to a highlighted callout, since a guaranteed practicum is a genuine differentiator worth surfacing. Two small copy edits: dropped "new" from "the new Old Dominion University Career Advantage Program" (CAP is no longer new), and added an outbound link — the current page mentions CAP but doesn't link anywhere. <strong>Confirm the correct CAP destination URL</strong> before publishing; the link here points at Career &amp; Leadership Development as a best guess.
+          <div class="tc tc-mod">
+            <span class="tc-flag">Modified</span>
+            <div class="employers">
+              <h4>Where our graduates work</h4>
+              <div class="chips">
+                <span class="chip">IBM</span>
+                <span class="chip">AT&amp;T</span>
+                <span class="chip">Northrop Grumman</span>
+                <span class="chip">Booz Allen Hamilton</span>
+                <span class="chip">Sentara</span>
+                <span class="chip">Bank of America</span>
+                <span class="chip">Perdue</span>
+                <span class="chip">Local, state &amp; federal agencies</span>
+              </div>
+            </div>
+            <div class="tc-note">
+              <strong>Modified &mdash; needs department review.</strong> Three claims from the current page have been cut rather than carried over, because each looks out of date: (1) the <em>Money</em> magazine ranking of Systems Analyst as "the best career in America today" &mdash; that ranking is decades old and the magazine has since ceased its print edition; (2) the stated starting-salary range of <strong>$40,000&ndash;$60,000</strong>, which is well below current market for these roles and undersells the program; and (3) four employers &mdash; <strong>Gateway, EDS, R.J. Reynolds, and Union Camp</strong> &mdash; that no longer exist as independent companies (Gateway was absorbed by Acer, EDS by HP/DXC, Union Camp by International Paper). Please confirm the remaining employer list and supply a current salary figure if you'd like one shown.
+            </div>
           </div>
-        </div>
+
+          <div class="roles-grid">
+            <article class="role-card">
+              <span class="role-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 3h18v2H3zm0 4h12v2H3zm0 4h18v2H3zm0 4h12v2H3zm0 4h18v2H3z"/></svg>
+              </span>
+              <h3>Systems Analyst</h3>
+              <p>
+                Plays a significant role in the analysis and design of formal systems. The written
+                and oral communication skills reinforced throughout the program ensure graduates
+                interact effectively with both technical personnel and the business people they
+                support.
+              </p>
+            </article>
+
+            <article class="role-card">
+              <span class="role-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5zm0 2.3L5 8v8l7 3.9L19 16V8l-7-3.7z"/></svg>
+              </span>
+              <h3>Program Manager</h3>
+              <p>
+                In demand in today's project-oriented business world. Responsible for the planning
+                and oversight of modern business system development. The major requires three
+                semesters of study in the methods and techniques used to succeed in this career
+                path.
+              </p>
+            </article>
+
+            <article class="role-card">
+              <span class="role-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 0h7v7h-7z"/></svg>
+              </span>
+              <h3>Systems Integrator</h3>
+              <p>
+                A critical skill in a world where change is constant. Requires understanding the
+                many factors that must be addressed during conversion when old systems are replaced
+                with new ones.
+              </p>
+            </article>
+
+            <article class="role-card">
+              <span class="role-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2c1.7 0 3.2 2.9 3.7 6.5H8.3C8.8 6.9 10.3 4 12 4zM4.3 11h3.4a22 22 0 000 2H4.3a8 8 0 010-2zm5.4 0h4.6a20 20 0 010 2H9.7a20 20 0 010-2zM12 20c-1.7 0-3.2-2.9-3.7-6.5h7.4C15.2 17.1 13.7 20 12 20z"/></svg>
+              </span>
+              <h3>Web Developer</h3>
+              <p>
+                The internet is a crucial component of business success. As emphasis continues to
+                shift toward internet-based applications, demand for those on the cutting edge of
+                web application development remains strong.
+              </p>
+            </article>
+
+            <article class="role-card">
+              <span class="role-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3c-4.4 0-8 1.3-8 3v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6c0-1.7-3.6-3-8-3zm0 2c3.9 0 6 1.1 6 1s-2.1 1-6 1-6-1.1-6-1 2.1-1 6-1zm6 13c0 .1-2.1 1-6 1s-6-.9-6-1v-2.3c1.5.8 3.7 1.3 6 1.3s4.5-.5 6-1.3V18zm0-4.5c0 .1-2.1 1-6 1s-6-.9-6-1V11c1.5.8 3.7 1.3 6 1.3s4.5-.5 6-1.3v2.5z"/></svg>
+              </span>
+              <h3>Database Administrator</h3>
+              <p>
+                Responsible for the development, operation, and maintenance of an organization's
+                data. In addition to planning and implementing databases, they monitor database
+                activity to ensure the integrity and availability of this shared resource.
+              </p>
+            </article>
+
+            <article class="role-card">
+              <span class="role-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 00-1 5.8V10H6a3 3 0 00-3 3v1.2a3 3 0 102 0V13a1 1 0 011-1h12a1 1 0 011 1v1.2a3 3 0 102 0V13a3 3 0 00-3-3h-5V7.8A3 3 0 0012 2z"/></svg>
+              </span>
+              <h3>Network Administrator</h3>
+              <p>
+                Responsible for ensuring voice, data, and image transmission networks are available
+                and optimized for all of an organization's users. Telecommunications remains one of
+                the most rapidly growing areas in information systems.
+              </p>
+            </article>
+          </div>
+        </section>
 
       </div>
 
@@ -681,8 +844,8 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
             <li>
               <a href="https://www.odu.edu/information-technology-decision-sciences/academics">Academic Programs</a>
               <ul>
-                <li><a href="business-analytics.html" class="active">Business Analytics</a></li>
-                <li><a href="information-technology.html">Information Technology</a></li>
+                <li><a href="business-analytics.html">Business Analytics</a></li>
+                <li><a href="information-technology.html" class="active">Information Technology</a></li>
               </ul>
             </li>
             <li><a href="https://www.odu.edu/information-technology-decision-sciences/advisors">Advisors</a></li>
@@ -705,7 +868,7 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
             </div>
           </div>
           <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--sand-deep);">
-            <a href="directory.html" style="font-family: var(--mono); font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color: var(--hudson-deep); text-decoration:none; font-weight:500;">Directory →</a>
+            <a href="directory.html" style="font-family: var(--mono); font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color: var(--hudson-deep); text-decoration:none; font-weight:500;">Directory &rarr;</a>
           </div>
         </div>
 
@@ -758,7 +921,7 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
       </div>
     </div>
     <div class="footer-meta">
-      <div>© Old Dominion University · Redesign preview · Updated <span id="year"></span></div>
+      <div>&copy; Old Dominion University &middot; Redesign preview &middot; Updated <span id="year"></span></div>
       <div>Prepared for the Fall 2026 IT&amp;DS faculty meeting</div>
     </div>
   </div>

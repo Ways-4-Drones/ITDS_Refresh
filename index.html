@@ -826,6 +826,14 @@ body.show-changes .tc-mov > .tc-note {
   border-left: 4px solid var(--sand);
   padding-left: calc(1.25rem - 4px);
 }
+/* Nested second-level nav (Academic Programs children) */
+.sidebar-nav ul ul { background: rgba(0,0,0,0.16); }
+.sidebar-nav ul ul li a {
+  padding-left: 2.25rem;
+  font-size: 0.84rem;
+  color: rgba(244, 237, 221, 0.72);
+}
+.sidebar-nav ul ul li a.active { padding-left: calc(2.25rem - 4px); color: var(--sand); }
 
 .contact-card {
   background: var(--white);
@@ -1110,7 +1118,7 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
         <div class="tc tc-add">
           <span class="tc-flag">New</span>
           <div class="cta-grid" role="navigation" aria-label="Quick links">
-            <a class="cta-card" href="#future-students">
+            <a class="cta-card" href="business-analytics.html">
               <div class="cta-card-bg cta-bg-1">
                 <svg class="cta-icon" viewBox="0 0 100 100" fill="#F4EDDD">
                   <path d="M50 10 L90 30 L50 50 L10 30 Z" />
@@ -1118,9 +1126,9 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
                 </svg>
                 <span class="ph-tag">Placeholder</span>
               </div>
-              <span class="cta-card-label">Future Students</span>
+              <span class="cta-card-label">Business Analytics</span>
             </a>
-            <a class="cta-card" href="#current-students">
+            <a class="cta-card" href="information-technology.html">
               <div class="cta-card-bg cta-bg-2">
                 <svg class="cta-icon" viewBox="0 0 100 100" fill="#F4EDDD">
                   <rect x="15" y="25" width="70" height="45" rx="3" fill="none" stroke="#F4EDDD" stroke-width="4" />
@@ -1129,9 +1137,9 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
                 </svg>
                 <span class="ph-tag">Placeholder</span>
               </div>
-              <span class="cta-card-label">Current Students</span>
+              <span class="cta-card-label">Information Technology</span>
             </a>
-            <a class="cta-card" href="#about">
+            <a class="cta-card" href="directory.html">
               <div class="cta-card-bg cta-bg-3">
                 <svg class="cta-icon" viewBox="0 0 100 100" fill="#F4EDDD">
                   <rect x="20" y="25" width="60" height="55" fill="none" stroke="#F4EDDD" stroke-width="4" />
@@ -1144,9 +1152,9 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
                 </svg>
                 <span class="ph-tag">Placeholder</span>
               </div>
-              <span class="cta-card-label">About the Department</span>
+              <span class="cta-card-label">Faculty Directory</span>
             </a>
-            <a class="cta-card" href="#programs">
+            <a class="cta-card" href="https://www.odu.edu/information-technology-decision-sciences/academics">
               <div class="cta-card-bg cta-bg-4">
                 <svg class="cta-icon" viewBox="0 0 100 100" fill="#F4EDDD">
                   <rect x="20" y="55" width="15" height="30" />
@@ -1159,48 +1167,34 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
             </a>
           </div>
           <div class="tc-note">
-            <strong>New.</strong> A 4-panel image-CTA grid, matching the pattern on <a href="https://www.odu.edu/accountancy">/accountancy</a>. Cards use SVG gradient placeholders for now — each is dimensioned 3:4 (portrait), the standard aspect the ODU Drupal theme uses for these blocks. Replace with copyright-free photography: students in a classroom, a career fair, a group photo, a faculty/classroom shot. See README for source recommendations.
+            <strong>New.</strong> A 4-panel image-CTA grid, matching the pattern on <a href="https://www.odu.edu/accountancy">/accountancy</a>. All four cards now point at destinations that exist in the department’s real structure — the two discipline pages, the directory, and Academic Programs — rather than the invented “Future Students / Current Students” sections in the earlier draft. Cards use SVG gradient placeholders dimensioned 3:4 (portrait), the aspect the ODU Drupal theme uses for these blocks. Replace with copyright-free photography: students in a classroom, a career fair, a faculty or lab shot.
           </div>
         </div>
 
-        <!-- Explore Our Degrees -->
+        <!-- Our Disciplines -->
         <section class="degrees-section" id="programs">
-          <p class="section-eyebrow">Explore our degrees</p>
-          <h2>Undergraduate programs</h2>
+          <p class="section-eyebrow">Our disciplines</p>
+          <h2>Two disciplines, one department</h2>
 
           <div class="tc tc-mod">
             <span class="tc-flag">Modified</span>
             <div class="degrees-grid">
-              <article class="degree">
-                <span class="level">Undergraduate · B.S.B.A.</span>
+              <article class="degree" style="border-left-color: var(--teal);">
+                <span class="level">Discipline</span>
                 <h3>Business Analytics</h3>
-                <p>Develop the decision models and computer-based analysis skills to turn organizational data into actionable insight. Prepare for careers as business intelligence analysts, data analysts, and IT project managers.</p>
+                <p>Business acumen and computer proficiency combined — leveraging technology as a strategic decision-making tool. Offers a BSBA major, an undergraduate minor, and a graduate certificate in Business Analytics &amp; Big Data.</p>
                 <a href="business-analytics.html">Explore Business Analytics <span class="arrow">→</span></a>
               </article>
 
               <article class="degree">
-                <span class="level">Undergraduate · B.S.B.A.</span>
-                <h3>Information Systems &amp; Technology</h3>
-                <p>Combine business acumen with the technical prowess needed to design and manage information systems that support business operations. Concentrations include Cybersecurity, Database Administration, and Network Engineering.</p>
-                <a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Explore IS&amp;T <span class="arrow">→</span></a>
-              </article>
-
-              <article class="degree">
-                <span class="level">Minor</span>
-                <h3>Business Analytics Minor</h3>
-                <p>Complement any major with foundational business analytics coursework. Ideal for students who want quantitative skills alongside their primary discipline.</p>
-                <a href="https://www.odu.edu/academics/programs/minor/business-analytics">Explore the minor <span class="arrow">→</span></a>
-              </article>
-
-              <article class="degree">
-                <span class="level">Minor</span>
-                <h3>Information Systems &amp; Technology Minor</h3>
-                <p>Add technical fluency in information systems to any degree. Useful for students in engineering, sciences, and other business majors.</p>
-                <a href="https://www.odu.edu/academics/programs/minor/information-system-technology">Explore the minor <span class="arrow">→</span></a>
+                <span class="level">Discipline</span>
+                <h3>Information Technology</h3>
+                <p>A blend of business fundamentals and technical depth in relational databases, networking, architecture, and programming. Offers a BSBA major, an undergraduate minor, and a graduate M.S. pathway.</p>
+                <a href="information-technology.html">Explore Information Technology <span class="arrow">→</span></a>
               </article>
             </div>
             <div class="tc-note">
-              <strong>Modified.</strong> Previously the department page listed programs as an inline sidebar link list. This card presentation matches the "Explore Our Degrees" pattern on <a href="https://www.odu.edu/economics">/economics</a>, giving each program equal visual weight, a short elevator description, and a clear call-to-action link. The Business Analytics card links to the redesigned program page (business-analytics.html); the others link to the current ODU catalog entries.
+              <strong>Modified.</strong> Restructured to mirror the department's real information architecture. The current landing page describes the disciplines in body copy and links to them only from the sidebar; the earlier draft of this redesign jumped visitors straight to individual degree pages, skipping the discipline level entirely. This version routes through the two discipline pages — Business Analytics and Information Technology — exactly as the live site does, with each discipline page then listing its own major, minor, and graduate options. Card accent colors match the corresponding discipline page (teal for Business Analytics, Hudson blue for Information Technology).
             </div>
           </div>
         </section>
@@ -1284,21 +1278,22 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
         <div class="tc tc-mod">
           <span class="tc-flag">Modified</span>
           <nav class="sidebar-nav" aria-label="Department pages">
-            <h3>Department</h3>
+            <h3>Department of IT &amp; Decision Sciences</h3>
             <ul>
-              <li><a href="#" class="active">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#programs">Academics</a></li>
-              <li><a href="business-analytics.html">Business Analytics</a></li>
-              <li><a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Information Systems &amp; Technology</a></li>
-              <li><a href="#">Faculty &amp; Research</a></li>
-              <li><a href="#">Current Students</a></li>
-              <li><a href="#">Future Students</a></li>
+              <li><a href="index.html" class="active">Home</a></li>
+              <li>
+                <a href="https://www.odu.edu/information-technology-decision-sciences/academics">Academic Programs</a>
+                <ul>
+                  <li><a href="business-analytics.html">Business Analytics</a></li>
+                  <li><a href="information-technology.html">Information Technology</a></li>
+                </ul>
+              </li>
+              <li><a href="https://www.odu.edu/information-technology-decision-sciences/advisors">Advisors</a></li>
               <li><a href="directory.html">Directory</a></li>
             </ul>
           </nav>
           <div class="tc-note">
-            <strong>Modified.</strong> The previous sidebar nav had 5 items grouped inconsistently. This version restructures around user intent — visitors first, then structural sections — matching the 6–9 item pattern used across the ODU department pages.
+            <strong>Modified.</strong> Now mirrors the department's live sidebar exactly — Home, Academic Programs (with Business Analytics and Information Technology nested beneath it), Advisors, Directory. An earlier draft of this redesign invented additional items (Faculty &amp; Research, Current Students, Future Students) that have no corresponding pages; those have been removed so the navigation only promises pages that exist. If the department does want to add any of them, they can go back in once the destination pages are built.
           </div>
         </div>
 
@@ -1372,7 +1367,7 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
         <h5>Department</h5>
         <ul>
           <li><a href="business-analytics.html">Business Analytics</a></li>
-          <li><a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Information Systems &amp; Technology</a></li>
+          <li><a href="information-technology.html">Information Technology</a></li>
           <li><a href="#">Faculty &amp; Research</a></li>
           <li><a href="directory.html">Directory</a></li>
         </ul>

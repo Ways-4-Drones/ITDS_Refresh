@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Directory | Department of Information Technology &amp; Decision Sciences | Old Dominion University</title>
+<meta name="description" content="Find faculty members across ITDS academic disciplines — Business Analytics and Information Technology — at ODU's Strome College of Business." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   ODU Brand tokens — FY26 Forward-Focused toolkit
+   (identical to index.html / business-analytics.html)
+   ========================================================= */
+:root {
+  --monarch:      #003057;
+  --monarch-ink:  #001F3A;
+  --hudson:       #418FDE;
+  --hudson-deep:  #2A6FBF;
+  --silver:       #7C878E;
+  --silver-soft:  #C7CDD1;
+  --teal:         #00A99D;
+  --sand:         #F4EDDD;
+  --sand-deep:    #E8DFC6;
+  --ivory:        #FBFAF6;
+  --white:        #FFFFFF;
+  --charcoal:     #1A1A1A;
+  --charcoal-mid: #4A4E52;
+
+  --tc-mod-bg:    #FEF5DE;
+  --tc-mod-line:  #B36A00;
+  --tc-add-bg:    #E9F5EC;
+  --tc-add-line:  #1E8E3E;
+  --tc-mov-bg:    #E8F0FE;
+  --tc-mov-line:  #1967D2;
+
+  --display: "Space Grotesk", "Sora", system-ui, -apple-system, sans-serif;
+  --body:    "Sora", "Open Sans", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --max:    1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+body {
+  margin: 0;
+  font-family: var(--body);
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+a { color: var(--hudson-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--monarch); }
+:focus-visible { outline: 2px solid var(--hudson); outline-offset: 3px; border-radius: 2px; }
+img { max-width: 100%; display: block; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--display);
+  color: var(--monarch);
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+/* =========================================================
+   REVIEW TOOLBAR
+   ========================================================= */
+.review-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 0.6rem 0;
+  border-bottom: 2px solid var(--hudson);
+  font-size: 0.82rem;
+}
+.review-toolbar .container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.review-toolbar .rt-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sand);
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.review-toolbar .rt-label::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.review-toolbar .rt-mid { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.rt-legend {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rt-legend .swatch { display: inline-flex; align-items: center; gap: 0.35rem; opacity: 0.9; }
+.rt-legend .swatch::before { content: ""; width: 10px; height: 10px; border-radius: 2px; }
+.rt-legend .swatch.add::before { background: var(--tc-add-line); }
+.rt-legend .swatch.mod::before { background: var(--tc-mod-line); }
+.rt-legend .swatch.mov::before { background: var(--tc-mov-line); }
+body:not(.show-changes) .rt-legend { opacity: 0.4; }
+
+.rt-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: transparent;
+  border: 1px solid rgba(244, 237, 221, 0.35);
+  color: var(--sand);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.rt-toggle:hover { background: rgba(244, 237, 221, 0.1); border-color: var(--sand); }
+.rt-toggle .rt-switch {
+  width: 32px; height: 18px;
+  background: rgba(244, 237, 221, 0.2);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s;
+}
+.rt-toggle .rt-switch::after {
+  content: "";
+  position: absolute;
+  width: 14px; height: 14px;
+  background: var(--sand);
+  border-radius: 50%;
+  top: 2px; left: 2px;
+  transition: left 0.2s;
+}
+body.show-changes .rt-toggle .rt-switch { background: var(--teal); }
+body.show-changes .rt-toggle .rt-switch::after { left: 16px; }
+.rt-count { font-family: var(--mono); font-size: 0.75rem; opacity: 0.9; }
+
+.tc { position: relative; }
+.tc-flag {
+  display: none;
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+  color: var(--white);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.tc-note {
+  display: none;
+  font-family: var(--body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding: 0.65rem 0.9rem;
+  margin: 0.85rem 0 0;
+  border-radius: 2px;
+  border-left: 3px solid transparent;
+}
+.tc-note strong { font-weight: 600; }
+
+body.show-changes .tc-mod { outline: 2px dashed var(--tc-mod-line); outline-offset: 4px; }
+body.show-changes .tc-mod > .tc-flag { display: inline-block; background: var(--tc-mod-line); }
+body.show-changes .tc-mod > .tc-note {
+  display: block; background: var(--tc-mod-bg);
+  border-left-color: var(--tc-mod-line); color: #7A4600;
+}
+body.show-changes .tc-add { outline: 2px dashed var(--tc-add-line); outline-offset: 4px; }
+body.show-changes .tc-add > .tc-flag { display: inline-block; background: var(--tc-add-line); }
+body.show-changes .tc-add > .tc-note {
+  display: block; background: var(--tc-add-bg);
+  border-left-color: var(--tc-add-line); color: #0F5F27;
+}
+body.show-changes .tc-mov { outline: 2px dashed var(--tc-mov-line); outline-offset: 4px; }
+body.show-changes .tc-mov > .tc-flag { display: inline-block; background: var(--tc-mov-line); }
+body.show-changes .tc-mov > .tc-note {
+  display: block; background: var(--tc-mov-bg);
+  border-left-color: var(--tc-mov-line); color: #0B3F86;
+}
+
+/* =========================================================
+   TOP RIBBON + HEADER
+   ========================================================= */
+.top-ribbon {
+  background: var(--sand);
+  color: var(--charcoal-mid);
+  font-size: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--sand-deep);
+}
+.top-ribbon .container { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.top-ribbon a { color: var(--monarch); text-decoration: none; }
+.top-ribbon a:hover { text-decoration: underline; }
+.top-ribbon nav { display: flex; gap: 1.25rem; }
+@media (max-width: 640px) { .top-ribbon .util { display: none; } }
+
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--sand-deep);
+  position: sticky;
+  top: 43px;
+  z-index: 40;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; color: var(--monarch); }
+.brand-crown {
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: var(--monarch);
+  color: var(--sand);
+  border-radius: 2px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.brand-txt { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-txt strong { font-family: var(--display); font-weight: 700; font-size: 1rem; }
+.brand-txt span { font-size: 0.72rem; color: var(--charcoal-mid); }
+.nav-primary { display: flex; align-items: center; gap: 1.5rem; }
+.nav-primary a { color: var(--monarch); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.nav-primary a:hover { color: var(--hudson-deep); }
+.nav-primary .btn-apply {
+  background: var(--monarch); color: var(--sand);
+  padding: 0.55rem 1.1rem; border-radius: 2px;
+}
+.nav-primary .btn-apply:hover { background: var(--hudson-deep); color: var(--white); }
+@media (max-width: 900px) { .nav-primary a:not(.btn-apply) { display: none; } }
+
+/* =========================================================
+   PAGE HERO — shorter than the landing-page hero
+   ========================================================= */
+.page-hero {
+  background: var(--monarch);
+  color: var(--sand);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 237, 221, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 237, 221, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+.page-hero::after {
+  content: "";
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 260px; height: 260px;
+  background: var(--hudson);
+  opacity: 0.12;
+  border-radius: 50%;
+}
+.page-hero .container { position: relative; z-index: 2; }
+.page-hero .eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 221, 0.7);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+}
+.page-hero .eyebrow::before {
+  content: "";
+  width: 1.75rem; height: 1px;
+  background: rgba(244, 237, 221, 0.7);
+}
+.page-hero h1 {
+  color: var(--sand);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
+}
+.page-hero p {
+  color: rgba(244, 237, 221, 0.85);
+  font-size: 1.02rem;
+  max-width: 56ch;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+.breadcrumb {
+  padding: 1.25rem 0 0.5rem;
+  font-size: 0.82rem;
+  color: var(--charcoal-mid);
+}
+.breadcrumb ol {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+.breadcrumb li:not(:last-child)::after {
+  content: "/"; margin-left: 0.5rem; color: var(--silver-soft);
+}
+.breadcrumb a { color: var(--charcoal-mid); text-decoration: none; }
+.breadcrumb a:hover { color: var(--monarch); }
+.breadcrumb li:last-child { color: var(--monarch); font-weight: 500; }
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.dept-layout {
+  padding: 1.5rem 0 4rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .dept-layout { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* =========================================================
+   FILTER + SEARCH CONTROLS
+   ========================================================= */
+.dir-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1.25rem 0 1.5rem;
+  border-bottom: 1px solid var(--sand-deep);
+  margin-bottom: 2rem;
+}
+.filter-tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.filter-tab {
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--sand-deep);
+  background: var(--white);
+  color: var(--charcoal-mid);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.filter-tab:hover { border-color: var(--hudson); color: var(--monarch); }
+.filter-tab[aria-pressed="true"] {
+  background: var(--monarch);
+  border-color: var(--monarch);
+  color: var(--sand);
+}
+.filter-tab .tab-count {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  opacity: 0.65;
+  margin-left: 0.35rem;
+}
+
+.dir-search {
+  position: relative;
+  min-width: 240px;
+  flex: 0 1 300px;
+}
+.dir-search input {
+  width: 100%;
+  font-family: var(--body);
+  font-size: 0.88rem;
+  padding: 0.6rem 0.9rem 0.6rem 2.2rem;
+  border: 1px solid var(--sand-deep);
+  border-radius: 2px;
+  background: var(--white);
+  color: var(--charcoal);
+}
+.dir-search input:focus { border-color: var(--hudson); outline: none; box-shadow: 0 0 0 3px rgba(65,143,222,0.15); }
+.dir-search svg {
+  position: absolute;
+  left: 0.7rem; top: 50%;
+  transform: translateY(-50%);
+  width: 15px; height: 15px;
+  fill: var(--silver);
+  pointer-events: none;
+}
+
+.result-count {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--silver);
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+}
+
+/* =========================================================
+   DISCIPLINE GROUP HEADINGS
+   ========================================================= */
+.group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin: 2.5rem 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--hudson);
+  flex-wrap: wrap;
+}
+.group-head:first-of-type { margin-top: 0; }
+.group-head h2 { font-size: clamp(1.3rem, 3vw, 1.7rem); margin: 0; }
+.group-head .group-count {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--silver);
+  text-transform: uppercase;
+}
+.group-head.bnal { border-bottom-color: var(--teal); }
+.group-head.it   { border-bottom-color: var(--hudson-deep); }
+
+/* =========================================================
+   LEADERSHIP CARD (chair — wider, featured)
+   ========================================================= */
+.chair-card {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1.5rem;
+  background: var(--sand);
+  border-left: 4px solid var(--monarch);
+  padding: 1.75rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  align-items: start;
+}
+@media (max-width: 560px) { .chair-card { grid-template-columns: 1fr; } }
+.chair-card .avatar { width: 96px; height: 96px; font-size: 1.9rem; }
+.chair-card h3 { font-size: 1.3rem; margin: 0 0 0.25rem; }
+.chair-card .role {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================================
+   FACULTY CARD GRID
+   ========================================================= */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.person {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  border-radius: 2px;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1.1rem;
+  align-items: start;
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+}
+.person:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px -14px rgba(0, 48, 87, 0.28);
+  border-color: var(--hudson);
+}
+.person.is-hidden { display: none; }
+
+/* Initials avatar — stands in for the real headshot */
+.avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--sand);
+  background: var(--monarch);
+  letter-spacing: 0.01em;
+  flex-shrink: 0;
+  position: relative;
+}
+/* Rotating tints so the grid doesn't read as a wall of navy */
+.avatar.t1 { background: var(--monarch); }
+.avatar.t2 { background: var(--hudson-deep); }
+.avatar.t3 { background: var(--teal); }
+.avatar.t4 { background: var(--silver); }
+.avatar.t5 { background: var(--hudson); }
+
+.person h3 {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  margin: 0 0 0.2rem;
+  line-height: 1.25;
+}
+.person h3 a { color: var(--monarch); text-decoration: none; }
+.person h3 a:hover { color: var(--hudson-deep); text-decoration: underline; }
+.person .title {
+  font-size: 0.85rem;
+  color: var(--charcoal-mid);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+}
+.person .title.unknown { color: var(--silver); font-style: italic; }
+.person .contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  margin-bottom: 0.3rem;
+  color: var(--charcoal);
+}
+.person .contact-row svg { width: 13px; height: 13px; fill: var(--hudson-deep); flex-shrink: 0; }
+.person .contact-row a { color: var(--charcoal); text-decoration: none; word-break: break-word; }
+.person .contact-row a:hover { color: var(--monarch); text-decoration: underline; }
+.person .research {
+  font-size: 0.8rem;
+  color: var(--charcoal-mid);
+  line-height: 1.5;
+  margin: 0.8rem 0 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--sand-deep);
+}
+.person .research strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--silver);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.person .tags { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.7rem; }
+.person .tag {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.45rem;
+  border-radius: 2px;
+  background: var(--sand);
+  color: var(--monarch);
+}
+.person .tag.bnal { background: #DAF0EC; color: #00655D; }
+.person .tag.it   { background: #DFEDFB; color: var(--hudson-deep); }
+
+.no-results {
+  display: none;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--charcoal-mid);
+  border: 1px dashed var(--sand-deep);
+  border-radius: 2px;
+}
+.no-results.show { display: block; }
+
+/* =========================================================
+   PH.D. STUDENTS
+   ========================================================= */
+.phd-section { margin-top: 3rem; }
+.phd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.phd-grid li {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  border-left: 3px solid var(--hudson);
+  border-radius: 2px;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+}
+.phd-grid li .note {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 0.2rem;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+.dept-sidebar { position: sticky; top: 130px; align-self: start; }
+@media (max-width: 900px) { .dept-sidebar { position: static; } }
+
+.sidebar-nav {
+  background: var(--monarch);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.sidebar-nav h3 {
+  background: var(--monarch-ink);
+  color: var(--sand);
+  font-size: 0.78rem;
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.95rem 1.25rem;
+  margin: 0;
+}
+.sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-nav li a {
+  display: block;
+  color: rgba(244, 237, 221, 0.85);
+  font-size: 0.88rem;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244, 237, 221, 0.08);
+  transition: background 0.15s, color 0.15s;
+}
+.sidebar-nav li:last-child a { border-bottom: none; }
+.sidebar-nav li a:hover { background: rgba(244, 237, 221, 0.08); color: var(--sand); }
+.sidebar-nav li a.active {
+  background: rgba(244, 237, 221, 0.12);
+  color: var(--sand);
+  border-left: 4px solid var(--sand);
+  padding-left: calc(1.25rem - 4px);
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--sand-deep);
+  border-radius: 2px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.contact-card h4 {
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin: 0 0 0.75rem;
+  font-weight: 500;
+}
+.contact-card h3 { font-size: 1rem; margin: 0 0 1rem; line-height: 1.35; }
+.contact-card .contact-line {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  margin-bottom: 0.65rem; font-size: 0.88rem; color: var(--charcoal);
+}
+.contact-card .contact-line svg {
+  width: 14px; height: 14px; fill: var(--hudson-deep);
+  flex-shrink: 0; margin-top: 0.2rem;
+}
+.contact-card .contact-line a { color: var(--charcoal); text-decoration: none; }
+.contact-card .contact-line a:hover { color: var(--monarch); text-decoration: underline; }
+.contact-card address { font-style: normal; color: var(--charcoal); font-size: 0.85rem; line-height: 1.5; }
+
+.orgchart-card {
+  background: var(--sand);
+  border-radius: 2px;
+  padding: 1.35rem 1.5rem;
+}
+.orgchart-card h4 {
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal-mid);
+  margin: 0 0 0.85rem;
+  font-weight: 500;
+}
+.orgchart-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.orgchart-card li a { font-size: 0.85rem; color: var(--monarch); text-decoration: none; }
+.orgchart-card li a:hover { text-decoration: underline; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 3rem 0 1.5rem;
+  font-size: 0.85rem;
+}
+footer a { color: var(--sand); opacity: 0.85; text-decoration: none; }
+footer a:hover { opacity: 1; text-decoration: underline; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(244, 237, 221, 0.15);
+}
+@media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.footer-brand .brand-crown { background: var(--sand); color: var(--monarch); }
+footer h5 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.85rem;
+  color: var(--sand);
+}
+footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+.footer-meta {
+  padding-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px; top: 0;
+  background: var(--monarch);
+  color: var(--sand);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="review-toolbar" role="region" aria-label="Redesign review controls">
+  <div class="container">
+    <span class="rt-label">Redesign Preview</span>
+    <div class="rt-mid">
+      <div class="rt-legend" aria-hidden="true">
+        <span class="swatch add">Added</span>
+        <span class="swatch mod">Modified</span>
+        <span class="swatch mov">Moved</span>
+      </div>
+      <span class="rt-count" id="rt-count"></span>
+    </div>
+    <button class="rt-toggle" id="rt-toggle" type="button" aria-pressed="false">
+      <span class="rt-switch" aria-hidden="true"></span>
+      <span id="rt-toggle-label">Show tracked changes</span>
+    </button>
+  </div>
+</div>
+
+<div class="top-ribbon">
+  <div class="container">
+    <nav class="util">
+      <a href="https://www.odu.edu/apply">Apply</a>
+      <a href="https://www.odu.edu/visit-campus">Visit</a>
+      <a href="https://give.odu.edu/">Give</a>
+      <a href="https://my.odu.edu">myODU</a>
+    </nav>
+    <div>Strome College of Business</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <div class="brand-crown" aria-hidden="true">O</div>
+      <div class="brand-txt">
+        <strong>Old Dominion University</strong>
+        <span>Strome College of Business</span>
+      </div>
+    </a>
+    <nav class="nav-primary" aria-label="Primary">
+      <a href="https://www.odu.edu/academics">Academics</a>
+      <a href="https://www.odu.edu/admissions-aid">Admission</a>
+      <a href="https://www.odu.edu/research">Research</a>
+      <a href="https://www.odu.edu/life">Life at ODU</a>
+      <a class="btn-apply" href="https://www.odu.edu/apply">Apply</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="tc tc-mod">
+  <span class="tc-flag">Modified</span>
+  <section class="page-hero" aria-label="Directory overview">
+    <div class="container">
+      <p class="eyebrow">Department of IT &amp; Decision Sciences</p>
+      <h1>Faculty Directory</h1>
+      <p>
+        Find faculty across both ITDS academic disciplines — Business Analytics and
+        Information Technology — along with department leadership and current
+        doctoral students.
+      </p>
+    </div>
+  </section>
+  <div class="tc-note">
+    <strong>Modified.</strong> The current directory page uses a generic stock banner image ("Connection Technologies") with the page title overlaid. This version replaces it with the same typographic hero treatment used on the department landing page — eyebrow, title, one-line description — so the two pages read as part of one site. No photograph needed, which also removes a licensing dependency.
+  </div>
+</div>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="https://www.odu.edu/">Home</a></li>
+      <li><a href="https://www.odu.edu/business">Strome College of Business</a></li>
+      <li><a href="index.html">Department of IT &amp; Decision Sciences</a></li>
+      <li>Directory</li>
+    </ol>
+  </nav>
+</div>
+
+<main id="main">
+  <div class="container">
+    <div class="dept-layout">
+
+      <div class="dept-main">
+
+        <!-- ============================================================
+             FILTER + SEARCH
+             ============================================================ -->
+        <div class="tc tc-add">
+          <span class="tc-flag">New</span>
+          <div class="dir-controls">
+            <div class="filter-tabs" role="group" aria-label="Filter faculty by discipline">
+              <button class="filter-tab" type="button" data-filter="all" aria-pressed="true">
+                All Faculty <span class="tab-count">26</span>
+              </button>
+              <button class="filter-tab" type="button" data-filter="bnal" aria-pressed="false">
+                Business Analytics <span class="tab-count">13</span>
+              </button>
+              <button class="filter-tab" type="button" data-filter="it" aria-pressed="false">
+                Information Technology <span class="tab-count">13</span>
+              </button>
+            </div>
+            <div class="dir-search">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+              <label for="dir-search-input" class="skip-link">Search faculty by name, title, or research area</label>
+              <input type="search" id="dir-search-input" placeholder="Search name, title, or research…" autocomplete="off" />
+            </div>
+          </div>
+          <div class="tc-note">
+            <strong>New.</strong> The current directory presents faculty as two long stacked lists with anchor "pills" at the top that jump between them. This replaces that with filter tabs and a live search field, so a visitor looking for one person doesn't have to scroll two full rosters. Filtering is client-side — no page reload, and the page still works with JavaScript disabled (all faculty render by default).
+          </div>
+        </div>
+
+        <p class="result-count" id="result-count">Showing 26 faculty</p>
+
+        <!-- ============================================================
+             LEADERSHIP
+             ============================================================ -->
+        <div class="tc tc-mov" id="leadership">
+          <span class="tc-flag">Moved</span>
+          <div class="group-head">
+            <h2>Department Leadership</h2>
+          </div>
+          <div class="chair-card">
+            <div class="avatar t1" aria-hidden="true">WZ</div>
+            <div>
+              <p class="role">Professor &amp; Chair</p>
+              <h3><a href="https://www.odu.edu/directory/weiyong-zhang">Weiyong Zhang</a></h3>
+              <p class="title">Associate Professor &amp; Chair, Department of Information Technology &amp; Decision Sciences</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-3571">757-683-3571</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:wyzhang@odu.edu">wyzhang@odu.edu</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                Quality management; process improvement; quantitative research methods
+              </p>
+            </div>
+          </div>
+          <div class="tc-note">
+            <strong>Moved.</strong> Same content, same person — the chair's entry now sits in a dedicated "Department Leadership" block at the top rather than appearing once above the discipline pills and then a second time inside the Business Analytics roster. On the current page Dr. Zhang is listed twice; here he appears once as leadership and remains searchable within Business Analytics via the filter.
+          </div>
+        </div>
+
+        <!-- ============================================================
+             FACULTY — BUSINESS ANALYTICS
+             ============================================================ -->
+        <div class="group-head bnal" data-group="bnal" id="business-analytics">
+          <h2>Business Analytics</h2>
+          <span class="group-count">13 faculty</span>
+        </div>
+
+        <div class="faculty-grid" id="grid-bnal">
+
+          <article class="person" data-disc="bnal" data-name="Ali Ardalan" data-search="ali ardalan professor just-in-time production systems inventory management simulation scheduling">
+            <div class="avatar t1" aria-hidden="true">AA</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/ali-ardalan">Ali Ardalan</a></h3>
+              <p class="title">Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-6789">757-683-6789</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:aardalan@odu.edu">aardalan@odu.edu</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                Just-In-Time production systems, inventory management, simulation, scheduling
+              </p>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="Kuntal Bhattacharyya" data-search="kuntal bhattacharyya professor director supply chain risk management industry 4.0 blockchain humanitarian forecasting semiconductor">
+            <div class="avatar t2" aria-hidden="true">KB</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/kuntal-bhattacharyya">Kuntal Bhattacharyya</a></h3>
+              <p class="title">Professor &amp; Director</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:kbhattac@odu.edu">kbhattac@odu.edu</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
+                <a href="https://www.linkedin.com/in/drblens/">LinkedIn profile</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                Global supply chain risk management and Industry 4.0; humanitarian supply chains and blockchain transparency; forecasting in postponement frameworks
+              </p>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="Trent Buskirk" data-search="trent buskirk professor data science fellow">
+            <div class="avatar t3" aria-hidden="true">TB</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/trent-buskirk">Trent Buskirk</a></h3>
+              <p class="title">Professor &amp; Data Science Fellow</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:tbuskirk@odu.edu">tbuskirk@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="Dean Chatfield" data-search="dean chatfield associate professor">
+            <div class="avatar t4" aria-hidden="true">DC</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/dean-chatfield">Dean Chatfield</a></h3>
+              <p class="title">Associate Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-4880">757-683-4880</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:dchatfie@odu.edu">dchatfie@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="David Cook" data-search="david cook associate professor">
+            <div class="avatar t5" aria-hidden="true">DC</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/david-cook">David Cook</a></h3>
+              <p class="title">Associate Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-3532">757-683-3532</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:dcook@odu.edu">dcook@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="Amro El-Adle" data-search="amro el-adle eladle assistant professor">
+            <div class="avatar t1" aria-hidden="true">AE</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/amro-el-adle">Amro El-Adle</a></h3>
+              <p class="title">Assistant Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-4535">757-683-4535</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:aeladle@odu.edu">aeladle@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="Junqi Hu" data-search="junqi hu lecturer">
+            <div class="avatar t2" aria-hidden="true">JH</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/junqi-hu">Junqi Hu</a></h3>
+              <p class="title">Lecturer</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:jhu@odu.edu">jhu@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="John Lape" data-search="john lape lecturer">
+            <div class="avatar t3" aria-hidden="true">JL</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/john-lape">John Lape</a></h3>
+              <p class="title">Lecturer</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-6561">757-683-6561</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:jlape@odu.edu">jlape@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person tc tc-mod" data-disc="bnal" data-name="Ling Li" data-search="ling li">
+            <span class="tc-flag">Modified</span>
+            <div class="avatar t4" aria-hidden="true">LL</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/ling-li">Ling Li</a></h3>
+              <p class="title unknown">Title not listed — confirm with department</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-6455">757-683-6455</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:lli@odu.edu">lli@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+            <div class="tc-note">
+              <strong>Flagged for review.</strong> The current directory entry for Dr. Ling Li shows a name, phone, and email but no academic title or department line — unlike every other faculty entry. Rather than guess, this card marks the gap explicitly. Same issue applies to Dr. Li Xu under Information Technology. Both need a title added in the Drupal person record.
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="Yuhong Li" data-search="yuhong li associate professor supply chain risk management network analysis risk propagation sustainability">
+            <div class="avatar t5" aria-hidden="true">YL</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/yuhong-li">Yuhong Li</a></h3>
+              <p class="title">Associate Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-3110">757-683-3110</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:y9li@odu.edu">y9li@odu.edu</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                Supply chain risk management, network analysis, supply chain risk propagation, supply chain sustainability
+              </p>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="Yifang Ma" data-search="yifang ma lecturer">
+            <div class="avatar t1" aria-hidden="true">YM</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/yifang-ma">Yifang Ma</a></h3>
+              <p class="title">Lecturer</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-6455">757-683-6455</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:y3ma@odu.edu">y3ma@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="ManWo Ng" data-search="manwo ng professor">
+            <div class="avatar t2" aria-hidden="true">MN</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/manwo-ng">ManWo Ng</a></h3>
+              <p class="title">Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-6665">757-683-6665</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:mng@odu.edu">mng@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="bnal" data-name="Weiyong Zhang" data-search="weiyong zhang associate professor chair quality management process improvement quantitative research methods">
+            <div class="avatar t3" aria-hidden="true">WZ</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/weiyong-zhang">Weiyong Zhang</a></h3>
+              <p class="title">Associate Professor &amp; Chair</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-3571">757-683-3571</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:wyzhang@odu.edu">wyzhang@odu.edu</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                Quality management; process improvement; quantitative research methods
+              </p>
+              <div class="tags"><span class="tag bnal">Business Analytics</span></div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ============================================================
+             FACULTY — INFORMATION TECHNOLOGY
+             ============================================================ -->
+        <div class="group-head it" data-group="it" id="information-technology">
+          <h2>Information Technology</h2>
+          <span class="group-count">13 faculty</span>
+        </div>
+
+        <div class="faculty-grid" id="grid-it">
+
+          <article class="person" data-disc="it" data-name="Shawn Altman" data-search="shawn altman senior lecturer">
+            <div class="avatar t1" aria-hidden="true">SA</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/shawn-altman">Shawn Altman</a></h3>
+              <p class="title">Senior Lecturer</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-4345">757-683-4345</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:saltman@odu.edu">saltman@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Roya Ardalan" data-search="roya ardalan master lecturer">
+            <div class="avatar t2" aria-hidden="true">RA</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/roya-ardalan">Roya Ardalan</a></h3>
+              <p class="title">Master Lecturer</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-5959">757-683-5959</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:rardalan@odu.edu">rardalan@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Larisa Bulysheva" data-search="larisa bulysheva master lecturer enterprise systems image databases machine learning image processing business intelligence data science data mining software engineering business process modeling pedagogy">
+            <div class="avatar t3" aria-hidden="true">LB</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/larisa-bulysheva">Larisa Bulysheva</a></h3>
+              <p class="title">Master Lecturer</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-5623">757-683-5623</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:lbulyshe@odu.edu">lbulyshe@odu.edu</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                Enterprise systems; image databases (machine learning, image processing); business intelligence, data science and data mining; software engineering; business process modeling; pedagogy of IT teaching
+              </p>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Lan Cao" data-search="lan cao professor">
+            <div class="avatar t4" aria-hidden="true">LC</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/lan-cao">Lan Cao</a></h3>
+              <p class="title">Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-4845">757-683-4845</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:lcao@odu.edu">lcao@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Vijay Kalburgi" data-search="vijay kalburgi master lecturer">
+            <div class="avatar t5" aria-hidden="true">VK</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/vijay-kalburgi">Vijay Kalburgi</a></h3>
+              <p class="title">Master Lecturer</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-4538">757-683-4538</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:vkalburg@odu.edu">vkalburg@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Hansol Lee" data-search="hansol lee assistant professor">
+            <div class="avatar t1" aria-hidden="true">HL</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/hansol-lee">Hansol Lee</a></h3>
+              <p class="title">Assistant Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:hlee@odu.edu">hlee@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Eunice Park" data-search="eunice park associate professor is security project management it investment decision making sentiment analysis emotion ontology technology adoption health care">
+            <div class="avatar t2" aria-hidden="true">EP</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/eunice-park">Eunice Park</a></h3>
+              <p class="title">Associate Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-3554">757-683-3554</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:epark@odu.edu">epark@odu.edu</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                IS security; project management; IT investment decision making; sentiment analysis and emotion ontology; technology adoption in health care
+              </p>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Milton Soto-Ferrari" data-search="milton soto-ferrari sotoferrari associate professor">
+            <div class="avatar t3" aria-hidden="true">MS</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/milton-soto-ferrari">Milton Soto-Ferrari</a></h3>
+              <p class="title">Associate Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-6163">757-683-6163</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:msotofer@odu.edu">msotofer@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Yi Tang" data-search="yi tang assistant professor healthcare service delivery health it health disparities llm for healthcare causal inference">
+            <div class="avatar t4" aria-hidden="true">YT</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/yi-tang">Yi Tang</a></h3>
+              <p class="title">Assistant Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-3961">757-683-3961</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:y1tang@odu.edu">y1tang@odu.edu</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
+                <a href="https://yitang.info/">Personal website</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                Healthcare service delivery; health IT; health disparities; LLMs for healthcare; causal inference
+              </p>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Renee Weather" data-search="renee weather senior lecturer">
+            <div class="avatar t5" aria-hidden="true">RW</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/renee-weather">Renee Weather</a></h3>
+              <p class="title">Senior Lecturer</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-4711">757-683-4711</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:rweather@odu.edu">rweather@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Harris Wu" data-search="harris wu professor">
+            <div class="avatar t1" aria-hidden="true">HW</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/harris-wu">Harris Wu</a></h3>
+              <p class="title">Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-4460">757-683-4460</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:hwu@odu.edu">hwu@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+          <article class="person tc tc-mod" data-disc="it" data-name="Li Xu" data-search="li xu">
+            <span class="tc-flag">Modified</span>
+            <div class="avatar t2" aria-hidden="true">LX</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/li-xu">Li Xu</a></h3>
+              <p class="title unknown">Title not listed — confirm with department</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-6138">757-683-6138</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:lxu@odu.edu">lxu@odu.edu</a>
+              </div>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+            <div class="tc-note">
+              <strong>Flagged for review.</strong> Same gap as Dr. Ling Li's entry — the current directory shows no academic title or department line for Dr. Li Xu. Needs a title added in the Drupal person record.
+            </div>
+          </article>
+
+          <article class="person" data-disc="it" data-name="Xianrong Zheng" data-search="xianrong zheng associate professor ai in finance artificial intelligence">
+            <div class="avatar t3" aria-hidden="true">XZ</div>
+            <div>
+              <h3><a href="https://www.odu.edu/directory/xianrong-zheng">Xianrong Zheng</a></h3>
+              <p class="title">Associate Professor</p>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                <a href="tel:757-683-3500">757-683-3500</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:x1zheng@odu.edu">x1zheng@odu.edu</a>
+              </div>
+              <div class="contact-row">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg>
+                <a href="http://sites.google.com/site/xianrongzheng/">Personal homepage</a>
+              </div>
+              <p class="research">
+                <strong>Research Interests</strong>
+                AI in finance
+              </p>
+              <div class="tags"><span class="tag it">Information Technology</span></div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="no-results" id="no-results">
+          <p style="margin:0;">No faculty match that search. Try a different name, title, or research term.</p>
+        </div>
+
+        <!-- ============================================================
+             PH.D. STUDENTS
+             ============================================================ -->
+        <section class="phd-section tc tc-mod" id="phd-students">
+          <span class="tc-flag">Modified</span>
+          <div class="group-head">
+            <h2>Current Ph.D. Students</h2>
+            <span class="group-count">8 students</span>
+          </div>
+          <ul class="phd-grid">
+            <li>Seyed Mahdi Bohloul</li>
+            <li>Jinzhi "Andrew" Li</li>
+            <li>Wenzhuo Li</li>
+            <li>Yifang Ma</li>
+            <li>Zannatun Nayeem</li>
+            <li>Jared Oliverio <span class="note">Part-time</span></li>
+            <li>Liuliu Qin</li>
+            <li>Yanxia Yang</li>
+          </ul>
+          <div class="tc-note">
+            <strong>Modified.</strong> Same eight students, same "part-time" designation for Mr. Oliverio. Presentation changes only: the honorific prefixes (Mr./Ms.) have been dropped to match how faculty are listed on the same page, the list is alphabetized by surname, and it renders as a card grid rather than a single bulleted column. If the department prefers to retain honorifics, that's a one-line revert.
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ============================================================
+           SIDEBAR
+           ============================================================ -->
+      <aside class="dept-sidebar" aria-label="Department navigation and contact">
+
+        <nav class="sidebar-nav" aria-label="Department pages">
+          <h3>Department</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#programs">Academics</a></li>
+            <li><a href="business-analytics.html">Business Analytics</a></li>
+            <li><a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Information Systems &amp; Technology</a></li>
+            <li><a href="#">Faculty &amp; Research</a></li>
+            <li><a href="https://www.odu.edu/information-technology-decision-sciences/advisors">Advisors</a></li>
+            <li><a href="directory.html" class="active">Directory</a></li>
+          </ul>
+        </nav>
+
+        <div class="contact-card">
+          <h4>Contact</h4>
+          <h3>Department of Information Technology &amp; Decision Sciences</h3>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            <div>
+              <a href="tel:757-683-3520">(757) 683-3520</a><br>
+              <span style="font-size:0.78rem; color: var(--silver);">Front Desk</span>
+            </div>
+          </div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <address>
+              2124 Constant Hall<br>
+              Norfolk, VA 23529
+            </address>
+          </div>
+        </div>
+
+        <div class="orgchart-card">
+          <h4>Organizational Chart</h4>
+          <ul>
+            <li><a href="https://www.odu.edu/about/president/directory">Office of the President</a></li>
+            <li><a href="https://www.odu.edu/acadaffairs/directory">Academic Affairs</a></li>
+            <li><a href="https://www.odu.edu/business/directory">Strome College of Business</a></li>
+            <li><a href="directory.html">Department of IT &amp; Decision Sciences</a></li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="brand-crown" aria-hidden="true">O</div>
+          <div class="brand-txt">
+            <strong style="color: var(--sand);">Old Dominion University</strong>
+            <span style="color: rgba(244, 237, 221, 0.7);">Strome College of Business</span>
+          </div>
+        </div>
+        <p style="max-width: 34ch; opacity: 0.8; margin: 0;">
+          5115 Hampton Blvd<br>
+          Norfolk, VA 23529
+        </p>
+      </div>
+      <div>
+        <h5>Department</h5>
+        <ul>
+          <li><a href="index.html">Department Home</a></li>
+          <li><a href="business-analytics.html">Business Analytics</a></li>
+          <li><a href="https://www.odu.edu/academics/programs/undergraduate/information-systems-technology">Information Systems &amp; Technology</a></li>
+          <li><a href="directory.html">Directory</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Admission</h5>
+        <ul>
+          <li><a href="https://www.odu.edu/apply">Apply</a></li>
+          <li><a href="https://www.odu.edu/admission/request-info">Request info</a></li>
+          <li><a href="https://www.odu.edu/visit-campus">Visit</a></li>
+          <li><a href="https://www.odu.edu/tuition">Tuition &amp; fees</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>ODU</h5>
+        <ul>
+          <li><a href="https://www.odu.edu/business">Strome College of Business</a></li>
+          <li><a href="https://catalog.odu.edu/">University Catalog</a></li>
+          <li><a href="https://www.odu.edu/">odu.edu</a></li>
+          <li><a href="https://give.odu.edu/">Give</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <div>© Old Dominion University · Redesign preview · Updated <span id="year"></span></div>
+      <div>Prepared for the Fall 2026 IT&amp;DS faculty meeting</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// =============================================================
+// Tracked-changes toggle
+// =============================================================
+const toggle  = document.getElementById("rt-toggle");
+const tlabel  = document.getElementById("rt-toggle-label");
+const counter = document.getElementById("rt-count");
+
+const total =
+  document.querySelectorAll(".tc-add").length +
+  document.querySelectorAll(".tc-mod").length +
+  document.querySelectorAll(".tc-mov").length;
+counter.textContent = total + " change" + (total === 1 ? "" : "s") + " tracked";
+
+function setShown(on) {
+  document.body.classList.toggle("show-changes", on);
+  toggle.setAttribute("aria-pressed", on ? "true" : "false");
+  tlabel.textContent = on ? "Hide tracked changes" : "Show tracked changes";
+}
+toggle.addEventListener("click", () => {
+  setShown(!document.body.classList.contains("show-changes"));
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "t" && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+    const t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    e.preventDefault();
+    setShown(!document.body.classList.contains("show-changes"));
+  }
+});
+
+// =============================================================
+// Directory filter + search
+// =============================================================
+const people      = Array.from(document.querySelectorAll(".person[data-disc]"));
+const tabs        = Array.from(document.querySelectorAll(".filter-tab"));
+const searchInput = document.getElementById("dir-search-input");
+const resultCount = document.getElementById("result-count");
+const noResults   = document.getElementById("no-results");
+const groupHeads  = Array.from(document.querySelectorAll(".group-head[data-group]"));
+const grids       = { bnal: document.getElementById("grid-bnal"), it: document.getElementById("grid-it") };
+
+let activeFilter = "all";
+
+function applyFilters() {
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
+  const perGroup = { bnal: 0, it: 0 };
+
+  people.forEach(p => {
+    const matchesDisc   = activeFilter === "all" || p.dataset.disc === activeFilter;
+    const haystack      = (p.dataset.search || "") + " " + (p.dataset.name || "").toLowerCase();
+    const matchesSearch = !q || haystack.includes(q);
+    const show = matchesDisc && matchesSearch;
+    p.classList.toggle("is-hidden", !show);
+    if (show) { visible++; perGroup[p.dataset.disc]++; }
+  });
+
+  // Hide a discipline heading and its grid when nothing in it is showing
+  groupHeads.forEach(h => {
+    const g = h.dataset.group;
+    const on = perGroup[g] > 0;
+    h.style.display = on ? "" : "none";
+    if (grids[g]) grids[g].style.display = on ? "" : "none";
+    const countEl = h.querySelector(".group-count");
+    if (countEl && on) {
+      countEl.textContent = perGroup[g] + (perGroup[g] === 1 ? " faculty" : " faculty");
+    }
+  });
+
+  noResults.classList.toggle("show", visible === 0);
+  resultCount.textContent = "Showing " + visible + (visible === 1 ? " faculty member" : " faculty");
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    activeFilter = tab.dataset.filter;
+    tabs.forEach(t => t.setAttribute("aria-pressed", t === tab ? "true" : "false"));
+    applyFilters();
+  });
+});
+
+searchInput.addEventListener("input", applyFilters);
+
+applyFilters();
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

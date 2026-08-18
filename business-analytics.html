@@ -266,7 +266,7 @@ body.show-changes .tc-mov > .tc-note {
   background: linear-gradient(135deg, var(--teal) 0%, var(--monarch) 100%);
   border-radius: 2px; position: relative; overflow: hidden;
 }
-.intro-figure .img-ph svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.intro-figure .img-ph img { width: 100%; height: 100%; object-fit: cover; }
 .intro-figure .img-ph .ph-tag {
   position: absolute; bottom: 0.5rem; right: 0.6rem;
   font-family: var(--mono); font-size: 0.58rem;
@@ -513,7 +513,7 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
     </div>
   </section>
   <div class="tc-note">
-    <strong>Modified.</strong> The current page uses the shared "Connection Technologies" stock banner with the title overlaid — the same image appears on the Information Technology and Directory pages, so the three are visually indistinguishable. This replaces it with the typographic hero used across the redesign, with a teal accent that distinguishes Business Analytics from the Hudson-blue Information Technology page. No image licensing needed.
+    <strong>Modified.</strong> The current page uses the shared "Connection Technologies" stock banner with the title overlaid — the same image appears on the Information Technology and Directory pages, so the three are visually indistinguishable. This replaces it with the typographic hero used across the redesign, with a teal accent that distinguishes Business Analytics from the Hudson-blue Information Technology page. No image licensing needed. The inline photograph replaces the generic "laptop-chart" stock image with <strong>202605stromecollegeawards96.jpg</strong> — an actual Business Analytics student receiving the Carol Markowski Award. Confirm the photo release before publication.
   </div>
 </div>
 
@@ -536,22 +536,8 @@ footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-directi
         <!-- INTRO -->
         <div class="intro-block">
           <figure class="intro-figure">
-            <div class="img-ph">
-              <!-- Placeholder for the existing laptop-chart photo -->
-              <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <rect x="60" y="130" width="22" height="40" fill="#F4EDDD" opacity="0.28" />
-                <rect x="92" y="112" width="22" height="58" fill="#F4EDDD" opacity="0.34" />
-                <rect x="124" y="92"  width="22" height="78" fill="#F4EDDD" opacity="0.40" />
-                <rect x="156" y="72"  width="22" height="98" fill="#F4EDDD" opacity="0.46" />
-                <rect x="188" y="52"  width="22" height="118" fill="#F4EDDD" opacity="0.52" />
-                <polyline points="71,120 103,102 135,82 167,62 199,42"
-                          fill="none" stroke="#F4EDDD" stroke-width="2.5"
-                          stroke-linecap="round" opacity="0.7" />
-                <circle cx="199" cy="42" r="5" fill="#F4EDDD" />
-              </svg>
-              <span class="ph-tag">Placeholder</span>
-            </div>
-            <figcaption>Replace with existing "laptop-chart" image</figcaption>
+            <div class="img-ph"><img src="images/ba-student-award.jpg" alt="Alan Pan receiving the Carol Markowski Outstanding Business Analytics Student Award" loading="lazy" /></div>
+            <figcaption>Carol Markowski Outstanding Business Analytics Student Award</figcaption>
           </figure>
 
           <p>
